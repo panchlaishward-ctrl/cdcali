@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>মৃত্যু সনদ প্রত্যয়ন আবেদনপত্র</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- ইনপুট ফর্ম (শুধু ব্রাউজারে দেখাবে, প্রিন্টারে আসবে না) -->
+        <div class="form-section no-print">
+            <h2>আবেদনপত্রের তথ্য দিন</h2>
+            <form id="appForm">
+                <label>আবেদনকারীর নাম:</label>
+                <input type="text" id="in_applicant_name" value="আব্দুল মালেক" oninput="updateLetter()">
+
+                <label>আবেদনকারীর পিতার নাম:</label>
+                <input type="text" id="in_applicant_father" value="আব্দুল গনি" oninput="updateLetter()">
+
+                <label>সম্পর্ক (স্ত্রী/পিতা/অন্যান্য):</label>
+                <input type="text" id="in_relation" value="স্ত্রী" oninput="updateLetter()">
+
+                <label>মৃত ব্যক্তির নাম:</label>
+                <input type="text" id="in_deceased_name" value="মনোয়ারা বেগম" oninput="updateLetter()">
+
+                <label>মৃত ব্যক্তির পিতার নাম:</label>
+                <input type="text" id="in_deceased_father" value="ফয়েজ আহমদ সাওদাগর" oninput="updateLetter()">
+
+                <label>মৃত ব্যক্তির মাতার নাম:</label>
+                <input type="text" id="in_deceased_mother" value="তৈয়বুর নেছা" oninput="updateLetter()">
+
+                <label>গ্রাম/সাং:</label>
+                <input type="text" id="in_village" value="ফয়েজ সাওদাগর, কামরাবাদ" oninput="updateLetter()">
+
+                <label>ডাকঘর & কোড:</label>
+                <input type="text" id="in_post" value="আমিন জুট মিলস-৪২১১" oninput="updateLetter()">
+
+                <label>থানা:</label>
+                <input type="text" id="in_police" value="বায়েজিদ বোস্তামী" oninput="updateLetter()">
+
+                <label>জেলা:</label>
+                <input type="text" id="in_district" value="চট্টগ্রাম" oninput="updateLetter()">
+
+                <label>মৃত্যুর তারিখ:</label>
+                <input type="text" id="in_death_date" value="০৬/১১/২০২৫" oninput="updateLetter()">
+
+                <label>হাসপাতাল/মৃত্যুর স্থান:</label>
+                <input type="text" id="in_hospital" value="নাগরিক হাসপাতাল লিঃ" oninput="updateLetter()">
+
+                <label>মোবাইল নম্বর:</label>
+                <input type="text" id="in_phone" value="০১৭xxxxxxxx" oninput="updateLetter()">
+
+                <button type="button" onclick="window.print()" class="print-btn">প্রিন্ট / PDF সেভ করুন</button>
+            </form>
+        </div>
+
+        <!-- আবেদনপত্রের লেআউট (যা প্রিন্ট হবে) -->
+        <div class="letter-section" id="printArea">
+            <p>বরাবর,</p>
+            <p>দায়িত্বপ্রাপ্ত কর্মকর্তা</p>
+            <p>রাজস্ব কর্মকর্তা (সিনিয়র সহকারী সচিব)</p>
+            <p>৩নং পাঁচলাইশ ওয়ার্ড</p>
+            <p>চট্টগ্রাম সিটি কর্পোরেশন</p>
+            <p>চট্টগ্রাম</p>
+
+            <br>
+            <p><strong>বিষয়ঃ অনলাইনের মৃত্যু সনদ প্রত্যয়ন প্রদান প্রসঙ্গে।</strong></p>
+            <br>
+
+            <p>জনাব,</p>
+            <p class="letter-body">
+                যথাবিহীত সম্মান প্রদর্শন পূর্বক বিনীত নিবেদন এই যে, আমি নিম্ন স্বাক্ষরকারী আমার 
+                <span id="out_relation" class="fill-data">স্ত্রী</span> 
+                <span id="out_deceased_name" class="fill-data">মনোয়ারা বেগম</span>, 
+                পিতা- <span id="out_deceased_father" class="fill-data">ফয়েজ আহমদ সাওদাগর</span>, 
+                মাতা- <span id="out_deceased_mother" class="fill-data">তৈয়বুর নেছা</span>, 
+                সাং- <span id="out_village" class="fill-data">ফয়েজ সাওদাগর, কামরাবাদ</span>, 
+                ডাক- <span id="out_post" class="fill-data">আমিন জুট মিলস-৪২১১</span>, 
+                থানা- <span id="out_police" class="fill-data">বায়েজিদ বোস্তামী</span>, 
+                জেলা- <span id="out_district" class="fill-data">চট্টগ্রাম</span>, 
+                বিগত <span id="out_death_date" class="fill-data">০৬/১১/২০২৫</span> ইং তারিখে ব্রড ডেড হয়ে নিজ 
+                <span id="out_hospital" class="fill-data">নাগরিক হাসপাতাল লিঃ</span> মৃত্যু বরণ করেন। 
+                আমাদের পারিবারিক প্রয়োজনে আমার স্ত্রীর অনলাইন মৃত্যু সনদ প্রত্যয়নের জন্য আপনার বরাবরে আবেদন করছি।
+            </p>
+
+            <br>
+            <p class="letter-body">
+                অতএব, মহোদয় সমীপে বিনীত প্রার্থনা আমাকে আমার স্ত্রীর অনলাইনে মৃত্যু সনদ প্রত্যয়নটি প্রদান করিলে আপনার নিকট চির কৃতজ্ঞ থাকিব।
+            </p>
+
+            <br><br>
+            <div class="signature-section">
+                <p>বিনীত নিবেদক</p>
+                <br>
+                <p><span id="out_applicant_name" class="fill-data">আব্দুল মালেক</span></p>
+                <p>পিতা: <span id="out_applicant_father" class="fill-data">আব্দুল গনি</span></p>
+                <p>মোবাইল: <span id="out_phone" class="fill-data">০১৭xxxxxxxx</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateLetter() {
+            document.getElementById('out_applicant_name').innerText = document.getElementById('in_applicant_name').value;
+            document.getElementById('out_applicant_father').innerText = document.getElementById('in_applicant_father').value;
+            document.getElementById('out_relation').innerText = document.getElementById('in_relation').value;
+            document.getElementById('out_deceased_name').innerText = document.getElementById('in_deceased_name').value;
+            document.getElementById('out_deceased_father').innerText = document.getElementById('in_deceased_father').value;
+            document.getElementById('out_deceased_mother').innerText = document.getElementById('in_deceased_mother').value;
+            document.getElementById('out_village').innerText = document.getElementById('in_village').value;
+            document.getElementById('out_post').innerText = document.getElementById('in_post').value;
+            document.getElementById('out_police').innerText = document.getElementById('in_police').value;
+            document.getElementById('out_district').innerText = document.getElementById('in_district').value;
+            document.getElementById('out_death_date').innerText = document.getElementById('in_death_date').value;
+            document.getElementById('out_hospital').innerText = document.getElementById('in_hospital').value;
+            document.getElementById('out_phone').innerText = document.getElementById('in_phone').value;
+        }
+    </script>
+</body>
+</html>
