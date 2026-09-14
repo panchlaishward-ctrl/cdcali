@@ -1,267 +1,1392 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8"><!DOCTYPE html>
-<html lang="bn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মৃত্যু সনদ প্রত্যয়ন আবেদনপত্র</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>অনলাইন মৃত্যু সনদ প্রত্যয়ন আবেদন</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#f1f5f4;
+    color:#17221f;
+    font-family:"Noto Sans Bengali","SolaimanLipi","Nikosh",Arial,sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    background:linear-gradient(135deg,#075e54,#087f5b,#0b8f6a);
+    color:#fff;
+    padding:28px 15px;
+    text-align:center;
+}
+
+.header h1{
+    margin:0;
+    font-size:26px;
+    font-weight:800;
+}
+
+.header p{
+    margin:6px 0 0;
+    font-size:14px;
+    opacity:.95;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    max-width:950px;
+    margin:25px auto 50px;
+    padding:0 15px;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 35px rgba(0,0,0,.08);
+}
+
+.card-title{
+    padding:22px 25px;
+    border-bottom:1px solid #e7ecea;
+}
+
+.card-title h2{
+    margin:0;
+    font-size:21px;
+    color:#075e54;
+}
+
+.card-title p{
+    margin:5px 0 0;
+    color:#7a8582;
+    font-size:13px;
+}
+
+.form-body{
+    padding:25px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    margin-bottom:28px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#075e54;
+    font-size:17px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.section-title span{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:#e4f4ef;
+    color:#075e54;
+    font-size:15px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-size:14px;
+    font-weight:700;
+}
+
+.required{
+    color:#e53935;
+}
+
+input,
+select{
+    width:100%;
+    height:46px;
+    border:1px solid #d5dfdc;
+    border-radius:9px;
+    padding:0 13px;
+    font-family:inherit;
+    font-size:15px;
+    color:#222;
+    background:#fff;
+    outline:none;
+    transition:.2s;
+}
+
+input:focus,
+select:focus{
+    border-color:#087f5b;
+    box-shadow:0 0 0 3px rgba(8,127,91,.10);
+}
+
+/* =========================
+   INFO
+========================= */
+
+.info-box{
+    background:#f0f8f5;
+    border:1px solid #d5ebe4;
+    border-radius:10px;
+    padding:13px 15px;
+    margin-bottom:22px;
+    font-size:13px;
+    line-height:1.7;
+    color:#42635a;
+}
+
+/* =========================
+   CHECK
+========================= */
+
+.declaration{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:14px;
+    background:#f7f9f8;
+    border:1px solid #e1e7e5;
+    border-radius:10px;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.declaration input{
+    width:18px;
+    height:18px;
+    margin-top:3px;
+    flex-shrink:0;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.generate-btn{
+    width:100%;
+    height:52px;
+    margin-top:20px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(135deg,#075e54,#087f5b);
+    color:white;
+    font-family:inherit;
+    font-size:17px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.generate-btn:hover{
+    opacity:.92;
+}
+
+/* =========================
+   PREVIEW
+========================= */
+
+#preview{
+    display:none;
+}
+
+.preview-bar{
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.preview-bar button{
+    flex:1;
+    height:48px;
+    border:0;
+    border-radius:9px;
+    color:white;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.print-btn{
+    background:#075e54;
+}
+
+.new-btn{
+    background:#5d6865;
+}
+
+/* =========================
+   DOCUMENT
+========================= */
+
+.paper{
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    background:#fff;
+    padding:22mm 20mm;
+    box-shadow:0 5px 30px rgba(0,0,0,.12);
+}
+
+/* document heading */
+
+.office-name{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.office-name h2{
+    margin:0;
+    font-size:21px;
+    font-weight:800;
+}
+
+.office-name p{
+    margin:2px 0;
+    font-size:14px;
+}
+
+/* date */
+
+.doc-date{
+    text-align:right;
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+/* TO */
+
+.to-section{
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+/* subject */
+
+.subject{
+    font-size:15px;
+    font-weight:800;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+/* body */
+
+.letter-body{
+    font-size:15px;
+    line-height:2.15;
+    text-align:justify;
+}
+
+.letter-body p{
+    margin:0 0 15px;
+}
+
+/* signature */
+
+.signature{
+    margin-top:35px;
+    font-size:15px;
+    line-height:2;
+}
+
+.signature-space{
+    height:45px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .header h1{
+        font-size:21px;
+    }
+
+    .container{
+        margin-top:12px;
+        padding:0 10px;
+    }
+
+    .form-body{
+        padding:18px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .preview-bar{
+        flex-direction:column;
+    }
+
+    .paper{
+        width:100%;
+        min-height:auto;
+        padding:25px 20px 60px;
+    }
+
+    .letter-body{
+        font-size:14px;
+        line-height:2;
+    }
+
+    .to-section,
+    .subject,
+    .signature{
+        font-size:14px;
+    }
+}
+
+/* =========================
+   PRINT
+========================= */
+
+@media print{
+
+    @page{
+        size:A4;
+        margin:0;
+    }
+
+    body{
+        background:#fff;
+    }
+
+    .header,
+    .form-card,
+    .preview-bar{
+        display:none!important;
+    }
+
+    #preview{
+        display:block!important;
+    }
+
+    .paper{
+        width:210mm;
+        min-height:297mm;
+        margin:0;
+        padding:22mm 20mm;
+        box-shadow:none;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="wrapper">
-        <!-- ফর্মের অংশ (বাম পাশে থাকবে) -->
-        <div class="form-container no-print">
-            <h2>আবেদনের তথ্য দিন</h2>
-            
-            <div class="form-group">
-                <label>আবেদনকারীর নাম:</label>
-                <input type="text" id="in_applicant_name" value="আব্দুল মালেক" oninput="updateLetter()">
-            </div>
+<!-- =========================
+     HEADER
+========================= -->
 
-            <div class="form-group">
-                <label>আবেদনকারীর পিতার নাম:</label>
-                <input type="text" id="in_applicant_father" value="আব্দুল গনি" oninput="updateLetter()">
-            </div>
+<header class="header">
 
-            <div class="form-group">
-                <label>সম্পর্ক:</label>
-                <input type="text" id="in_relation" value="স্ত্রী" oninput="updateLetter()">
-            </div>
+    <h1>অনলাইন মৃত্যু সনদ প্রত্যয়ন আবেদন</h1>
 
-            <div class="form-group">
-                <label>মৃত ব্যক্তির নাম:</label>
-                <input type="text" id="in_deceased_name" value="মনোয়ারা বেগম" oninput="updateLetter()">
-            </div>
+    <p>
+        ৩নং পাঁচলাইশ ওয়ার্ড · চট্টগ্রাম সিটি কর্পোরেশন
+    </p>
 
-            <div class="form-group">
-                <label>মৃত ব্যক্তির পিতার নাম:</label>
-                <input type="text" id="in_deceased_father" value="ফয়েজ আহমদ সাওদাগর" oninput="updateLetter()">
-            </div>
+</header>
 
-            <div class="form-group">
-                <label>মৃত ব্যক্তির মাতার নাম:</label>
-                <input type="text" id="in_deceased_mother" value="তৈয়বুর নেছা" oninput="updateLetter()">
-            </div>
 
-            <div class="form-group">
-                <label>গ্রাম/সাং:</label>
-                <input type="text" id="in_village" value="ফয়েজ সাওদাগর, কামরাবাদ" oninput="updateLetter()">
-            </div>
+<div class="container">
 
-            <div class="form-group">
-                <label>ডাকঘর & কোড:</label>
-                <input type="text" id="in_post" value="আমিন জুট মিলস-৪২১১" oninput="updateLetter()">
-            </div>
 
-            <div class="form-group">
-                <label>থানা:</label>
-                <input type="text" id="in_police" value="বায়েজিদ বোস্তামী" oninput="updateLetter()">
-            </div>
+<!-- =========================
+     FORM
+========================= -->
 
-            <div class="form-group">
-                <label>জেলা:</label>
-                <input type="text" id="in_district" value="চট্টগ্রাম" oninput="updateLetter()">
-            </div>
+<div class="form-card" id="formCard">
 
-            <div class="form-group">
-                <label>মৃত্যুর তারিখ:</label>
-                <input type="text" id="in_death_date" value="০৬/১১/২০২৫" oninput="updateLetter()">
-            </div>
+    <div class="card-title">
 
-            <div class="form-group">
-                <label>হাসপাতাল/মৃত্যুর স্থান:</label>
-                <input type="text" id="in_hospital" value="নাগরিক হাসপাতাল লিঃ" oninput="updateLetter()">
-            </div>
+        <h2>আবেদনের তথ্য দিন</h2>
 
-            <div class="form-group">
-                <label>মোবাইল নম্বর:</label>
-                <input type="text" id="in_phone" value="০১৭xxxxxxxx" oninput="updateLetter()">
-            </div>
+        <p>
+            নিচের তথ্যগুলো পূরণ করলে আবেদনপত্র স্বয়ংক্রিয়ভাবে তৈরি হবে।
+        </p>
 
-            <button type="button" onclick="window.print()" class="print-btn">প্রিন্ট / PDF সেভ করুন</button>
-        </div>
-
-        <!-- চিঠির অংশ (ডান পাশে থাকবে) -->
-        <div class="letter-container">
-            <p>বরাবর,</p>
-            <p>দায়িত্বপ্রাপ্ত কর্মকর্তা</p>
-            <p>রাজস্ব কর্মকর্তা (সিনিয়র সহকারী সচিব)</p>
-            <p>৩নং পাঁচলাইশ ওয়ার্ড</p>
-            <p>চট্টগ্রাম সিটি কর্পোরেশন</p>
-            <p>চট্টগ্রাম</p>
-
-            <br>
-            <p><strong>বিষয়ঃ অনলাইনের মৃত্যু সনদ প্রত্যয়ন প্রদান প্রসঙ্গে।</strong></p>
-            <br>
-
-            <p>জনাব,</p>
-            <p class="letter-text">
-                যথাবিহীত সম্মান প্রদর্শন পূর্বক বিনীত নিবেদন এই যে, আমি নিম্ন স্বাক্ষরকারী আমার 
-                <span id="out_relation" class="bold-text">স্ত্রী</span> 
-                <span id="out_deceased_name" class="bold-text">মনোয়ারা বেগম</span>, 
-                পিতা- <span id="out_deceased_father" class="bold-text">ফয়েজ আহমদ সাওদাগর</span>, 
-                মাতা- <span id="out_deceased_mother" class="bold-text">তৈয়বুর নেছা</span>, 
-                সাং- <span id="out_village" class="bold-text">ফয়েজ সাওদাগর, কামরাবাদ</span>, 
-                ডাক- <span id="out_post" class="bold-text">আমিন জুট মিলস-৪২১১</span>, 
-                থানা- <span id="out_police" class="bold-text">বায়েজিদ বোস্তামী</span>, 
-                জেলা- <span id="out_district" class="bold-text">চট্টগ্রাম</span>, 
-                বিগত <span id="out_death_date" class="bold-text">০৬/১১/২০২৫</span> ইং তারিখে ব্রড ডেড হয়ে নিজ 
-                <span id="out_hospital" class="bold-text">নাগরিক হাসপাতাল লিঃ</span> মৃত্যু বরণ করেন। 
-                আমাদের পারিবারিক প্রয়োজনে আমার স্ত্রীর অনলাইন মৃত্যু সনদ প্রত্যয়নের জন্য আপনার বরাবরে আবেদন করছি।
-            </p>
-
-            <br>
-            <p class="letter-text">
-                অতএব, মহোদয় সমীপে বিনীত প্রার্থনা আমাকে আমার স্ত্রীর অনলাইনে মৃত্যু সনদ প্রত্যয়নটি প্রদান করিলে আপনার নিকট চির কৃতজ্ঞ থাকিব।
-            </p>
-
-            <div class="signature-box">
-                <p>বিনীত নিবেদক</p>
-                <br>
-                <p><span id="out_applicant_name" class="bold-text">আব্দুল মালেক</span></p>
-                <p>পিতা: <span id="out_applicant_father" class="bold-text">আব্দুল গনি</span></p>
-                <p>মোবাইল: <span id="out_phone" class="bold-text">০১৭xxxxxxxx</span></p>
-            </div>
-        </div>
     </div>
 
-    <script>
-        function updateLetter() {
-            document.getElementById('out_applicant_name').innerText = document.getElementById('in_applicant_name').value;
-            document.getElementById('out_applicant_father').innerText = document.getElementById('in_applicant_father').value;
-            document.getElementById('out_relation').innerText = document.getElementById('in_relation').value;
-            document.getElementById('out_deceased_name').innerText = document.getElementById('in_deceased_name').value;
-            document.getElementById('out_deceased_father').innerText = document.getElementById('in_deceased_father').value;
-            document.getElementById('out_deceased_mother').innerText = document.getElementById('in_deceased_mother').value;
-            document.getElementById('out_village').innerText = document.getElementById('in_village').value;
-            document.getElementById('out_post').innerText = document.getElementById('in_post').value;
-            document.getElementById('out_police').innerText = document.getElementById('in_police').value;
-            document.getElementById('out_district').innerText = document.getElementById('in_district').value;
-            document.getElementById('out_death_date').innerText = document.getElementById('in_death_date').value;
-            document.getElementById('out_hospital').innerText = document.getElementById('in_hospital').value;
-            document.getElementById('out_phone').innerText = document.getElementById('in_phone').value;
-        }
-    </script>
-</body>
-</html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মৃত্যু সনদ প্রত্যয়ন আবেদনপত্র</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-    <div class="main-container">
-        <!-- ইনপুট ফর্ম (শুধু ব্রাউজারে দেখাবে, প্রিন্টারে আসবে না) -->
-        <div class="form-section no-print">
-            <h2>আবেদনপত্রের তথ্য দিন</h2>
-            <form id="appForm">
-                <label>আবেদনকারীর নাম:</label>
-                <input type="text" id="in_applicant_name" value="আব্দুল মালেক" oninput="updateLetter()">
+    <div class="form-body">
 
-                <label>আবেদনকারীর পিতার নাম:</label>
-                <input type="text" id="in_applicant_father" value="আব্দুল গনি" oninput="updateLetter()">
-
-                <label>সম্পর্ক (স্ত্রী/পিতা/অন্যান্য):</label>
-                <input type="text" id="in_relation" value="স্ত্রী" oninput="updateLetter()">
-
-                <label>মৃত ব্যক্তির নাম:</label>
-                <input type="text" id="in_deceased_name" value="মনোয়ারা বেগম" oninput="updateLetter()">
-
-                <label>মৃত ব্যক্তির পিতার নাম:</label>
-                <input type="text" id="in_deceased_father" value="ফয়েজ আহমদ সাওদাগর" oninput="updateLetter()">
-
-                <label>মৃত ব্যক্তির মাতার নাম:</label>
-                <input type="text" id="in_deceased_mother" value="তৈয়বুর নেছা" oninput="updateLetter()">
-
-                <label>গ্রাম/সাং:</label>
-                <input type="text" id="in_village" value="ফয়েজ সাওদাগর, কামরাবাদ" oninput="updateLetter()">
-
-                <label>ডাকঘর & কোড:</label>
-                <input type="text" id="in_post" value="আমিন জুট মিলস-৪২১১" oninput="updateLetter()">
-
-                <label>থানা:</label>
-                <input type="text" id="in_police" value="বায়েজিদ বোস্তামী" oninput="updateLetter()">
-
-                <label>জেলা:</label>
-                <input type="text" id="in_district" value="চট্টগ্রাম" oninput="updateLetter()">
-
-                <label>মৃত্যুর তারিখ:</label>
-                <input type="text" id="in_death_date" value="০৬/১১/২০২৫" oninput="updateLetter()">
-
-                <label>হাসপাতাল/মৃত্যুর স্থান:</label>
-                <input type="text" id="in_hospital" value="নাগরিক হাসপাতাল লিঃ" oninput="updateLetter()">
-
-                <label>মোবাইল নম্বর:</label>
-                <input type="text" id="in_phone" value="০১৭xxxxxxxx" oninput="updateLetter()">
-
-                <button type="button" onclick="window.print()" class="print-btn">প্রিন্ট / PDF সেভ করুন</button>
-            </form>
+        <div class="info-box">
+            ⚠️ আবেদনপত্রে যে নাম, ঠিকানা ও মৃত্যুর তথ্য দেওয়া হবে,
+            সেগুলো যাচাই করে সঠিকভাবে লিখুন।
         </div>
 
-        <!-- আবেদনপত্রের লেআউট (যা প্রিন্ট হবে) -->
-        <div class="letter-section" id="printArea">
-            <p>বরাবর,</p>
-            <p>দায়িত্বপ্রাপ্ত কর্মকর্তা</p>
-            <p>রাজস্ব কর্মকর্তা (সিনিয়র সহকারী সচিব)</p>
-            <p>৩নং পাঁচলাইশ ওয়ার্ড</p>
-            <p>চট্টগ্রাম সিটি কর্পোরেশন</p>
-            <p>চট্টগ্রাম</p>
 
-            <br>
-            <p><strong>বিষয়ঃ অনলাইনের মৃত্যু সনদ প্রত্যয়ন প্রদান প্রসঙ্গে।</strong></p>
-            <br>
+        <form id="applicationForm">
 
-            <p>জনাব,</p>
-            <p class="letter-body">
-                যথাবিহীত সম্মান প্রদর্শন পূর্বক বিনীত নিবেদন এই যে, আমি নিম্ন স্বাক্ষরকারী আমার 
-                <span id="out_relation" class="fill-data">স্ত্রী</span> 
-                <span id="out_deceased_name" class="fill-data">মনোয়ারা বেগম</span>, 
-                পিতা- <span id="out_deceased_father" class="fill-data">ফয়েজ আহমদ সাওদাগর</span>, 
-                মাতা- <span id="out_deceased_mother" class="fill-data">তৈয়বুর নেছা</span>, 
-                সাং- <span id="out_village" class="fill-data">ফয়েজ সাওদাগর, কামরাবাদ</span>, 
-                ডাক- <span id="out_post" class="fill-data">আমিন জুট মিলস-৪২১১</span>, 
-                থানা- <span id="out_police" class="fill-data">বায়েজিদ বোস্তামী</span>, 
-                জেলা- <span id="out_district" class="fill-data">চট্টগ্রাম</span>, 
-                বিগত <span id="out_death_date" class="fill-data">০৬/১১/২০২৫</span> ইং তারিখে ব্রড ডেড হয়ে নিজ 
-                <span id="out_hospital" class="fill-data">নাগরিক হাসপাতাল লিঃ</span> মৃত্যু বরণ করেন। 
-                আমাদের পারিবারিক প্রয়োজনে আমার স্ত্রীর অনলাইন মৃত্যু সনদ প্রত্যয়নের জন্য আপনার বরাবরে আবেদন করছি।
-            </p>
 
-            <br>
-            <p class="letter-body">
-                অতএব, মহোদয় সমীপে বিনীত প্রার্থনা আমাকে আমার স্ত্রীর অনলাইনে মৃত্যু সনদ প্রত্যয়নটি প্রদান করিলে আপনার নিকট চির কৃতজ্ঞ থাকিব।
-            </p>
+            <!-- আবেদনকারীর তথ্য -->
 
-            <br><br>
-            <div class="signature-section">
-                <p>বিনীত নিবেদক</p>
-                <br>
-                <p><span id="out_applicant_name" class="fill-data">আব্দুল মালেক</span></p>
-                <p>পিতা: <span id="out_applicant_father" class="fill-data">আব্দুল গনি</span></p>
-                <p>মোবাইল: <span id="out_phone" class="fill-data">০১৭xxxxxxxx</span></p>
+            <div class="section">
+
+                <div class="section-title">
+                    <span>১</span>
+                    আবেদনকারীর তথ্য
+                </div>
+
+
+                <div class="grid">
+
+                    <div>
+
+                        <label>
+                            আবেদনকারীর নাম
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="applicantName"
+                            placeholder="আবেদনকারীর নাম লিখুন"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            আবেদনকারীর পিতার নাম
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="applicantFather"
+                            placeholder="আবেদনকারীর পিতার নাম"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            মৃত ব্যক্তির সাথে সম্পর্ক
+                            <span class="required">*</span>
+                        </label>
+
+                        <select id="relation" required>
+
+                            <option value="">
+                                সম্পর্ক নির্বাচন করুন
+                            </option>
+
+                            <option value="পিতা">পিতা</option>
+                            <option value="মাতা">মাতা</option>
+                            <option value="স্বামী">স্বামী</option>
+                            <option value="স্ত্রী">স্ত্রী</option>
+                            <option value="ভাই">ভাই</option>
+                            <option value="বোন">বোন</option>
+                            <option value="পুত্র">পুত্র</option>
+                            <option value="কন্যা">কন্যা</option>
+                            <option value="অন্যান্য">অন্যান্য</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            মোবাইল নম্বর
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="mobile"
+                            placeholder="০১৭XXXXXXXX"
+                            maxlength="11"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
+
+
+            <!-- মৃত ব্যক্তির তথ্য -->
+
+            <div class="section">
+
+                <div class="section-title">
+
+                    <span>২</span>
+
+                    মৃত ব্যক্তির তথ্য
+
+                </div>
+
+
+                <div class="grid">
+
+
+                    <div>
+
+                        <label>
+                            মৃত ব্যক্তির নাম
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="deceasedName"
+                            placeholder="মৃত ব্যক্তির নাম"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            মৃত ব্যক্তির পিতার নাম
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="deceasedFather"
+                            placeholder="মৃত ব্যক্তির পিতার নাম"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            মৃত ব্যক্তির মাতার নাম
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="deceasedMother"
+                            placeholder="মৃত ব্যক্তির মাতার নাম"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            মৃত্যুর তারিখ
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="date"
+                            id="deathDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            মৃত্যুর কারণ / রোগ
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="deathCause"
+                            placeholder="যেমন: রোগে"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            মৃত্যুর স্থান
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="deathPlace"
+                            placeholder="যেমন: হাসপাতাল"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ঠিকানা -->
+
+            <div class="section">
+
+                <div class="section-title">
+
+                    <span>৩</span>
+
+                    মৃত ব্যক্তির ঠিকানা
+
+                </div>
+
+
+                <div class="grid">
+
+
+                    <div class="full">
+
+                        <label>
+                            গ্রাম
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="village"
+                            placeholder="গ্রামের নাম লিখুন"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            ডাক
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="post"
+                            placeholder="ডাকঘরের নাম"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            থানা
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="thana"
+                            value="বায়েজিদ বোস্তামী"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            জেলা
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="district"
+                            value="চট্টগ্রাম"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ঘোষণা -->
+
+            <div class="declaration">
+
+                <input
+                    type="checkbox"
+                    id="agree"
+                    required
+                >
+
+                <div>
+                    আমি ঘোষণা করছি যে, আবেদনপত্রে প্রদত্ত তথ্যসমূহ
+                    সঠিক ও সত্য।
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="generate-btn"
+            >
+                📄 আবেদনপত্র তৈরি করুন
+            </button>
+
+
+        </form>
+
     </div>
 
-    <script>
-        function updateLetter() {
-            document.getElementById('out_applicant_name').innerText = document.getElementById('in_applicant_name').value;
-            document.getElementById('out_applicant_father').innerText = document.getElementById('in_applicant_father').value;
-            document.getElementById('out_relation').innerText = document.getElementById('in_relation').value;
-            document.getElementById('out_deceased_name').innerText = document.getElementById('in_deceased_name').value;
-            document.getElementById('out_deceased_father').innerText = document.getElementById('in_deceased_father').value;
-            document.getElementById('out_deceased_mother').innerText = document.getElementById('in_deceased_mother').value;
-            document.getElementById('out_village').innerText = document.getElementById('in_village').value;
-            document.getElementById('out_post').innerText = document.getElementById('in_post').value;
-            document.getElementById('out_police').innerText = document.getElementById('in_police').value;
-            document.getElementById('out_district').innerText = document.getElementById('in_district').value;
-            document.getElementById('out_death_date').innerText = document.getElementById('in_death_date').value;
-            document.getElementById('out_hospital').innerText = document.getElementById('in_hospital').value;
-            document.getElementById('out_phone').innerText = document.getElementById('in_phone').value;
+</div>
+
+
+<!-- =========================
+     PREVIEW
+========================= -->
+
+<div id="preview">
+
+
+    <div class="preview-bar">
+
+        <button
+            class="print-btn"
+            onclick="printApplication()"
+        >
+            🖨️ প্রিন্ট / PDF সেভ করুন
+        </button>
+
+
+        <button
+            class="new-btn"
+            onclick="newApplication()"
+        >
+            ↩ নতুন আবেদন
+        </button>
+
+    </div>
+
+
+    <!-- A4 PAPER -->
+
+    <div class="paper">
+
+
+        <div class="office-name">
+
+            <h2>
+                চট্টগ্রাম সিটি কর্পোরেশন
+            </h2>
+
+            <p>
+                ৩নং পাঁচলাইশ ওয়ার্ড
+            </p>
+
+            <p>
+                চট্টগ্রাম
+            </p>
+
+        </div>
+
+
+        <div class="doc-date">
+
+            তারিখ:
+            <span id="showDate"></span>
+
+        </div>
+
+
+        <!-- বরাবর -->
+
+        <div class="to-section">
+
+            <strong>বরাবর,</strong><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;দায়িত্বপ্রাপ্ত কর্মকর্তা<br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;রাজস্ব কর্মকর্তা (সিনিয়র সহকারী সচিব)<br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;৩নং পাঁচলাইশ ওয়ার্ড<br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;চট্টগ্রাম সিটি কর্পোরেশন<br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;চট্টগ্রাম
+
+        </div>
+
+
+        <!-- বিষয় -->
+
+        <div class="subject">
+
+            বিষয়ঃ অনলাইনের মৃত্যু সনদ প্রত্যয়ন প্রদান প্রসঙ্গে।
+
+        </div>
+
+
+        <!-- মূল আবেদন -->
+
+        <div class="letter-body">
+
+            <p>
+                জনাব,
+            </p>
+
+
+            <p>
+
+                যথাবিহীত সম্মান প্রদর্শন পূর্বক বিনীত নিবেদন এই যে,
+                আমি নিম্নে স্বাক্ষরকারী আমার
+                <strong id="showRelation"></strong>
+                <strong id="showDeceasedName"></strong>,
+                পিতা- <strong id="showDeceasedFather"></strong>,
+                মাতা- <strong id="showDeceasedMother"></strong>,
+                সাং- গ্রাম:
+                <strong id="showVillage"></strong>,
+                ডাক-
+                <strong id="showPost"></strong>,
+                থানা-
+                <strong id="showThana"></strong>,
+                জেলা-
+                <strong id="showDistrict"></strong>,
+                বিগত
+                <strong id="showDeathDate"></strong>
+                ইং তারিখে
+                <strong id="showDeathCause"></strong>
+                হয়ে
+                স্থান:
+                <strong id="showDeathPlace"></strong>
+                মৃত্যু বরণ করেন।
+
+                আমাদের পারিবারিক প্রয়োজনে আমার
+                <strong id="showRelation2"></strong>
+                অনলাইন মৃত্যু সনদ প্রত্যয়নের জন্য আপনার বরাবরে আবেদন করছি।
+
+            </p>
+
+
+            <p>
+
+                অতএব, মহোদয় সমীপে বিনীত প্রার্থনা আমাকে আমার
+                <strong id="showRelation3"></strong>
+                অনলাইনে মৃত্যু সনদ প্রত্যয়নটি প্রদান করিলে
+                আপনার নিকট চির কৃতজ্ঞ থাকিব।
+
+            </p>
+
+        </div>
+
+
+        <!-- আবেদনকারী -->
+
+        <div class="signature">
+
+            <strong>বিনীত নিবেদক</strong>
+
+            <div class="signature-space"></div>
+
+            <strong id="showApplicantName"></strong>
+
+            <br>
+
+            পিতা:
+            <span id="showApplicantFather"></span>
+
+            <br>
+
+            মোবাইল:
+            <span id="showMobile"></span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================
+   বাংলা সংখ্যা
+===================================== */
+
+function banglaNumber(value){
+
+    const en = "0123456789";
+    const bn = "০১২৩৪৫৬৭৮৯";
+
+    return String(value).replace(
+        /[0-9]/g,
+        function(d){
+            return bn[en.indexOf(d)];
         }
-    </script>
+    );
+}
+
+
+/* =====================================
+   তারিখ
+===================================== */
+
+function banglaDate(value){
+
+    if(!value){
+        return "";
+    }
+
+    const p = value.split("-");
+
+    return banglaNumber(p[2])
+        + "/"
+        + banglaNumber(p[1])
+        + "/"
+        + banglaNumber(p[0]);
+
+}
+
+
+/* =====================================
+   আজকের তারিখ
+===================================== */
+
+function today(){
+
+    const d = new Date();
+
+    return banglaNumber(
+        String(d.getDate()).padStart(2,"0")
+    )
+    + "/"
+    +
+    banglaNumber(
+        String(d.getMonth()+1).padStart(2,"0")
+    )
+    + "/"
+    +
+    banglaNumber(
+        d.getFullYear()
+    );
+
+}
+
+
+/* =====================================
+   সম্পর্ক
+===================================== */
+
+function relationName(relation){
+
+    if(relation === "অন্যান্য"){
+        return " ";
+    }
+
+    return relation;
+
+}
+
+
+/* =====================================
+   FORM SUBMIT
+===================================== */
+
+document
+.getElementById("applicationForm")
+.addEventListener(
+"submit",
+function(e){
+
+    e.preventDefault();
+
+
+    const applicantName =
+        document.getElementById(
+            "applicantName"
+        ).value.trim();
+
+
+    const applicantFather =
+        document.getElementById(
+            "applicantFather"
+        ).value.trim();
+
+
+    const relation =
+        document.getElementById(
+            "relation"
+        ).value;
+
+
+    const mobile =
+        document.getElementById(
+            "mobile"
+        ).value.trim();
+
+
+    const deceasedName =
+        document.getElementById(
+            "deceasedName"
+        ).value.trim();
+
+
+    const deceasedFather =
+        document.getElementById(
+            "deceasedFather"
+        ).value.trim();
+
+
+    const deceasedMother =
+        document.getElementById(
+            "deceasedMother"
+        ).value.trim();
+
+
+    const deathDate =
+        document.getElementById(
+            "deathDate"
+        ).value;
+
+
+    const deathCause =
+        document.getElementById(
+            "deathCause"
+        ).value.trim();
+
+
+    const deathPlace =
+        document.getElementById(
+            "deathPlace"
+        ).value.trim();
+
+
+    const village =
+        document.getElementById(
+            "village"
+        ).value.trim();
+
+
+    const post =
+        document.getElementById(
+            "post"
+        ).value.trim();
+
+
+    const thana =
+        document.getElementById(
+            "thana"
+        ).value.trim();
+
+
+    const district =
+        document.getElementById(
+            "district"
+        ).value.trim();
+
+
+    /* =========================
+       INSERT DATA
+    ========================= */
+
+
+    document.getElementById(
+        "showDate"
+    ).textContent =
+        today();
+
+
+    document.getElementById(
+        "showApplicantName"
+    ).textContent =
+        applicantName;
+
+
+    document.getElementById(
+        "showApplicantFather"
+    ).textContent =
+        applicantFather;
+
+
+    document.getElementById(
+        "showMobile"
+    ).textContent =
+        banglaNumber(mobile);
+
+
+    document.getElementById(
+        "showRelation"
+    ).textContent =
+        relationName(relation) + " ";
+
+
+    document.getElementById(
+        "showRelation2"
+    ).textContent =
+        relationName(relation);
+
+
+    document.getElementById(
+        "showRelation3"
+    ).textContent =
+        relationName(relation);
+
+
+    document.getElementById(
+        "showDeceasedName"
+    ).textContent =
+        deceasedName;
+
+
+    document.getElementById(
+        "showDeceasedFather"
+    ).textContent =
+        deceasedFather;
+
+
+    document.getElementById(
+        "showDeceasedMother"
+    ).textContent =
+        deceasedMother;
+
+
+    document.getElementById(
+        "showVillage"
+    ).textContent =
+        village;
+
+
+    document.getElementById(
+        "showPost"
+    ).textContent =
+        post;
+
+
+    document.getElementById(
+        "showThana"
+    ).textContent =
+        thana;
+
+
+    document.getElementById(
+        "showDistrict"
+    ).textContent =
+        district;
+
+
+    document.getElementById(
+        "showDeathDate"
+    ).textContent =
+        banglaDate(deathDate);
+
+
+    document.getElementById(
+        "showDeathCause"
+    ).textContent =
+        deathCause;
+
+
+    document.getElementById(
+        "showDeathPlace"
+    ).textContent =
+        deathPlace;
+
+
+    /* =========================
+       SHOW PREVIEW
+    ========================= */
+
+    document.getElementById(
+        "formCard"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "preview"
+    ).style.display =
+        "block";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+
+/* =====================================
+   PRINT
+===================================== */
+
+function printApplication(){
+
+    window.print();
+
+}
+
+
+/* =====================================
+   NEW APPLICATION
+===================================== */
+
+function newApplication(){
+
+    document.getElementById(
+        "applicationForm"
+    ).reset();
+
+
+    document.getElementById(
+        "thana"
+    ).value =
+        "বায়েজিদ বোস্তামী";
+
+
+    document.getElementById(
+        "district"
+    ).value =
+        "চট্টগ্রাম";
+
+
+    document.getElementById(
+        "formCard"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "preview"
+    ).style.display =
+        "none";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================
+   MOBILE NUMBER
+===================================== */
+
+document.getElementById(
+    "mobile"
+).addEventListener(
+    "input",
+    function(){
+
+        this.value =
+            this.value.replace(
+                /[^0-9০-৯]/g,
+                ""
+            );
+
+    }
+);
+
+
+/* =====================================
+   FUTURE DATE BLOCK
+===================================== */
+
+const now = new Date();
+
+const y =
+    now.getFullYear();
+
+const m =
+    String(
+        now.getMonth()+1
+    ).padStart(2,"0");
+
+const d =
+    String(
+        now.getDate()
+    ).padStart(2,"0");
+
+
+document.getElementById(
+    "deathDate"
+).max =
+    y + "-" + m + "-" + d;
+
+</script>
+
 </body>
 </html>
