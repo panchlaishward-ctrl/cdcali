@@ -2,2183 +2,2370 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>সনদ আবেদন ও ব্যবস্থাপনা</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
 
 body{
-  margin:0;
-  font-family:'Noto Sans Bengali',Arial,sans-serif;
-  background:#f1f5f9;
-  color:#172033;
+    margin:0;
+    font-family:
+        "Noto Sans Bengali",
+        "Noto Sans",
+        "SolaimanLipi",
+        Arial,
+        sans-serif;
+    background:#f1f5f9;
+    color:#172033;
 }
 
-button,input,select,textarea{
-  font-family:inherit;
-}
-
-.header{
-  background:linear-gradient(135deg,#0f766e,#115e59);
-  color:#fff;
-  padding:20px;
-  text-align:center;
-  box-shadow:0 3px 12px rgba(0,0,0,.12);
-}
-
-.header h1{
-  margin:0;
-  font-size:25px;
-}
-
-.header p{
-  margin:5px 0 0;
-  font-size:14px;
-}
-
-.nav{
-  background:#fff;
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  padding:10px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  position:sticky;
-  top:0;
-  z-index:50;
-}
-
-.nav button{
-  border:0;
-  background:#e2e8f0;
-  padding:10px 18px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:700;
-}
-
-.nav button.active{
-  background:#0f766e;
-  color:#fff;
-}
-
-.container{
-  max-width:1250px;
-  margin:20px auto;
-  padding:0 15px;
-}
-
-.card{
-  background:#fff;
-  border-radius:12px;
-  padding:20px;
-  margin-bottom:18px;
-  box-shadow:0 3px 15px rgba(0,0,0,.07);
-}
-
-.section-title{
-  background:#ecfdf5;
-  border-left:5px solid #0f766e;
-  padding:10px 13px;
-  margin:0 0 16px;
-  font-size:18px;
-  font-weight:800;
-  color:#115e59;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
-
-.grid-4{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
-
-.field label{
-  font-weight:700;
-  font-size:14px;
-}
-
-.field input,
-.field select,
-.field textarea{
-  width:100%;
-  border:1px solid #cbd5e1;
-  border-radius:7px;
-  padding:10px;
-  font-size:14px;
-  background:#fff;
-  outline:none;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus{
-  border-color:#0f766e;
-  box-shadow:0 0 0 2px rgba(15,118,110,.1);
-}
-
+button,
+input,
+select,
 textarea{
-  min-height:90px;
-  resize:vertical;
+    font-family:inherit;
 }
 
-.full{
-  grid-column:1/-1;
-}
-
-.required{
-  color:#dc2626;
-}
-
-.address-box{
-  border:1px solid #cbd5e1;
-  border-radius:10px;
-  padding:14px;
-  background:#f8fafc;
-  margin-top:10px;
-}
-
-.address-title{
-  font-weight:800;
-  margin-bottom:10px;
-  color:#334155;
-}
-
-.btn-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
-}
-
-.btn{
-  border:0;
-  padding:11px 18px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:700;
-  font-size:14px;
-}
-
-.btn-primary{background:#0f766e;color:#fff}
-.btn-success{background:#16a34a;color:#fff}
-.btn-danger{background:#dc2626;color:#fff}
-.btn-warning{background:#d97706;color:#fff}
-.btn-info{background:#2563eb;color:#fff}
-.btn-gray{background:#64748b;color:#fff}
-.btn-light{background:#e2e8f0;color:#172033}
-
-.btn:hover{
-  opacity:.9;
-  transform:translateY(-1px);
+button{
+    cursor:pointer;
 }
 
 .hidden{
-  display:none!important;
+    display:none !important;
 }
 
-.notice{
-  background:#fffbeb;
-  border:1px solid #fde68a;
-  color:#92400e;
-  padding:12px;
-  border-radius:8px;
-  margin-bottom:15px;
+/* =====================================================
+   HEADER
+===================================================== */
+
+.top-header{
+    background:linear-gradient(135deg,#0f766e,#115e59);
+    color:white;
+    padding:20px;
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
 }
 
-.success-box{
-  background:#ecfdf5;
-  border:1px solid #86efac;
-  color:#166534;
-  padding:18px;
-  border-radius:10px;
-  text-align:center;
-  margin-bottom:18px;
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-.tracking{
-  font-size:24px;
-  font-weight:800;
-  color:#0f766e;
-  margin:8px 0;
+.header-title h1{
+    margin:0;
+    font-size:25px;
 }
 
-.member-table-wrap{
-  overflow-x:auto;
+.header-title p{
+    margin:6px 0 0;
+    opacity:.9;
+    font-size:15px;
 }
 
-.member-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:850px;
+.header-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
-.member-table th,
-.member-table td{
-  border:1px solid #cbd5e1;
-  padding:7px;
-  text-align:center;
+.header-actions button{
+    border:0;
+    border-radius:8px;
+    padding:9px 14px;
+    background:white;
+    color:#115e59;
+    font-weight:bold;
 }
 
-.member-table th{
-  background:#0f766e;
-  color:#fff;
-  font-size:13px;
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+    max-width:1250px;
+    margin:25px auto;
+    padding:0 15px;
 }
 
-.member-table input,
-.member-table select{
-  width:100%;
-  padding:7px;
-  border:1px solid #cbd5e1;
-  border-radius:5px;
+/* =====================================================
+   CARD
+===================================================== */
+
+.card{
+    background:white;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 3px 15px rgba(15,23,42,.08);
 }
 
-.small-btn{
-  padding:6px 9px;
-  border:0;
-  border-radius:5px;
-  cursor:pointer;
-  font-weight:700;
-}
-
-.delete-row{
-  background:#dc2626;
-  color:#fff;
-}
-
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.stat{
-  background:#fff;
-  border-radius:10px;
-  padding:16px;
-  text-align:center;
-  box-shadow:0 2px 10px rgba(0,0,0,.06);
-}
-
-.stat b{
-  display:block;
-  font-size:25px;
-  color:#0f766e;
-}
-
-.stat span{
-  font-size:13px;
-  color:#475569;
-}
-
-.admin-tools{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:10px;
-  margin-bottom:15px;
-}
-
-.admin-tools input,
-.admin-tools select{
-  padding:10px;
-  border:1px solid #cbd5e1;
-  border-radius:7px;
-}
-
-.table-wrap{
-  overflow:auto;
-}
-
-.admin-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:1100px;
-}
-
-.admin-table th,
-.admin-table td{
-  border:1px solid #cbd5e1;
-  padding:8px;
-  font-size:13px;
-  vertical-align:top;
-}
-
-.admin-table th{
-  background:#0f766e;
-  color:#fff;
-}
-
-.status-select{
-  padding:6px;
-  border:1px solid #cbd5e1;
-  border-radius:5px;
-  font-weight:700;
-}
-
-.login-box{
-  max-width:420px;
-  margin:50px auto;
-}
-
-.login-box h2{
-  text-align:center;
-  margin-top:0;
-}
-
-.login-error{
-  color:#dc2626;
-  text-align:center;
-  margin:8px 0;
-}
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  padding:25px;
-  z-index:100;
-  overflow:auto;
-}
-
-.modal-box{
-  width:100%;
-  max-width:1050px;
-  background:#fff;
-  border-radius:12px;
-  padding:20px;
-  margin:auto;
-}
-
-.modal-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
-}
-
-.close{
-  border:0;
-  background:#dc2626;
-  color:#fff;
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:20px;
-}
-
-.loading{
-  position:fixed;
-  inset:0;
-  background:rgba(255,255,255,.75);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:200;
-}
-
-.loading.show{
-  display:flex;
-}
-
-.loader{
-  background:#fff;
-  padding:20px 30px;
-  border-radius:10px;
-  box-shadow:0 5px 30px rgba(0,0,0,.15);
-  font-weight:700;
-}
-
-#printArea{
-  display:none;
-}
-
-@media(max-width:900px){
-  .grid,
-  .grid-3,
-  .grid-4{
-    grid-template-columns:1fr;
-  }
-
-  .dashboard{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .admin-tools{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:600px){
-  .header h1{
+.card-title{
     font-size:20px;
-  }
-
-  .nav{
-    overflow-x:auto;
-    justify-content:flex-start;
-  }
-
-  .nav button{
-    white-space:nowrap;
-  }
-
-  .card{
-    padding:14px;
-  }
-
-  .dashboard{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media print{
-  body *{
-    visibility:hidden!important;
-  }
-
-  #printArea,
-  #printArea *{
-    visibility:visible!important;
-  }
-
-  #printArea{
-    display:block!important;
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    padding:15mm;
-    background:#fff;
-    color:#000;
-  }
-
-  @page{
-    size:A4;
-    margin:10mm;
-  }
-
-  .print-title{
-    text-align:center;
-    font-size:21px;
-    font-weight:800;
-    margin-bottom:4px;
-  }
-
-  .print-subtitle{
-    text-align:center;
-    font-size:14px;
+    font-weight:bold;
     margin-bottom:18px;
-  }
+    color:#115e59;
+    border-bottom:1px solid #e2e8f0;
+    padding-bottom:10px;
+}
 
-  .print-meta{
-    display:flex;
-    justify-content:space-between;
-    font-size:12px;
-    margin-bottom:12px;
-  }
+/* =====================================================
+   CERTIFICATE CARDS
+===================================================== */
 
-  .print-section{
-    font-weight:800;
-    background:#eee;
-    padding:6px;
-    margin-top:12px;
-    margin-bottom:7px;
-  }
-
-  .print-grid{
+.certificate-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:5px 18px;
-    font-size:13px;
-  }
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
 
-  .print-address{
-    font-size:13px;
-    line-height:1.7;
-  }
-
-  .print-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:5px;
-    font-size:11px;
-  }
-
-  .print-table th,
-  .print-table td{
-    border:1px solid #000;
-    padding:4px;
+.certificate-card{
+    border:2px solid #e2e8f0;
+    border-radius:12px;
+    padding:18px 10px;
     text-align:center;
-  }
+    background:#fff;
+    transition:.2s;
+}
 
-  .print-footer{
-    margin-top:45px;
+.certificate-card:hover{
+    transform:translateY(-3px);
+    border-color:#0f766e;
+    box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+.certificate-card.active{
+    background:#ecfdf5;
+    border-color:#0f766e;
+}
+
+.certificate-icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.certificate-card h3{
+    margin:0;
+    font-size:16px;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+    gap:15px;
+}
+
+.form-group{
     display:flex;
-    justify-content:space-between;
-    font-size:13px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="loading" id="loading">
-  <div class="loader">অনুগ্রহ করে অপেক্ষা করুন...</div>
-</div>
-
-<header class="header">
-  <h1>সনদ আবেদন ও ব্যবস্থাপনা</h1>
-  <p>০৩ নং পাঁচলাইশ ওয়ার্ড · চট্টগ্রাম সিটি কর্পোরেশন</p>
-</header>
-
-<nav class="nav">
-  <button id="navApply" class="active" onclick="showPage('apply')">সনদ আবেদন</button>
-  <button id="navAdmin" onclick="showPage('admin')">অ্যাডমিন</button>
-</nav>
-
-<!-- ================= APPLICATION PAGE ================= -->
-
-<div class="container" id="applyPage">
-
-  <div id="successBox" class="success-box hidden">
-    <div>আবেদন সফলভাবে জমা হয়েছে</div>
-    <div class="tracking" id="successTracking"></div>
-    <div id="successText">আপনার ট্র্যাকিং নম্বর সংরক্ষণ করুন।</div>
-
-    <div class="btn-row" style="justify-content:center">
-      <button class="btn btn-primary" onclick="printLastApplication()">
-        🖨️ আবেদনপত্র প্রিন্ট
-      </button>
-
-      <button class="btn btn-light" onclick="newApplication()">
-        নতুন আবেদন
-      </button>
-    </div>
-  </div>
-
-  <div class="card">
-
-    <div class="section-title">১. সনদের ধরন নির্বাচন</div>
-
-    <div class="grid">
-      <div class="field">
-        <label>সনদের ধরন <span class="required">*</span></label>
-
-        <select id="certificate" onchange="certificateChanged()">
-          <option value="">-- সনদ নির্বাচন করুন --</option>
-          <option value="warish">ওয়ারিশ</option>
-          <option value="inheritance">উত্তরাধিকার</option>
-          <option value="family">পারিবারিক</option>
-          <option value="death">মৃত্যু</option>
-          <option value="character">চারিত্রিক</option>
-          <option value="citizenship">নাগরিকত্ব</option>
-          <option value="nationality">জাতীয়তা</option>
-          <option value="remarriage">পুনঃবিবাহ না হওয়ার</option>
-          <option value="other">অন্যান্য</option>
-        </select>
-      </div>
-
-      <div class="field hidden" id="otherCertificateBox">
-        <label>অন্যান্য সনদের নাম</label>
-        <input id="otherCertificateName" placeholder="সনদের নাম লিখুন">
-      </div>
-    </div>
-
-  </div>
-
-  <!-- APPLICANT -->
-
-  <div class="card">
-
-    <div class="section-title">২. আবেদনকারীর তথ্য</div>
-
-    <div class="grid-3">
-
-      <div class="field">
-        <label>আবেদনকারীর নাম <span class="required">*</span></label>
-        <input id="applicantName">
-      </div>
-
-      <div class="field">
-        <label>পিতা/স্বামীর নাম <span class="required">*</span></label>
-        <input id="applicantFather">
-      </div>
-
-      <div class="field">
-        <label>মাতার নাম</label>
-        <input id="applicantMother">
-      </div>
-
-      <div class="field">
-        <label>সম্পর্ক</label>
-        <select id="applicantRelation">
-          <option value="">-- নির্বাচন করুন --</option>
-          <option>পিতা</option>
-          <option>মাতা</option>
-          <option>স্বামী</option>
-          <option>স্ত্রী</option>
-          <option>ছেলে</option>
-          <option>মেয়ে</option>
-          <option>ভাই</option>
-          <option>বোন</option>
-          <option>দাদা</option>
-          <option>দাদী</option>
-          <option>নাতি</option>
-          <option>নাতনি</option>
-          <option>অন্যান্য</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>মোবাইল নম্বর <span class="required">*</span></label>
-        <input id="applicantMobile" inputmode="numeric">
-      </div>
-
-      <div class="field">
-        <label>জাতীয় পরিচয়পত্র নম্বর</label>
-        <input id="applicantNid">
-      </div>
-
-    </div>
-
-    <div class="address-box">
-      <div class="address-title">আবেদনকারীর ঠিকানা</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>বাড়ী</label>
-          <input id="appHouse">
-        </div>
-
-        <div class="field">
-          <label>গ্রাম</label>
-          <input id="appVillage">
-        </div>
-
-        <div class="field">
-          <label>ডাকঘর</label>
-          <input id="appPost">
-        </div>
-
-        <div class="field">
-          <label>থানা/উপজেলা</label>
-          <input id="appThana" value="বায়েজিদ বোস্তামী">
-        </div>
-
-        <div class="field">
-          <label>জেলা</label>
-          <input id="appDistrict" value="চট্টগ্রাম">
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <!-- CERTIFICATE PERSON -->
-
-  <div class="card hidden" id="personSection">
-
-    <div class="section-title">৩. যার নামে সনদ</div>
-
-    <div class="grid-3">
-
-      <div class="field">
-        <label>নাম <span class="required">*</span></label>
-        <input id="certificatePersonName">
-      </div>
-
-      <div class="field">
-        <label>পিতা/স্বামীর নাম <span class="required">*</span></label>
-        <input id="certificatePersonFather">
-      </div>
-
-      <div class="field">
-        <label>মাতার নাম</label>
-        <input id="certificatePersonMother">
-      </div>
-
-      <div class="field">
-        <label>সম্পর্ক <span class="required">*</span></label>
-        <select id="certificatePersonRelation">
-          <option value="">-- নির্বাচন করুন --</option>
-          <option>পিতা</option>
-          <option>মাতা</option>
-          <option>স্বামী</option>
-          <option>স্ত্রী</option>
-          <option>ছেলে</option>
-          <option>মেয়ে</option>
-          <option>ভাই</option>
-          <option>বোন</option>
-          <option>দাদা</option>
-          <option>দাদী</option>
-          <option>নাতি</option>
-          <option>নাতনি</option>
-          <option>অন্যান্য</option>
-        </select>
-      </div>
-
-    </div>
-
-    <div class="address-box">
-
-      <div class="address-title">স্থায়ী ঠিকানা</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>বাড়ী</label>
-          <input id="personPermHouse">
-        </div>
-
-        <div class="field">
-          <label>গ্রাম</label>
-          <input id="personPermVillage">
-        </div>
-
-        <div class="field">
-          <label>ডাকঘর</label>
-          <input id="personPermPost">
-        </div>
-
-        <div class="field">
-          <label>থানা/উপজেলা</label>
-          <input id="personPermThana" value="বায়েজিদ বোস্তামী">
-        </div>
-
-        <div class="field">
-          <label>জেলা</label>
-          <input id="personPermDistrict" value="চট্টগ্রাম">
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="address-box">
-
-      <div class="address-title">বর্তমান ঠিকানা</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>বাড়ী</label>
-          <input id="personPresentHouse">
-        </div>
-
-        <div class="field">
-          <label>গ্রাম</label>
-          <input id="personPresentVillage">
-        </div>
-
-        <div class="field">
-          <label>ডাকঘর</label>
-          <input id="personPresentPost">
-        </div>
-
-        <div class="field">
-          <label>থানা/উপজেলা</label>
-          <input id="personPresentThana" value="বায়েজিদ বোস্তামী">
-        </div>
-
-        <div class="field">
-          <label>জেলা</label>
-          <input id="personPresentDistrict" value="চট্টগ্রাম">
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- MEMBERS -->
-
-  <div class="card hidden" id="membersSection">
-
-    <div class="section-title">
-      সদস্যদের তথ্য
-    </div>
-
-    <div class="member-table-wrap">
-
-      <table class="member-table">
-
-        <thead>
-          <tr>
-            <th>ক্রমিক নং</th>
-            <th>নাম</th>
-            <th>জন্ম তারিখ</th>
-            <th>বয়স</th>
-            <th>সম্পর্ক</th>
-            <th>মন্তব্য</th>
-            <th>মুছুন</th>
-          </tr>
-        </thead>
-
-        <tbody id="memberBody"></tbody>
-
-      </table>
-
-    </div>
-
-    <div class="btn-row">
-      <button class="btn btn-info" onclick="addMember()">
-        + সদস্য যোগ করুন
-      </button>
-    </div>
-
-  </div>
-
-  <!-- FAMILY -->
-
-  <div class="card hidden" id="familySection">
-
-    <div class="section-title">৩. পরিবারের তথ্য</div>
-
-    <div class="grid-3">
-
-      <div class="field">
-        <label>পরিবারের প্রধানের নাম <span class="required">*</span></label>
-        <input id="familyHead">
-      </div>
-
-      <div class="field">
-        <label>পিতা/স্বামীর নাম</label>
-        <input id="familyFather">
-      </div>
-
-    </div>
-
-    <div class="address-box">
-
-      <div class="address-title">পারিবারিক ঠিকানা</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>বাড়ী</label>
-          <input id="familyHouse">
-        </div>
-
-        <div class="field">
-          <label>গ্রাম</label>
-          <input id="familyVillage">
-        </div>
-
-        <div class="field">
-          <label>ডাকঘর</label>
-          <input id="familyPost">
-        </div>
-
-        <div class="field">
-          <label>থানা/উপজেলা</label>
-          <input id="familyThana" value="বায়েজিদ বোস্তামী">
-        </div>
-
-        <div class="field">
-          <label>জেলা</label>
-          <input id="familyDistrict" value="চট্টগ্রাম">
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- DEATH -->
-
-  <div class="card hidden" id="deathSection">
-
-    <div class="section-title">৩. মৃত ব্যক্তির তথ্য</div>
-
-    <div class="grid-3">
-
-      <div class="field">
-        <label>মৃত ব্যক্তির নাম <span class="required">*</span></label>
-        <input id="deathName">
-      </div>
-
-      <div class="field">
-        <label>পিতা/স্বামীর নাম</label>
-        <input id="deathFather">
-      </div>
-
-      <div class="field">
-        <label>মাতার নাম</label>
-        <input id="deathMother">
-      </div>
-
-      <div class="field">
-        <label>মৃত্যুর তারিখ <span class="required">*</span></label>
-        <input id="deathDate" type="date">
-      </div>
-
-      <div class="field">
-        <label>মৃত্যুর স্থান</label>
-        <input id="deathPlace">
-      </div>
-
-      <div class="field">
-        <label>মৃত্যুর কারণ</label>
-        <input id="deathCause">
-      </div>
-
-    </div>
-
-    <div class="address-box">
-
-      <div class="address-title">মৃত ব্যক্তির ঠিকানা</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>বাড়ী</label>
-          <input id="deathHouse">
-        </div>
-
-        <div class="field">
-          <label>গ্রাম</label>
-          <input id="deathVillage">
-        </div>
-
-        <div class="field">
-          <label>ডাকঘর</label>
-          <input id="deathPost">
-        </div>
-
-        <div class="field">
-          <label>থানা/উপজেলা</label>
-          <input id="deathThana" value="বায়েজিদ বোস্তামী">
-        </div>
-
-        <div class="field">
-          <label>জেলা</label>
-          <input id="deathDistrict" value="চট্টগ্রাম">
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- OTHER -->
-
-  <div class="card hidden" id="otherSection">
-
-    <div class="section-title">অতিরিক্ত তথ্য</div>
-
-    <div class="field">
-      <label>বিস্তারিত</label>
-      <textarea id="otherDetails"></textarea>
-    </div>
-
-  </div>
-
-  <!-- SUBMIT -->
-
-  <div class="card">
-
-    <div class="notice">
-      আবেদন জমা দেওয়ার আগে সব তথ্য ভালোভাবে যাচাই করুন।
-    </div>
-
-    <div class="btn-row">
-
-      <button class="btn btn-success" onclick="submitApplication()">
-        আবেদন জমা দিন
-      </button>
-
-      <button class="btn btn-light" onclick="resetForm(true)">
-        ফর্ম পরিষ্কার করুন
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ================= ADMIN LOGIN ================= -->
-
-<div class="container hidden" id="loginPage">
-
-  <div class="card login-box">
-
-    <h2>অ্যাডমিন লগইন</h2>
-
-    <div class="login-error" id="loginError"></div>
-
-    <div class="field">
-      <label>ইউজারনেম</label>
-      <input id="loginUsername">
-    </div>
-
-    <br>
-
-    <div class="field">
-      <label>পাসওয়ার্ড</label>
-      <input id="loginPassword" type="password">
-    </div>
-
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="adminLogin()">
-        লগইন
-      </button>
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ================= ADMIN PAGE ================= -->
-
-<div class="container hidden" id="adminPage">
-
-  <div class="card">
-
-    <div class="section-title">
-      অ্যাডমিন ড্যাশবোর্ড
-    </div>
-
-    <div class="dashboard">
-
-      <div class="stat">
-        <b id="totalCount">0</b>
-        <span>মোট আবেদন</span>
-      </div>
-
-      <div class="stat">
-        <b id="pendingCount">0</b>
-        <span>অপেক্ষমাণ</span>
-      </div>
-
-      <div class="stat">
-        <b id="processingCount">0</b>
-        <span>প্রক্রিয়াধীন</span>
-      </div>
-
-      <div class="stat">
-        <b id="approvedCount">0</b>
-        <span>অনুমোদিত</span>
-      </div>
-
-      <div class="stat">
-        <b id="rejectedCount">0</b>
-        <span>বাতিল</span>
-      </div>
-
-    </div>
-
-    <div class="admin-tools">
-
-      <input
-        id="adminSearch"
-        placeholder="ট্র্যাকিং / আবেদনকারী / মোবাইল / সনদের ব্যক্তি দিয়ে খুঁজুন"
-        oninput="renderApplications()"
-      >
-
-      <select id="statusFilter" onchange="renderApplications()">
-        <option value="">সব স্ট্যাটাস</option>
-        <option value="অপেক্ষমাণ">অপেক্ষমাণ</option>
-        <option value="প্রক্রিয়াধীন">প্রক্রিয়াধীন</option>
-        <option value="অনুমোদিত">অনুমোদিত</option>
-        <option value="বাতিল">বাতিল</option>
-      </select>
-
-      <button class="btn btn-info" onclick="loadApplications()">
-        🔄 রিফ্রেশ
-      </button>
-
-    </div>
-
-    <div class="table-wrap">
-
-      <table class="admin-table">
-
-        <thead>
-          <tr>
-            <th>ট্র্যাকিং</th>
-            <th>সনদ</th>
-            <th>আবেদনকারী</th>
-            <th>যার নামে / পরিবার / মৃত্যু</th>
-            <th>মোবাইল</th>
-            <th>তারিখ</th>
-            <th>স্ট্যাটাস</th>
-            <th>কার্যক্রম</th>
-          </tr>
-        </thead>
-
-        <tbody id="applicationBody"></tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ================= EDIT MODAL ================= -->
-
-<div class="modal hidden" id="editModal">
-
-  <div class="modal-box">
-
-    <div class="modal-header">
-      <h2>আবেদন সম্পাদনা</h2>
-      <button class="close" onclick="closeEdit()">×</button>
-    </div>
-
-    <div id="editTrackingBox" class="notice"></div>
-
-    <div class="grid-3">
-
-      <div class="field">
-        <label>সনদের ধরন</label>
-        <input id="editCertificate" readonly>
-      </div>
-
-      <div class="field">
-        <label>স্ট্যাটাস</label>
-        <select id="editStatus">
-          <option>অপেক্ষমাণ</option>
-          <option>প্রক্রিয়াধীন</option>
-          <option>অনুমোদিত</option>
-          <option>বাতিল</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>অন্যান্য সনদের নাম</label>
-        <input id="editOtherCertificateName">
-      </div>
-
-    </div>
-
-    <br>
-
-    <div class="section-title">আবেদনকারীর তথ্য</div>
-
-    <div class="grid-3">
-
-      <div class="field">
-        <label>নাম</label>
-        <input id="editApplicantName">
-      </div>
-
-      <div class="field">
-        <label>পিতা/স্বামীর নাম</label>
-        <input id="editApplicantFather">
-      </div>
-
-      <div class="field">
-        <label>মাতার নাম</label>
-        <input id="editApplicantMother">
-      </div>
-
-      <div class="field">
-        <label>সম্পর্ক</label>
-        <input id="editApplicantRelation">
-      </div>
-
-      <div class="field">
-        <label>মোবাইল</label>
-        <input id="editApplicantMobile">
-      </div>
-
-      <div class="field">
-        <label>NID</label>
-        <input id="editApplicantNid">
-      </div>
-
-    </div>
-
-    <div class="address-box">
-
-      <div class="address-title">আবেদনকারীর ঠিকানা</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>বাড়ী</label>
-          <input id="editAppHouse">
-        </div>
-
-        <div class="field">
-          <label>গ্রাম</label>
-          <input id="editAppVillage">
-        </div>
-
-        <div class="field">
-          <label>ডাকঘর</label>
-          <input id="editAppPost">
-        </div>
-
-        <div class="field">
-          <label>থানা</label>
-          <input id="editAppThana">
-        </div>
-
-        <div class="field">
-          <label>জেলা</label>
-          <input id="editAppDistrict">
-        </div>
-
-      </div>
-
-    </div>
-
-    <div id="editPersonArea" class="hidden">
-
-      <div class="section-title">যার নামে সনদ</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>নাম</label>
-          <input id="editPersonName">
-        </div>
-
-        <div class="field">
-          <label>পিতা/স্বামী</label>
-          <input id="editPersonFather">
-        </div>
-
-        <div class="field">
-          <label>মাতা</label>
-          <input id="editPersonMother">
-        </div>
-
-        <div class="field">
-          <label>সম্পর্ক</label>
-          <input id="editPersonRelation">
-        </div>
-
-      </div>
-
-      <div class="address-box">
-
-        <div class="address-title">স্থায়ী ঠিকানা</div>
-
-        <div class="grid-3">
-
-          <div class="field">
-            <label>বাড়ী</label>
-            <input id="editPermHouse">
-          </div>
-
-          <div class="field">
-            <label>গ্রাম</label>
-            <input id="editPermVillage">
-          </div>
-
-          <div class="field">
-            <label>ডাকঘর</label>
-            <input id="editPermPost">
-          </div>
-
-          <div class="field">
-            <label>থানা</label>
-            <input id="editPermThana">
-          </div>
-
-          <div class="field">
-            <label>জেলা</label>
-            <input id="editPermDistrict">
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="address-box">
-
-        <div class="address-title">বর্তমান ঠিকানা</div>
-
-        <div class="grid-3">
-
-          <div class="field">
-            <label>বাড়ী</label>
-            <input id="editPresentHouse">
-          </div>
-
-          <div class="field">
-            <label>গ্রাম</label>
-            <input id="editPresentVillage">
-          </div>
-
-          <div class="field">
-            <label>ডাকঘর</label>
-            <input id="editPresentPost">
-          </div>
-
-          <div class="field">
-            <label>থানা</label>
-            <input id="editPresentThana">
-          </div>
-
-          <div class="field">
-            <label>জেলা</label>
-            <input id="editPresentDistrict">
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div id="editFamilyArea" class="hidden">
-
-      <div class="section-title">পারিবারিক তথ্য</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>পরিবারের প্রধান</label>
-          <input id="editFamilyHead">
-        </div>
-
-        <div class="field">
-          <label>পিতা/স্বামী</label>
-          <input id="editFamilyFather">
-        </div>
-
-      </div>
-
-      <div class="address-box">
-
-        <div class="grid-3">
-
-          <div class="field">
-            <label>বাড়ী</label>
-            <input id="editFamilyHouse">
-          </div>
-
-          <div class="field">
-            <label>গ্রাম</label>
-            <input id="editFamilyVillage">
-          </div>
-
-          <div class="field">
-            <label>ডাকঘর</label>
-            <input id="editFamilyPost">
-          </div>
-
-          <div class="field">
-            <label>থানা</label>
-            <input id="editFamilyThana">
-          </div>
-
-          <div class="field">
-            <label>জেলা</label>
-            <input id="editFamilyDistrict">
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div id="editDeathArea" class="hidden">
-
-      <div class="section-title">মৃত ব্যক্তির তথ্য</div>
-
-      <div class="grid-3">
-
-        <div class="field">
-          <label>মৃত ব্যক্তির নাম</label>
-          <input id="editDeathName">
-        </div>
-
-        <div class="field">
-          <label>পিতা/স্বামী</label>
-          <input id="editDeathFather">
-        </div>
-
-        <div class="field">
-          <label>মাতা</label>
-          <input id="editDeathMother">
-        </div>
-
-        <div class="field">
-          <label>মৃত্যুর তারিখ</label>
-          <input id="editDeathDate" type="date">
-        </div>
-
-        <div class="field">
-          <label>মৃত্যুর স্থান</label>
-          <input id="editDeathPlace">
-        </div>
-
-        <div class="field">
-          <label>মৃত্যুর কারণ</label>
-          <input id="editDeathCause">
-        </div>
-
-      </div>
-
-      <div class="address-box">
-
-        <div class="grid-3">
-
-          <div class="field">
-            <label>বাড়ী</label>
-            <input id="editDeathHouse">
-          </div>
-
-          <div class="field">
-            <label>গ্রাম</label>
-            <input id="editDeathVillage">
-          </div>
-
-          <div class="field">
-            <label>ডাকঘর</label>
-            <input id="editDeathPost">
-          </div>
-
-          <div class="field">
-            <label>থানা</label>
-            <input id="editDeathThana">
-          </div>
-
-          <div class="field">
-            <label>জেলা</label>
-            <input id="editDeathDistrict">
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div id="editMembersArea" class="hidden">
-
-      <div class="section-title">সদস্যদের তথ্য</div>
-
-      <div class="member-table-wrap">
-
-        <table class="member-table">
-
-          <thead>
-            <tr>
-              <th>ক্রমিক</th>
-              <th>নাম</th>
-              <th>জন্ম তারিখ</th>
-              <th>বয়স</th>
-              <th>সম্পর্ক</th>
-              <th>মন্তব্য</th>
-              <th>মুছুন</th>
-            </tr>
-          </thead>
-
-          <tbody id="editMemberBody"></tbody>
-
-        </table>
-
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-info" onclick="addEditMember()">
-          + সদস্য যোগ করুন
-        </button>
-      </div>
-
-    </div>
-
-    <div class="section-title">অতিরিক্ত তথ্য</div>
-
-    <textarea id="editOtherDetails"></textarea>
-
-    <div class="btn-row">
-
-      <button class="btn btn-success" onclick="saveEdit()">
-        তথ্য সংরক্ষণ
-      </button>
-
-      <button class="btn btn-light" onclick="closeEdit()">
-        বাতিল
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ================= PRINT AREA ================= -->
-
-<div id="printArea"></div>
-
-
-<script>
-
-/* =====================================================
-   API
-===================================================== */
-
-const API_URL =
-"https://script.google.com/macros/s/AKfycbw10xhBGD0nugFGsk28_UCWqkmRgv3x0qts7dtDsse3mJiRkOVNOzaon7GpDsiANzvw8A/exec";
-
-
-/* =====================================================
-   GLOBAL
-===================================================== */
-
-let members = [];
-let editMembers = [];
-let applications = [];
-let editingTracking = null;
-let lastApplication = null;
-
-
-/* =====================================================
-   BASIC HELPERS
-===================================================== */
-
-function $(id){
-  return document.getElementById(id);
+    flex-direction:column;
 }
 
-function val(id){
-  return $(id) ? $(id).value.trim() : "";
+.form-group.full{
+    grid-column:1/-1;
 }
 
-function setVal(id,value){
-  if($(id)) $(id).value = value ?? "";
+.form-group label{
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:6px;
+    color:#334155;
 }
 
-function showLoading(){
-  $("loading").classList.add("show");
+.form-group label span{
+    color:#dc2626;
 }
 
-function hideLoading(){
-  $("loading").classList.remove("show");
+input,
+select,
+textarea{
+    width:100%;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    padding:11px 12px;
+    outline:none;
+    background:white;
+    font-size:15px;
 }
 
-function escapeHtml(value){
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#0f766e;
+    box-shadow:0 0 0 3px rgba(15,118,110,.1);
 }
 
-function jsonSafe(value){
-  return JSON.stringify(String(value ?? ""))
-    .replace(/</g,"\\u003c")
-    .replace(/>/g,"\\u003e")
-    .replace(/&/g,"\\u0026");
+textarea{
+    min-height:90px;
+    resize:vertical;
 }
-
-
-/* =====================================================
-   PAGE SWITCH
-===================================================== */
-
-function showPage(page){
-
-  $("applyPage").classList.add("hidden");
-  $("loginPage").classList.add("hidden");
-  $("adminPage").classList.add("hidden");
-
-  $("navApply").classList.remove("active");
-  $("navAdmin").classList.remove("active");
-
-  if(page === "apply"){
-    $("applyPage").classList.remove("hidden");
-    $("navApply").classList.add("active");
-  }
-
-  if(page === "admin"){
-
-    $("navAdmin").classList.add("active");
-
-    if(sessionStorage.getItem("certificateAdmin") === "1"){
-      $("adminPage").classList.remove("hidden");
-      loadApplications();
-    }else{
-      $("loginPage").classList.remove("hidden");
-    }
-  }
-}
-
-
-/* =====================================================
-   CERTIFICATE CHANGE
-===================================================== */
-
-function certificateChanged(){
-
-  const type = val("certificate");
-
-  $("personSection").classList.add("hidden");
-  $("membersSection").classList.add("hidden");
-  $("familySection").classList.add("hidden");
-  $("deathSection").classList.add("hidden");
-  $("otherSection").classList.add("hidden");
-  $("otherCertificateBox").classList.add("hidden");
-
-  if(type === "warish" || type === "inheritance"){
-    $("personSection").classList.remove("hidden");
-    $("membersSection").classList.remove("hidden");
-  }
-
-  if(type === "family"){
-    $("familySection").classList.remove("hidden");
-    $("membersSection").classList.remove("hidden");
-  }
-
-  if(type === "death"){
-    $("deathSection").classList.remove("hidden");
-  }
-
-  if(type === "other"){
-    $("otherSection").classList.remove("hidden");
-    $("otherCertificateBox").classList.remove("hidden");
-  }
-}
-
 
 /* =====================================================
    ADDRESS
 ===================================================== */
 
-function buildAddress(house,village,post,thana,district){
+.address-box{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+}
 
-  const parts = [];
+.address-title{
+    font-weight:bold;
+    color:#0f766e;
+    margin-bottom:12px;
+}
 
-  if(house) parts.push("বাড়ীঃ " + house);
-  if(village) parts.push("গ্রামঃ " + village);
-  if(post) parts.push("ডাকঘরঃ " + post);
-  if(thana) parts.push("থানাঃ " + thana);
-  if(district) parts.push("জেলাঃ " + district);
+/* =====================================================
+   BUTTONS
+===================================================== */
 
-  return parts.join(" , ");
+.btn{
+    border:0;
+    border-radius:8px;
+    padding:11px 18px;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.btn-primary{
+    background:#0f766e;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#115e59;
+}
+
+.btn-success{
+    background:#15803d;
+    color:white;
+}
+
+.btn-danger{
+    background:#dc2626;
+    color:white;
+}
+
+.btn-warning{
+    background:#d97706;
+    color:white;
+}
+
+.btn-secondary{
+    background:#475569;
+    color:white;
+}
+
+.btn-light{
+    background:#e2e8f0;
+    color:#1e293b;
+}
+
+.action-row{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+/* =====================================================
+   MEMBER TABLE
+===================================================== */
+
+.table-wrapper{
+    overflow-x:auto;
+}
+
+.member-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:800px;
+}
+
+.member-table th,
+.member-table td{
+    border:1px solid #cbd5e1;
+    padding:7px;
+    text-align:center;
+}
+
+.member-table th{
+    background:#ecfdf5;
+    color:#115e59;
+    font-size:14px;
+}
+
+.member-table input{
+    min-width:100px;
+    padding:7px;
+}
+
+/* =====================================================
+   ALERT
+===================================================== */
+
+.alert{
+    padding:13px 15px;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.alert-success{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.alert-danger{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.alert-info{
+    background:#dbeafe;
+    color:#1e40af;
+}
+
+/* =====================================================
+   TRACKING
+===================================================== */
+
+.tracking-box{
+    background:#ecfdf5;
+    border:2px dashed #0f766e;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.tracking-number{
+    font-size:25px;
+    font-weight:bold;
+    color:#0f766e;
+    letter-spacing:1px;
+}
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+.admin-toolbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+
+.admin-toolbar input,
+.admin-toolbar select{
+    max-width:280px;
+}
+
+.application-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:1050px;
+}
+
+.application-table th,
+.application-table td{
+    border:1px solid #cbd5e1;
+    padding:9px;
+    text-align:left;
+}
+
+.application-table th{
+    background:#115e59;
+    color:white;
+    white-space:nowrap;
+}
+
+.application-table tr:nth-child(even){
+    background:#f8fafc;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.status-pending{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.status-processing{
+    background:#dbeafe;
+    color:#1e40af;
+}
+
+.status-approved{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.status-delivered{
+    background:#ccfbf1;
+    color:#115e59;
+}
+
+.status-rejected{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    z-index:9999;
+}
+
+.modal-box{
+    background:white;
+    width:min(950px,100%);
+    max-height:92vh;
+    overflow:auto;
+    border-radius:14px;
+    padding:22px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    border-bottom:1px solid #e2e8f0;
+    padding-bottom:12px;
+    margin-bottom:15px;
+}
+
+.modal-header h2{
+    margin:0;
+    color:#115e59;
+}
+
+.close-btn{
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#fee2e2;
+    color:#991b1b;
+    font-size:20px;
+}
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-overlay{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#0f766e,#134e4a);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10000;
+}
+
+.login-box{
+    background:white;
+    width:min(420px,92%);
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
+}
+
+.login-logo{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#0f766e;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 15px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.login-box h2{
+    text-align:center;
+    margin:0 0 6px;
+}
+
+.login-subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:22px;
+}
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-box{
+    display:flex;
+    gap:10px;
+    max-width:700px;
+}
+
+.search-box input{
+    flex:1;
+}
+
+/* =====================================================
+   DETAIL
+===================================================== */
+
+.detail-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+    gap:10px;
+}
+
+.detail-item{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    padding:10px;
+    border-radius:7px;
+}
+
+.detail-item strong{
+    display:block;
+    color:#475569;
+    font-size:13px;
+    margin-bottom:3px;
+}
+
+.detail-item span{
+    color:#0f172a;
+}
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.75);
+    z-index:11000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.loading-box{
+    background:white;
+    padding:25px 35px;
+    border-radius:12px;
+    box-shadow:0 5px 30px rgba(0,0,0,.15);
+    text-align:center;
+}
+
+.spinner{
+    width:38px;
+    height:38px;
+    border:4px solid #d1fae5;
+    border-top-color:#0f766e;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+    margin:auto auto 12px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#64748b;
+    font-size:13px;
+}
+
+/* =====================================================
+   PRINT
+===================================================== */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    body *{
+        visibility:hidden;
+    }
+
+    #printArea,
+    #printArea *{
+        visibility:visible;
+    }
+
+    #printArea{
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        background:white;
+    }
+
+    .no-print{
+        display:none !important;
+    }
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:15px;
+    }
+
+    .header-title h1{
+        font-size:20px;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="top-header">
+
+    <div class="header-inner">
+
+        <div class="header-title">
+
+            <h1>
+                সনদ আবেদন ও ব্যবস্থাপনা
+            </h1>
+
+            <p>
+                ০৩ নং পাঁচলাইশ ওয়ার্ড,
+                চট্টগ্রাম সিটি কর্পোরেশন
+            </p>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button onclick="showHome()">
+                আবেদন
+            </button>
+
+            <button onclick="showTracking()">
+                আবেদন অনুসন্ধান
+            </button>
+
+            <button onclick="openAdminLogin()">
+                অ্যাডমিন
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+<!-- =====================================================
+     HOME / APPLICATION
+===================================================== -->
+
+<section id="homeSection">
+
+
+    <!-- CERTIFICATE SELECT -->
+
+    <div class="card">
+
+        <div class="card-title">
+            ১। সনদের ধরন নির্বাচন করুন
+        </div>
+
+        <div class="certificate-grid">
+
+            <div class="certificate-card"
+                 data-type="warish"
+                 onclick="selectCertificate('warish')">
+
+                <div class="certificate-icon">👨‍👩‍👧‍👦</div>
+                <h3>ওয়ারিশ সনদ</h3>
+
+            </div>
+
+
+            <div class="certificate-card"
+                 data-type="inheritance"
+                 onclick="selectCertificate('inheritance')">
+
+                <div class="certificate-icon">📜</div>
+                <h3>উত্তরাধিকার সনদ</h3>
+
+            </div>
+
+
+            <div class="certificate-card"
+                 data-type="family"
+                 onclick="selectCertificate('family')">
+
+                <div class="certificate-icon">🏠</div>
+                <h3>পারিবারিক সনদ</h3>
+
+            </div>
+
+
+            <div class="certificate-card"
+                 data-type="death"
+                 onclick="selectCertificate('death')">
+
+                <div class="certificate-icon">🕊️</div>
+                <h3>মৃত্যু সনদ</h3>
+
+            </div>
+
+
+            <div class="certificate-card"
+                 data-type="character"
+                 onclick="selectCertificate('character')">
+
+                <div class="certificate-icon">📋</div>
+                <h3>চারিত্রিক সনদ</h3>
+
+            </div>
+
+
+            <div class="certificate-card"
+                 data-type="citizenship"
+                 onclick="selectCertificate('citizenship')">
+
+                <div class="certificate-icon">🏛️</div>
+                <h3>নাগরিকত্ব সনদ</h3>
+
+            </div>
+
+
+            <div class="certificate-card"
+                 data-type="nationality"
+                 onclick="selectCertificate('nationality')">
+
+                <div class="certificate-icon">🇧🇩</div>
+                <h3>জাতীয়তা সনদ</h3>
+
+            </div>
+
+
+            <div class="certificate-card"
+                 data-type="remarriage"
+                 onclick="selectCertificate('remarriage')">
+
+                <div class="certificate-icon">💍</div>
+                <h3>পুনঃবিবাহ না হওয়ার সনদ</h3>
+
+            </div>
+
+
+            <div class="certificate-card"
+                 data-type="other"
+                 onclick="selectCertificate('other')">
+
+                <div class="certificate-icon">📄</div>
+                <h3>অন্যান্য</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- APPLICATION FORM -->
+
+    <div id="applicationFormSection"
+         class="card hidden">
+
+        <div class="card-title">
+
+            আবেদনকারীর তথ্য
+
+        </div>
+
+
+        <div id="formAlert"></div>
+
+
+        <form id="applicationForm"
+              onsubmit="submitApplication(event)">
+
+
+            <!-- =========================================
+                 CERTIFICATE NAME
+            ========================================== -->
+
+            <div id="otherCertificateGroup"
+                 class="form-group full hidden">
+
+                <label>
+                    সনদের নাম <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="otherCertificateName"
+                    placeholder="সনদের নাম লিখুন">
+
+            </div>
+
+
+            <!-- =========================================
+                 APPLICANT
+            ========================================== -->
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        আবেদনকারীর নাম <span>*</span>
+                    </label>
+
+                    <input
+                        id="applicantName"
+                        required
+                        placeholder="পূর্ণ নাম">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        পিতা/স্বামীর নাম
+                    </label>
+
+                    <input
+                        id="applicantFather"
+                        placeholder="পিতা/স্বামীর নাম">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        মাতার নাম
+                    </label>
+
+                    <input
+                        id="applicantMother"
+                        placeholder="মাতার নাম">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        আবেদনকারীর সম্পর্ক
+                    </label>
+
+                    <select id="applicantRelation">
+
+                        <option value="">
+                            নির্বাচন করুন
+                        </option>
+
+                        <option>নিজ</option>
+                        <option>পুত্র</option>
+                        <option>কন্যা</option>
+                        <option>পিতা</option>
+                        <option>মাতা</option>
+                        <option>স্বামী</option>
+                        <option>স্ত্রী</option>
+                        <option>ভাই</option>
+                        <option>বোন</option>
+                        <option>দাদা</option>
+                        <option>দাদী</option>
+                        <option>নাতি</option>
+                        <option>নাতনী</option>
+                        <option>অন্যান্য</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        মোবাইল নম্বর
+                    </label>
+
+                    <input
+                        id="mobile"
+                        type="tel"
+                        placeholder="০১XXXXXXXXX">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        জাতীয় পরিচয়পত্র নম্বর
+                    </label>
+
+                    <input
+                        id="nid"
+                        placeholder="NID নম্বর">
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 APPLICANT ADDRESS
+            ========================================== -->
+
+            <div class="address-box">
+
+                <div class="address-title">
+                    আবেদনকারীর ঠিকানা
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>বাড়ী</label>
+
+                        <input
+                            id="appHouse"
+                            placeholder="বাড়ীর নাম/নম্বর">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>গ্রাম/মহল্লা</label>
+
+                        <input
+                            id="appVillage"
+                            placeholder="গ্রাম/মহল্লা">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>ডাকঘর</label>
+
+                        <input
+                            id="appPost"
+                            placeholder="ডাকঘর">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>থানা/উপজেলা</label>
+
+                        <input
+                            id="appThana"
+                            value="বায়েজিদ বোস্তামী">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>জেলা</label>
+
+                        <input
+                            id="appDistrict"
+                            value="চট্টগ্রাম">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 PERSON INFORMATION
+            ========================================== -->
+
+            <div id="personSection"
+                 class="hidden">
+
+                <div class="card-title"
+                     style="margin-top:25px">
+
+                    যার নামে সনদ হবে
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            নাম <span>*</span>
+                        </label>
+
+                        <input
+                            id="certificatePersonName">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            পিতা/স্বামীর নাম
+                        </label>
+
+                        <input
+                            id="certificatePersonFather">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            মাতার নাম
+                        </label>
+
+                        <input
+                            id="certificatePersonMother">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            সম্পর্ক
+                        </label>
+
+                        <select id="certificatePersonRelation">
+
+                            <option value="">
+                                নির্বাচন করুন
+                            </option>
+
+                            <option>নিজ</option>
+                            <option>পিতা</option>
+                            <option>মাতা</option>
+                            <option>স্বামী</option>
+                            <option>স্ত্রী</option>
+                            <option>পুত্র</option>
+                            <option>কন্যা</option>
+                            <option>ভাই</option>
+                            <option>বোন</option>
+                            <option>দাদা</option>
+                            <option>দাদী</option>
+                            <option>নাতি</option>
+                            <option>নাতনী</option>
+                            <option>অন্যান্য</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PERMANENT ADDRESS -->
+
+                <div class="address-box">
+
+                    <div class="address-title">
+                        স্থায়ী ঠিকানা
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>বাড়ী</label>
+                            <input id="personPermHouse">
+                        </div>
+
+                        <div class="form-group">
+                            <label>গ্রাম/মহল্লা</label>
+                            <input id="personPermVillage">
+                        </div>
+
+                        <div class="form-group">
+                            <label>ডাকঘর</label>
+                            <input id="personPermPost">
+                        </div>
+
+                        <div class="form-group">
+                            <label>থানা/উপজেলা</label>
+                            <input id="personPermThana"
+                                   value="বায়েজিদ বোস্তামী">
+                        </div>
+
+                        <div class="form-group">
+                            <label>জেলা</label>
+                            <input id="personPermDistrict"
+                                   value="চট্টগ্রাম">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRESENT ADDRESS -->
+
+                <div class="address-box">
+
+                    <div class="address-title">
+                        বর্তমান ঠিকানা
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>বাড়ী</label>
+                            <input id="personPresentHouse">
+                        </div>
+
+                        <div class="form-group">
+                            <label>গ্রাম/মহল্লা</label>
+                            <input id="personPresentVillage">
+                        </div>
+
+                        <div class="form-group">
+                            <label>ডাকঘর</label>
+                            <input id="personPresentPost">
+                        </div>
+
+                        <div class="form-group">
+                            <label>থানা/উপজেলা</label>
+                            <input id="personPresentThana"
+                                   value="বায়েজিদ বোস্তামী">
+                        </div>
+
+                        <div class="form-group">
+                            <label>জেলা</label>
+                            <input id="personPresentDistrict"
+                                   value="চট্টগ্রাম">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 FAMILY
+            ========================================== -->
+
+            <div id="familySection"
+                 class="hidden">
+
+                <div class="card-title"
+                     style="margin-top:25px">
+
+                    পরিবারের প্রধানের তথ্য
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>পরিবারের প্রধানের নাম</label>
+
+                        <input id="familyHead">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>পিতা/স্বামীর নাম</label>
+
+                        <input id="familyFather">
+
+                    </div>
+
+                </div>
+
+
+                <div class="address-box">
+
+                    <div class="address-title">
+                        পরিবারের ঠিকানা
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>বাড়ী</label>
+                            <input id="familyHouse">
+                        </div>
+
+                        <div class="form-group">
+                            <label>গ্রাম/মহল্লা</label>
+                            <input id="familyVillage">
+                        </div>
+
+                        <div class="form-group">
+                            <label>ডাকঘর</label>
+                            <input id="familyPost">
+                        </div>
+
+                        <div class="form-group">
+                            <label>থানা/উপজেলা</label>
+                            <input id="familyThana"
+                                   value="বায়েজিদ বোস্তামী">
+                        </div>
+
+                        <div class="form-group">
+                            <label>জেলা</label>
+                            <input id="familyDistrict"
+                                   value="চট্টগ্রাম">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 DEATH
+            ========================================== -->
+
+            <div id="deathSection"
+                 class="hidden">
+
+                <div class="card-title"
+                     style="margin-top:25px">
+
+                    মৃত ব্যক্তির তথ্য
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            মৃত ব্যক্তির নাম <span>*</span>
+                        </label>
+
+                        <input id="deathName">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            পিতার/স্বামীর নাম
+                        </label>
+
+                        <input id="deathFather">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            মাতার নাম
+                        </label>
+
+                        <input id="deathMother">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            মৃত্যুর তারিখ
+                        </label>
+
+                        <input
+                            id="deathDate"
+                            type="date">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            মৃত্যুর স্থান
+                        </label>
+
+                        <input id="deathPlace">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            মৃত্যুর কারণ
+                        </label>
+
+                        <input id="deathCause">
+
+                    </div>
+
+                </div>
+
+
+                <div class="address-box">
+
+                    <div class="address-title">
+                        মৃত ব্যক্তির ঠিকানা
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>বাড়ী</label>
+                            <input id="deathHouse">
+                        </div>
+
+                        <div class="form-group">
+                            <label>গ্রাম/মহল্লা</label>
+                            <input id="deathVillage">
+                        </div>
+
+                        <div class="form-group">
+                            <label>ডাকঘর</label>
+                            <input id="deathPost">
+                        </div>
+
+                        <div class="form-group">
+                            <label>থানা/উপজেলা</label>
+                            <input id="deathThana"
+                                   value="বায়েজিদ বোস্তামী">
+                        </div>
+
+                        <div class="form-group">
+                            <label>জেলা</label>
+                            <input id="deathDistrict"
+                                   value="চট্টগ্রাম">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 MEMBERS
+            ========================================== -->
+
+            <div id="membersSection"
+                 class="hidden">
+
+                <div class="card-title"
+                     style="margin-top:25px">
+
+                    সদস্যদের তথ্য
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="member-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ক্রমিক নং</th>
+                                <th>নাম</th>
+                                <th>জন্ম তারিখ</th>
+                                <th>বয়স</th>
+                                <th>সম্পর্ক</th>
+                                <th>মন্তব্য</th>
+                                <th>মুছুন</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="membersBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    style="margin-top:12px"
+                    onclick="addMemberRow()">
+
+                    + সদস্য যোগ করুন
+
+                </button>
+
+            </div>
+
+
+            <!-- =========================================
+                 OTHER
+            ========================================== -->
+
+            <div id="otherSection"
+                 class="hidden">
+
+                <div class="card-title"
+                     style="margin-top:25px">
+
+                    অতিরিক্ত তথ্য
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        বিস্তারিত
+                    </label>
+
+                    <textarea
+                        id="otherDetails"
+                        placeholder="প্রয়োজনীয় অতিরিক্ত তথ্য লিখুন"></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 SUBMIT
+            ========================================== -->
+
+            <div class="action-row">
+
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    onclick="resetForm()">
+
+                    বাতিল
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="submitBtn">
+
+                    আবেদন জমা দিন
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     TRACKING SECTION
+===================================================== -->
+
+<section id="trackingSection"
+         class="hidden">
+
+    <div class="card">
+
+        <div class="card-title">
+            আবেদন অনুসন্ধান
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                id="trackingSearch"
+                placeholder="Tracking Number লিখুন">
+
+            <button
+                class="btn btn-primary"
+                onclick="searchApplication()">
+
+                অনুসন্ধান
+
+            </button>
+
+        </div>
+
+
+        <div id="trackingResult"
+             style="margin-top:20px">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ADMIN SECTION
+===================================================== -->
+
+<section id="adminSection"
+         class="hidden">
+
+    <div class="card">
+
+        <div class="card-title">
+
+            অ্যাডমিন ড্যাশবোর্ড
+
+        </div>
+
+
+        <div class="admin-toolbar">
+
+            <input
+                id="adminSearch"
+                placeholder="নাম / Tracking / মোবাইল দিয়ে খুঁজুন"
+                oninput="filterApplications()">
+
+
+            <select
+                id="statusFilter"
+                onchange="filterApplications()">
+
+                <option value="">
+                    সব স্ট্যাটাস
+                </option>
+
+                <option value="অপেক্ষমান">
+                    অপেক্ষমান
+                </option>
+
+                <option value="প্রক্রিয়াধীন">
+                    প্রক্রিয়াধীন
+                </option>
+
+                <option value="অনুমোদিত">
+                    অনুমোদিত
+                </option>
+
+                <option value="প্রদান করা হয়েছে">
+                    প্রদান করা হয়েছে
+                </option>
+
+                <option value="বাতিল">
+                    বাতিল
+                </option>
+
+            </select>
+
+
+            <button
+                class="btn btn-primary"
+                onclick="loadApplications()">
+
+                ↻ রিফ্রেশ
+
+            </button>
+
+
+            <button
+                class="btn btn-secondary"
+                onclick="logoutAdmin()">
+
+                লগআউট
+
+            </button>
+
+        </div>
+
+
+        <div id="adminStats"
+             style="margin-bottom:15px">
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table class="application-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Tracking</th>
+                        <th>তারিখ</th>
+                        <th>সনদ</th>
+                        <th>আবেদনকারী</th>
+                        <th>মোবাইল</th>
+                        <th>স্ট্যাটাস</th>
+                        <th>অ্যাকশন</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="applicationsBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     DETAIL MODAL
+===================================================== -->
+
+<div id="detailModal"
+     class="modal hidden">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2>
+                আবেদনের বিস্তারিত
+            </h2>
+
+            <button
+                class="close-btn"
+                onclick="closeModal('detailModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div id="detailContent">
+        </div>
+
+
+        <div class="action-row no-print">
+
+            <button
+                class="btn btn-primary"
+                onclick="printCurrentApplication()">
+
+                🖨️ প্রিন্ট
+
+            </button>
+
+            <button
+                class="btn btn-warning"
+                onclick="editCurrentApplication()">
+
+                ✏️ এডিট
+
+            </button>
+
+            <button
+                class="btn btn-danger"
+                onclick="deleteCurrentApplication()">
+
+                🗑️ ডিলিট
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADMIN LOGIN
+===================================================== -->
+
+<div id="loginModal"
+     class="login-overlay hidden">
+
+    <div class="login-box">
+
+        <div class="login-logo">
+            ভোট
+        </div>
+
+        <h2>
+            অ্যাডমিন লগইন
+        </h2>
+
+        <div class="login-subtitle">
+            সনদ আবেদন ব্যবস্থাপনা
+        </div>
+
+
+        <div id="loginError"></div>
+
+
+        <div class="form-group"
+             style="margin-bottom:12px">
+
+            <label>
+                ইউজারনেম
+            </label>
+
+            <input
+                id="adminUsername"
+                autocomplete="username">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                পাসওয়ার্ড
+            </label>
+
+            <input
+                id="adminPassword"
+                type="password"
+                autocomplete="current-password">
+
+        </div>
+
+
+        <div class="action-row">
+
+            <button
+                class="btn btn-light"
+                onclick="closeLogin()">
+
+                বাতিল
+
+            </button>
+
+            <button
+                class="btn btn-primary"
+                onclick="loginAdmin()">
+
+                লগইন
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PRINT AREA
+===================================================== -->
+
+<div id="printArea"
+     class="hidden">
+</div>
+
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div id="loading"
+     class="loading hidden">
+
+    <div class="loading-box">
+
+        <div class="spinner"></div>
+
+        <div id="loadingText">
+            অনুগ্রহ করে অপেক্ষা করুন...
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    ০৩ নং পাঁচলাইশ ওয়ার্ড —
+    চট্টগ্রাম সিটি কর্পোরেশন
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   API URL
+===================================================== */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzYr09hCiC0jrZqHjgoy7gxTgYOM01IpE-QJBNoeJmh7KTYYDZfrmUlSsS2H8ga-kXpgQ/exec";
+
+
+/* =====================================================
+   GLOBAL VARIABLES
+===================================================== */
+
+let currentCertificate = "";
+
+let applications = [];
+
+let currentApplication = null;
+
+let editingTracking = null;
+
+
+/* =====================================================
+   CERTIFICATE NAMES
+===================================================== */
+
+const CERTIFICATE_NAMES = {
+
+    warish:
+        "ওয়ারিশ সনদ",
+
+    inheritance:
+        "উত্তরাধিকার সনদ",
+
+    family:
+        "পারিবারিক সনদ",
+
+    death:
+        "মৃত্যু সনদ",
+
+    character:
+        "চারিত্রিক সনদ",
+
+    citizenship:
+        "নাগরিকত্ব সনদ",
+
+    nationality:
+        "জাতীয়তা সনদ",
+
+    remarriage:
+        "পুনঃবিবাহ না হওয়ার সনদ",
+
+    other:
+        "অন্যান্য"
+
+};
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        showHome();
+
+    }
+);
+
+
+/* =====================================================
+   SELECT CERTIFICATE
+===================================================== */
+
+function selectCertificate(type){
+
+    currentCertificate = type;
+
+    editingTracking = null;
+
+
+    document
+        .querySelectorAll(".certificate-card")
+        .forEach(function(card){
+
+            card.classList.remove("active");
+
+        });
+
+
+    const selected =
+        document.querySelector(
+            '.certificate-card[data-type="' +
+            type +
+            '"]'
+        );
+
+
+    if(selected){
+        selected.classList.add("active");
+    }
+
+
+    document
+        .getElementById(
+            "applicationFormSection"
+        )
+        .classList.remove("hidden");
+
+
+    hideAllConditionalSections();
+
+
+    if(
+        type === "warish" ||
+        type === "inheritance"
+    ){
+
+        show("personSection");
+        show("membersSection");
+
+        if(
+            document
+                .getElementById("membersBody")
+                .children.length === 0
+        ){
+            addMemberRow();
+        }
+
+    }
+
+
+    if(type === "family"){
+
+        show("familySection");
+        show("membersSection");
+
+        if(
+            document
+                .getElementById("membersBody")
+                .children.length === 0
+        ){
+            addMemberRow();
+        }
+
+    }
+
+
+    if(type === "death"){
+
+        show("deathSection");
+
+    }
+
+
+    if(type === "other"){
+
+        show("otherCertificateGroup");
+        show("otherSection");
+
+    }
+
+
+    window.scrollTo({
+        top:
+            document
+            .getElementById(
+                "applicationFormSection"
+            )
+            .offsetTop - 15,
+        behavior:"smooth"
+    });
+
 }
 
 
 /* =====================================================
-   MEMBERS
+   CONDITIONAL SECTIONS
 ===================================================== */
 
-const relationOptions = [
-  "পিতা","মাতা","স্বামী","স্ত্রী",
-  "ছেলে","মেয়ে","ভাই","বোন",
-  "দাদা","দাদী","নাতি","নাতনি","অন্যান্য"
-];
+function hideAllConditionalSections(){
 
-function relationSelect(selected,index,edit=false){
+    [
+        "personSection",
+        "familySection",
+        "deathSection",
+        "membersSection",
+        "otherSection",
+        "otherCertificateGroup"
+    ].forEach(function(id){
 
-  let html = `<select onchange="${edit ? `editMembers[${index}].relation=this.value` : `members[${index}].relation=this.value`}">`;
+        hide(id);
 
-  html += `<option value="">-- নির্বাচন --</option>`;
+    });
 
-  relationOptions.forEach(r=>{
-    html += `<option ${r === selected ? "selected" : ""}>${r}</option>`;
-  });
-
-  html += "</select>";
-
-  return html;
 }
 
-function calculateAge(date){
 
-  if(!date) return "";
+/* =====================================================
+   SHOW HOME
+===================================================== */
 
-  const birth = new Date(date);
-  const today = new Date();
+function showHome(){
 
-  if(isNaN(birth.getTime())) return "";
+    show("homeSection");
 
-  let age = today.getFullYear() - birth.getFullYear();
+    hide("trackingSection");
 
-  const m = today.getMonth() - birth.getMonth();
+    hide("adminSection");
 
-  if(m < 0 || (m === 0 && today.getDate() < birth.getDate())){
-    age--;
-  }
-
-  return age >= 0 ? age : "";
 }
 
-function addMember(){
 
-  members.push({
-    name:"",
-    birthDate:"",
-    age:"",
-    relation:"",
-    comment:""
-  });
+/* =====================================================
+   SHOW TRACKING
+===================================================== */
 
-  renderMembers();
+function showTracking(){
+
+    hide("homeSection");
+
+    show("trackingSection");
+
+    hide("adminSection");
+
+    document
+        .getElementById("trackingSearch")
+        .focus();
+
 }
 
-function removeMember(index){
 
-  members.splice(index,1);
-  renderMembers();
+/* =====================================================
+   SHOW / HIDE
+===================================================== */
+
+function show(id){
+
+    const el =
+        document.getElementById(id);
+
+    if(el){
+        el.classList.remove("hidden");
+    }
+
 }
 
-function updateMember(index,key,value){
 
-  members[index][key] = value;
+function hide(id){
 
-  if(key === "birthDate"){
-    members[index].age = calculateAge(value);
-  }
+    const el =
+        document.getElementById(id);
 
-  renderMembers();
+    if(el){
+        el.classList.add("hidden");
+    }
+
 }
 
-function renderMembers(){
 
-  const body = $("memberBody");
+/* =====================================================
+   MEMBER ROW
+===================================================== */
 
-  body.innerHTML = "";
+function addMemberRow(member = {}){
 
-  members.forEach((m,i)=>{
+    const tbody =
+        document.getElementById(
+            "membersBody"
+        );
 
-    body.innerHTML += `
-      <tr>
 
-        <td>${i+1}</td>
+    const row =
+        document.createElement("tr");
+
+
+    row.innerHTML = `
+
+        <td class="serial"></td>
 
         <td>
-          <input
-            value="${escapeHtml(m.name)}"
-            onchange="updateMember(${i},'name',this.value)"
-          >
+            <input
+                class="member-name"
+                value="${escapeAttr(member.name || "")}"
+                placeholder="নাম">
         </td>
 
         <td>
-          <input
-            type="date"
-            value="${escapeHtml(m.birthDate)}"
-            onchange="updateMember(${i},'birthDate',this.value)"
-          >
+            <input
+                type="date"
+                class="member-dob"
+                value="${escapeAttr(member.birthDate || "")}">
         </td>
 
         <td>
-          <input
-            value="${escapeHtml(m.age)}"
-            readonly
-          >
+            <input
+                type="number"
+                class="member-age"
+                value="${escapeAttr(member.age || "")}"
+                placeholder="বয়স">
         </td>
 
         <td>
-          ${relationSelect(m.relation,i,false)}
+            <input
+                class="member-relation"
+                value="${escapeAttr(member.relation || "")}"
+                placeholder="সম্পর্ক">
         </td>
 
         <td>
-          <input
-            value="${escapeHtml(m.comment)}"
-            onchange="updateMember(${i},'comment',this.value)"
-          >
+            <input
+                class="member-comment"
+                value="${escapeAttr(member.comment || "")}"
+                placeholder="মন্তব্য">
         </td>
 
         <td>
-          <button
-            class="small-btn delete-row"
-            onclick="removeMember(${i})"
-          >মুছুন</button>
+            <button
+                type="button"
+                class="btn btn-danger"
+                onclick="removeMemberRow(this)">
+                মুছুন
+            </button>
         </td>
 
-      </tr>
     `;
-  });
+
+
+    tbody.appendChild(row);
+
+    updateSerials();
+
 }
 
 
 /* =====================================================
-   EDIT MEMBERS
+   REMOVE MEMBER
 ===================================================== */
 
-function addEditMember(){
+function removeMemberRow(button){
 
-  editMembers.push({
-    name:"",
-    birthDate:"",
-    age:"",
-    relation:"",
-    comment:""
-  });
+    const row =
+        button.closest("tr");
 
-  renderEditMembers();
-}
+    if(row){
+        row.remove();
+    }
 
-function removeEditMember(index){
+    updateSerials();
 
-  editMembers.splice(index,1);
-  renderEditMembers();
-}
-
-function updateEditMember(index,key,value){
-
-  editMembers[index][key] = value;
-
-  if(key === "birthDate"){
-    editMembers[index].age = calculateAge(value);
-  }
-
-  renderEditMembers();
-}
-
-function renderEditMembers(){
-
-  const body = $("editMemberBody");
-
-  body.innerHTML = "";
-
-  editMembers.forEach((m,i)=>{
-
-    body.innerHTML += `
-      <tr>
-
-        <td>${i+1}</td>
-
-        <td>
-          <input
-            value="${escapeHtml(m.name)}"
-            onchange="updateEditMember(${i},'name',this.value)"
-          >
-        </td>
-
-        <td>
-          <input
-            type="date"
-            value="${escapeHtml(m.birthDate)}"
-            onchange="updateEditMember(${i},'birthDate',this.value)"
-          >
-        </td>
-
-        <td>
-          <input
-            value="${escapeHtml(m.age)}"
-            readonly
-          >
-        </td>
-
-        <td>
-          ${relationSelect(m.relation,i,true)}
-        </td>
-
-        <td>
-          <input
-            value="${escapeHtml(m.comment)}"
-            onchange="updateEditMember(${i},'comment',this.value)"
-          >
-        </td>
-
-        <td>
-          <button
-            class="small-btn delete-row"
-            onclick="removeEditMember(${i})"
-          >মুছুন</button>
-        </td>
-
-      </tr>
-    `;
-  });
 }
 
 
 /* =====================================================
-   NORMALIZE APPLICATION
+   UPDATE SERIAL
 ===================================================== */
 
-function normalizeApplication(a){
+function updateSerials(){
 
-  a = a || {};
+    document
+        .querySelectorAll(
+            "#membersBody tr"
+        )
+        .forEach(function(row,index){
 
-  return {
+            const serial =
+                row.querySelector(".serial");
 
-    tracking:a.tracking || a.Tracking || a.id || "",
+            if(serial){
+                serial.textContent =
+                    index + 1;
+            }
 
-    createdAt:a.createdAt || a.CreatedAt || "",
+        });
 
-    updatedAt:a.updatedAt || a.UpdatedAt || "",
-
-    status:a.status || a.Status || "অপেক্ষমাণ",
-
-    certificate:a.certificate || a.CertificateType || "",
-
-    certificateName:a.certificateName || a.CertificateName || "",
-
-    otherCertificateName:
-      a.otherCertificateName ||
-      a.OtherCertificateName ||
-      "",
-
-    applicantName:
-      a.applicantName ||
-      a.ApplicantName ||
-      "",
-
-    applicantFather:
-      a.applicantFather ||
-      a.ApplicantFather ||
-      "",
-
-    applicantMother:
-      a.applicantMother ||
-      a.ApplicantMother ||
-      "",
-
-    applicantRelation:
-      a.applicantRelation ||
-      a.ApplicantRelation ||
-      "",
-
-    applicantMobile:
-      a.applicantMobile ||
-      a.mobile ||
-      a.Mobile ||
-      "",
-
-    applicantNid:
-      a.applicantNid ||
-      a.nid ||
-      a.NID ||
-      "",
-
-    appHouse:a.appHouse || a.AppHouse || "",
-    appVillage:a.appVillage || a.AppVillage || "",
-    appPost:a.appPost || a.AppPost || "",
-    appThana:a.appThana || a.AppThana || "বায়েজিদ বোস্তামী",
-    appDistrict:a.appDistrict || a.AppDistrict || "চট্টগ্রাম",
-
-    applicantAddress:
-      a.applicantAddress ||
-      a.permanentAddress ||
-      a.ApplicantAddress ||
-      "",
-
-    certificatePersonName:
-      a.certificatePersonName ||
-      a.personName ||
-      a.PersonName ||
-      "",
-
-    certificatePersonFather:
-      a.certificatePersonFather ||
-      a.personFather ||
-      a.PersonFather ||
-      "",
-
-    certificatePersonMother:
-      a.certificatePersonMother ||
-      a.personMother ||
-      a.PersonMother ||
-      "",
-
-    certificatePersonRelation:
-      a.certificatePersonRelation ||
-      a.personRelation ||
-      a.PersonRelation ||
-      "",
-
-    personPermHouse:
-      a.personPermHouse ||
-      a.PersonPermHouse ||
-      "",
-
-    personPermVillage:
-      a.personPermVillage ||
-      a.PersonPermVillage ||
-      "",
-
-    personPermPost:
-      a.personPermPost ||
-      a.PersonPermPost ||
-      "",
-
-    personPermThana:
-      a.personPermThana ||
-      a.PersonPermThana ||
-      "",
-
-    personPermDistrict:
-      a.personPermDistrict ||
-      a.PersonPermDistrict ||
-      "",
-
-    permanentAddress:
-      a.permanentAddress ||
-      a.PermanentAddress ||
-      "",
-
-    personPresentHouse:
-      a.personPresentHouse ||
-      a.PersonPresentHouse ||
-      "",
-
-    personPresentVillage:
-      a.personPresentVillage ||
-      a.PersonPresentVillage ||
-      "",
-
-    personPresentPost:
-      a.personPresentPost ||
-      a.PersonPresentPost ||
-      "",
-
-    personPresentThana:
-      a.personPresentThana ||
-      a.PersonPresentThana ||
-      "",
-
-    personPresentDistrict:
-      a.personPresentDistrict ||
-      a.PersonPresentDistrict ||
-      "",
-
-    presentAddress:
-      a.presentAddress ||
-      a.PresentAddress ||
-      "",
-
-    certificateMembers:
-      a.certificateMembers ||
-      a.members ||
-      a.CertificateMembers ||
-      [],
-
-    familyHead:
-      a.familyHead ||
-      a.FamilyHead ||
-      "",
-
-    familyFather:
-      a.familyFather ||
-      a.FamilyFather ||
-      "",
-
-    familyHouse:a.familyHouse || a.FamilyHouse || "",
-    familyVillage:a.familyVillage || a.FamilyVillage || "",
-    familyPost:a.familyPost || a.FamilyPost || "",
-    familyThana:a.familyThana || a.FamilyThana || "",
-    familyDistrict:a.familyDistrict || a.FamilyDistrict || "",
-
-    familyAddress:
-      a.familyAddress ||
-      a.FamilyAddress ||
-      "",
-
-    deathName:
-      a.deathName ||
-      a.DeathName ||
-      "",
-
-    deathFather:
-      a.deathFather ||
-      a.DeathFather ||
-      "",
-
-    deathMother:
-      a.deathMother ||
-      a.DeathMother ||
-      "",
-
-    deathDate:
-      a.deathDate ||
-      a.DeathDate ||
-      "",
-
-    deathPlace:
-      a.deathPlace ||
-      a.DeathPlace ||
-      "",
-
-    deathCause:
-      a.deathCause ||
-      a.DeathCause ||
-      "",
-
-    deathHouse:a.deathHouse || a.DeathHouse || "",
-    deathVillage:a.deathVillage || a.DeathVillage || "",
-    deathPost:a.deathPost || a.DeathPost || "",
-    deathThana:a.deathThana || a.DeathThana || "",
-    deathDistrict:a.deathDistrict || a.DeathDistrict || "",
-
-    deathAddress:
-      a.deathAddress ||
-      a.DeathAddress ||
-      "",
-
-    otherDetails:
-      a.otherDetails ||
-      a.additionalDetails ||
-      a.AdditionalDetails ||
-      ""
-  };
 }
 
 
 /* =====================================================
-   CERTIFICATE NAME
+   COLLECT MEMBERS
 ===================================================== */
 
-function certificateName(type,app={}){
+function collectMembers(){
 
-  const names = {
-    warish:"ওয়ারিশ সনদ",
-    inheritance:"উত্তরাধিকার সনদ",
-    family:"পারিবারিক সনদ",
-    death:"মৃত্যু সনদ",
-    character:"চারিত্রিক সনদ",
-    citizenship:"নাগরিকত্ব সনদ",
-    nationality:"জাতীয়তা সনদ",
-    remarriage:"পুনঃবিবাহ না হওয়ার সনদ"
-  };
+    const members = [];
 
-  if(type === "other"){
-    return app.otherCertificateName || "অন্যান্য সনদ";
-  }
 
-  return names[type] || app.certificateName || type || "";
+    document
+        .querySelectorAll(
+            "#membersBody tr"
+        )
+        .forEach(function(row){
+
+            const name =
+                row.querySelector(
+                    ".member-name"
+                )?.value.trim() || "";
+
+
+            const birthDate =
+                row.querySelector(
+                    ".member-dob"
+                )?.value || "";
+
+
+            const age =
+                row.querySelector(
+                    ".member-age"
+                )?.value || "";
+
+
+            const relation =
+                row.querySelector(
+                    ".member-relation"
+                )?.value.trim() || "";
+
+
+            const comment =
+                row.querySelector(
+                    ".member-comment"
+                )?.value.trim() || "";
+
+
+            if(
+                name ||
+                birthDate ||
+                age ||
+                relation ||
+                comment
+            ){
+
+                members.push({
+
+                    serial:
+                        members.length + 1,
+
+                    name:name,
+
+                    birthDate:
+                        birthDate,
+
+                    age:
+                        age,
+
+                    relation:
+                        relation,
+
+                    comment:
+                        comment
+
+                });
+
+            }
+
+        });
+
+
+    return members;
+
 }
 
 
@@ -2186,341 +2373,808 @@ function certificateName(type,app={}){
    SUBMIT APPLICATION
 ===================================================== */
 
-async function submitApplication(){
+async function submitApplication(event){
 
-  const certificate = val("certificate");
+    event.preventDefault();
 
-  if(!certificate){
-    alert("সনদের ধরন নির্বাচন করুন।");
-    return;
-  }
 
-  if(!val("applicantName")){
-    alert("আবেদনকারীর নাম লিখুন।");
-    return;
-  }
+    if(!currentCertificate){
 
-  if(!val("applicantFather")){
-    alert("পিতা/স্বামীর নাম লিখুন।");
-    return;
-  }
+        showAlert(
+            "formAlert",
+            "আগে সনদের ধরন নির্বাচন করুন।",
+            "danger"
+        );
 
-  if(!val("applicantMobile")){
-    alert("মোবাইল নম্বর লিখুন।");
-    return;
-  }
-
-  if((certificate === "warish" || certificate === "inheritance")
-      && !val("certificatePersonName")){
-
-    alert("যার নামে সনদ তার নাম লিখুন।");
-    return;
-  }
-
-  if(certificate === "family" && !val("familyHead")){
-    alert("পরিবারের প্রধানের নাম লিখুন।");
-    return;
-  }
-
-  if(certificate === "death"){
-
-    if(!val("deathName")){
-      alert("মৃত ব্যক্তির নাম লিখুন।");
-      return;
+        return;
     }
 
-    if(!val("deathDate")){
-      alert("মৃত্যুর তারিখ দিন।");
-      return;
-    }
-  }
 
-  const applicantAddress = buildAddress(
-    val("appHouse"),
-    val("appVillage"),
-    val("appPost"),
-    val("appThana"),
-    val("appDistrict")
-  );
+    const payload =
+        collectFormData();
 
-  const personAddress = buildAddress(
-    val("personPermHouse"),
-    val("personPermVillage"),
-    val("personPermPost"),
-    val("personPermThana"),
-    val("personPermDistrict")
-  );
 
-  const personPresentAddress = buildAddress(
-    val("personPresentHouse"),
-    val("personPresentVillage"),
-    val("personPresentPost"),
-    val("personPresentThana"),
-    val("personPresentDistrict")
-  );
+    if(!payload.applicantName){
 
-  const familyAddress = buildAddress(
-    val("familyHouse"),
-    val("familyVillage"),
-    val("familyPost"),
-    val("familyThana"),
-    val("familyDistrict")
-  );
+        showAlert(
+            "formAlert",
+            "আবেদনকারীর নাম লিখুন।",
+            "danger"
+        );
 
-  const deathAddress = buildAddress(
-    val("deathHouse"),
-    val("deathVillage"),
-    val("deathPost"),
-    val("deathThana"),
-    val("deathDistrict")
-  );
-
-  const payload = {
-
-    action:"create",
-
-    certificate:certificate,
-
-    certificateName:
-      certificateName(certificate,{
-        otherCertificateName:val("otherCertificateName")
-      }),
-
-    otherCertificateName:val("otherCertificateName"),
-
-    applicantName:val("applicantName"),
-    applicantFather:val("applicantFather"),
-    applicantMother:val("applicantMother"),
-    applicantRelation:val("applicantRelation"),
-    applicantMobile:val("applicantMobile"),
-    applicantNid:val("applicantNid"),
-
-    appHouse:val("appHouse"),
-    appVillage:val("appVillage"),
-    appPost:val("appPost"),
-    appThana:val("appThana"),
-    appDistrict:val("appDistrict"),
-
-    applicantAddress:applicantAddress,
-
-    permanentAddress:applicantAddress,
-
-    presentAddress:"",
-
-    certificatePersonName:
-      val("certificatePersonName"),
-
-    certificatePersonFather:
-      val("certificatePersonFather"),
-
-    certificatePersonMother:
-      val("certificatePersonMother"),
-
-    certificatePersonRelation:
-      val("certificatePersonRelation"),
-
-    personName:
-      val("certificatePersonName"),
-
-    personFather:
-      val("certificatePersonFather"),
-
-    personMother:
-      val("certificatePersonMother"),
-
-    personRelation:
-      val("certificatePersonRelation"),
-
-    personPermHouse:
-      val("personPermHouse"),
-
-    personPermVillage:
-      val("personPermVillage"),
-
-    personPermPost:
-      val("personPermPost"),
-
-    personPermThana:
-      val("personPermThana"),
-
-    personPermDistrict:
-      val("personPermDistrict"),
-
-    permanentPersonAddress:
-      personAddress,
-
-    certificatePersonAddress:
-      personAddress,
-
-    personPresentHouse:
-      val("personPresentHouse"),
-
-    personPresentVillage:
-      val("personPresentVillage"),
-
-    personPresentPost:
-      val("personPresentPost"),
-
-    personPresentThana:
-      val("personPresentThana"),
-
-    personPresentDistrict:
-      val("personPresentDistrict"),
-
-    presentPersonAddress:
-      personPresentAddress,
-
-    members:members,
-    certificateMembers:members,
-
-    familyHead:val("familyHead"),
-    familyFather:val("familyFather"),
-
-    familyHouse:val("familyHouse"),
-    familyVillage:val("familyVillage"),
-    familyPost:val("familyPost"),
-    familyThana:val("familyThana"),
-    familyDistrict:val("familyDistrict"),
-
-    familyAddress:familyAddress,
-
-    deathName:val("deathName"),
-    deathFather:val("deathFather"),
-    deathMother:val("deathMother"),
-    deathDate:val("deathDate"),
-    deathPlace:val("deathPlace"),
-    deathCause:val("deathCause"),
-
-    deathHouse:val("deathHouse"),
-    deathVillage:val("deathVillage"),
-    deathPost:val("deathPost"),
-    deathThana:val("deathThana"),
-    deathDistrict:val("deathDistrict"),
-
-    deathAddress:deathAddress,
-
-    otherDetails:val("otherDetails"),
-    additionalDetails:val("otherDetails")
-  };
-
-  try{
-
-    showLoading();
-
-    const response = await fetch(API_URL,{
-      method:"POST",
-      body:JSON.stringify(payload)
-    });
-
-    const result = await response.json();
-
-    if(!result.success){
-      throw new Error(result.message || "আবেদন জমা হয়নি।");
+        return;
     }
 
-    lastApplication = normalizeApplication({
-      ...payload,
-      tracking:result.tracking,
-      status:"অপেক্ষমাণ",
-      createdAt:new Date().toISOString()
-    });
 
-    $("successTracking").textContent =
-      "ট্র্যাকিং নং: " + result.tracking;
+    if(
+        (
+            currentCertificate === "warish" ||
+            currentCertificate === "inheritance"
+        ) &&
+        !payload.certificatePersonName
+    ){
 
-    $("successBox").classList.remove("hidden");
+        showAlert(
+            "formAlert",
+            "যার নামে সনদ হবে তার নাম লিখুন।",
+            "danger"
+        );
 
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
+        return;
+    }
 
-    /*
-      সরাসরি প্রিন্ট:
-      ব্রাউজারের নিরাপত্তার কারণে প্রথমে সফলতার
-      বার্তা দেখানো হচ্ছে। এরপর ব্যবহারকারী
-      "আবেদনপত্র প্রিন্ট" চাপলে A4 প্রিন্ট হবে।
-    */
 
-    alert(
-      "আবেদন সফলভাবে জমা হয়েছে।\n\n" +
-      "ট্র্যাকিং নং: " + result.tracking
-    );
+    if(
+        currentCertificate === "death" &&
+        !payload.deathName
+    ){
 
-    resetForm(false);
+        showAlert(
+            "formAlert",
+            "মৃত ব্যক্তির নাম লিখুন।",
+            "danger"
+        );
 
-  }catch(error){
+        return;
+    }
 
-    console.error(error);
 
-    alert(
-      "আবেদন জমা দিতে সমস্যা হয়েছে।\n\n" +
-      error.message
-    );
+    payload.action =
+        editingTracking
+            ? "update"
+            : "submit";
 
-  }finally{
 
-    hideLoading();
-  }
+    if(editingTracking){
+
+        payload.tracking =
+            editingTracking;
+
+    }
+
+
+    try{
+
+        showLoading(
+            editingTracking
+                ? "আবেদন আপডেট হচ্ছে..."
+                : "আবেদন জমা হচ্ছে..."
+        );
+
+
+        const result =
+            await postAPI(payload);
+
+
+        hideLoading();
+
+
+        if(!result.success){
+
+            throw new Error(
+                result.message ||
+                "আবেদন জমা হয়নি।"
+            );
+
+        }
+
+
+        const data =
+            result.data || {};
+
+
+        if(!editingTracking){
+
+            showSuccessTracking(
+                data.tracking ||
+                data.Tracking ||
+                ""
+            );
+
+        }else{
+
+            alert(
+                "আবেদন সফলভাবে আপডেট হয়েছে।"
+            );
+
+            editingTracking = null;
+
+            resetForm();
+
+            showAdmin();
+
+        }
+
+
+    }catch(error){
+
+        hideLoading();
+
+        showAlert(
+            "formAlert",
+            error.message,
+            "danger"
+        );
+
+    }
+
 }
 
 
 /* =====================================================
-   RESET
+   COLLECT FORM DATA
 ===================================================== */
 
-function resetForm(showAlert=false){
+function collectFormData(){
 
-  document.querySelectorAll(
-    "#applyPage input,#applyPage textarea"
-  ).forEach(el=>{
-    if(el.type !== "button" && el.type !== "submit"){
-      el.value = "";
-    }
-  });
+    const appHouse =
+        val("appHouse");
 
-  $("certificate").value = "";
+    const appVillage =
+        val("appVillage");
 
-  $("appThana").value = "বায়েজিদ বোস্তামী";
-  $("appDistrict").value = "চট্টগ্রাম";
+    const appPost =
+        val("appPost");
 
-  $("personPermThana").value = "বায়েজিদ বোস্তামী";
-  $("personPermDistrict").value = "চট্টগ্রাম";
+    const appThana =
+        val("appThana");
 
-  $("personPresentThana").value = "বায়েজিদ বোস্তামী";
-  $("personPresentDistrict").value = "চট্টগ্রাম";
+    const appDistrict =
+        val("appDistrict");
 
-  $("familyThana").value = "বায়েজিদ বোস্তামী";
-  $("familyDistrict").value = "চট্টগ্রাম";
 
-  $("deathThana").value = "বায়েজিদ বোস্তামী";
-  $("deathDistrict").value = "চট্টগ্রাম";
+    const personPermHouse =
+        val("personPermHouse");
 
-  $("applicantRelation").value = "";
-  $("certificatePersonRelation").value = "";
+    const personPermVillage =
+        val("personPermVillage");
 
-  members = [];
+    const personPermPost =
+        val("personPermPost");
 
-  renderMembers();
+    const personPermThana =
+        val("personPermThana");
 
-  certificateChanged();
+    const personPermDistrict =
+        val("personPermDistrict");
 
-  if(showAlert){
-    $("successBox").classList.add("hidden");
-    alert("ফর্ম পরিষ্কার করা হয়েছে।");
-  }
+
+    const personPresentHouse =
+        val("personPresentHouse");
+
+    const personPresentVillage =
+        val("personPresentVillage");
+
+    const personPresentPost =
+        val("personPresentPost");
+
+    const personPresentThana =
+        val("personPresentThana");
+
+    const personPresentDistrict =
+        val("personPresentDistrict");
+
+
+    const familyHouse =
+        val("familyHouse");
+
+    const familyVillage =
+        val("familyVillage");
+
+    const familyPost =
+        val("familyPost");
+
+    const familyThana =
+        val("familyThana");
+
+    const familyDistrict =
+        val("familyDistrict");
+
+
+    const deathHouse =
+        val("deathHouse");
+
+    const deathVillage =
+        val("deathVillage");
+
+    const deathPost =
+        val("deathPost");
+
+    const deathThana =
+        val("deathThana");
+
+    const deathDistrict =
+        val("deathDistrict");
+
+
+    return {
+
+        certificateType:
+            currentCertificate,
+
+        certificateName:
+            CERTIFICATE_NAMES[currentCertificate] ||
+            "অন্যান্য",
+
+        otherCertificateName:
+            val("otherCertificateName"),
+
+        applicantName:
+            val("applicantName"),
+
+        applicantFather:
+            val("applicantFather"),
+
+        applicantMother:
+            val("applicantMother"),
+
+        applicantRelation:
+            val("applicantRelation"),
+
+        mobile:
+            val("mobile"),
+
+        nid:
+            val("nid"),
+
+
+        appHouse:
+            appHouse,
+
+        appVillage:
+            appVillage,
+
+        appPost:
+            appPost,
+
+        appThana:
+            appThana,
+
+        appDistrict:
+            appDistrict,
+
+
+        applicantAddress:
+            buildAddress(
+                appHouse,
+                appVillage,
+                appPost,
+                appThana,
+                appDistrict
+            ),
+
+
+        certificatePersonName:
+            val("certificatePersonName"),
+
+        certificatePersonFather:
+            val("certificatePersonFather"),
+
+        certificatePersonMother:
+            val("certificatePersonMother"),
+
+        certificatePersonRelation:
+            val("certificatePersonRelation"),
+
+
+        personPermHouse:
+            personPermHouse,
+
+        personPermVillage:
+            personPermVillage,
+
+        personPermPost:
+            personPermPost,
+
+        personPermThana:
+            personPermThana,
+
+        personPermDistrict:
+            personPermDistrict,
+
+
+        permanentAddress:
+            buildAddress(
+                personPermHouse,
+                personPermVillage,
+                personPermPost,
+                personPermThana,
+                personPermDistrict
+            ),
+
+
+        personPresentHouse:
+            personPresentHouse,
+
+        personPresentVillage:
+            personPresentVillage,
+
+        personPresentPost:
+            personPresentPost,
+
+        personPresentThana:
+            personPresentThana,
+
+        personPresentDistrict:
+            personPresentDistrict,
+
+
+        presentAddress:
+            buildAddress(
+                personPresentHouse,
+                personPresentVillage,
+                personPresentPost,
+                personPresentThana,
+                personPresentDistrict
+            ),
+
+
+        certificateMembers:
+            collectMembers(),
+
+        members:
+            collectMembers(),
+
+
+        familyHead:
+            val("familyHead"),
+
+        familyFather:
+            val("familyFather"),
+
+        familyHouse:
+            familyHouse,
+
+        familyVillage:
+            familyVillage,
+
+        familyPost:
+            familyPost,
+
+        familyThana:
+            familyThana,
+
+        familyDistrict:
+            familyDistrict,
+
+
+        familyAddress:
+            buildAddress(
+                familyHouse,
+                familyVillage,
+                familyPost,
+                familyThana,
+                familyDistrict
+            ),
+
+
+        deathName:
+            val("deathName"),
+
+        deathFather:
+            val("deathFather"),
+
+        deathMother:
+            val("deathMother"),
+
+        deathDate:
+            val("deathDate"),
+
+        deathPlace:
+            val("deathPlace"),
+
+        deathCause:
+            val("deathCause"),
+
+
+        deathHouse:
+            deathHouse,
+
+        deathVillage:
+            deathVillage,
+
+        deathPost:
+            deathPost,
+
+        deathThana:
+            deathThana,
+
+        deathDistrict:
+            deathDistrict,
+
+
+        deathAddress:
+            buildAddress(
+                deathHouse,
+                deathVillage,
+                deathPost,
+                deathThana,
+                deathDistrict
+            ),
+
+
+        otherDetails:
+            val("otherDetails"),
+
+        additionalDetails:
+            val("otherDetails")
+
+    };
+
 }
 
-function newApplication(){
 
-  $("successBox").classList.add("hidden");
+/* =====================================================
+   BUILD ADDRESS
+===================================================== */
 
-  resetForm(false);
+function buildAddress(
+    house,
+    village,
+    post,
+    thana,
+    district
+){
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+    const parts = [];
+
+
+    if(house)
+        parts.push("বাড়ীঃ " + house);
+
+    if(village)
+        parts.push("গ্রামঃ " + village);
+
+    if(post)
+        parts.push("ডাকঘরঃ " + post);
+
+    if(thana)
+        parts.push("থানাঃ " + thana);
+
+    if(district)
+        parts.push("জেলাঃ " + district);
+
+
+    return parts.join(", ");
+
+}
+
+
+/* =====================================================
+   API POST
+===================================================== */
+
+async function postAPI(payload){
+
+    const response =
+        await fetch(API_URL,{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":
+                    "text/plain;charset=utf-8"
+            },
+
+            body:
+                JSON.stringify(payload)
+
+        });
+
+
+    const text =
+        await response.text();
+
+
+    let result;
+
+
+    try{
+
+        result =
+            JSON.parse(text);
+
+    }catch(error){
+
+        throw new Error(
+            "সার্ভার থেকে সঠিক JSON পাওয়া যায়নি।\n\n" +
+            text.substring(0,500)
+        );
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =====================================================
+   API GET
+===================================================== */
+
+async function getAPI(params){
+
+    const query =
+        new URLSearchParams(params);
+
+
+    const response =
+        await fetch(
+            API_URL +
+            "?" +
+            query.toString()
+        );
+
+
+    const text =
+        await response.text();
+
+
+    try{
+
+        return JSON.parse(text);
+
+    }catch(error){
+
+        throw new Error(
+            "সার্ভার থেকে সঠিক JSON পাওয়া যায়নি।"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW SUCCESS TRACKING
+===================================================== */
+
+function showSuccessTracking(tracking){
+
+    hide("applicationFormSection");
+
+
+    const section =
+        document.getElementById(
+            "trackingSection"
+        );
+
+    show("trackingSection");
+
+
+    document.getElementById(
+        "trackingResult"
+    ).innerHTML = `
+
+        <div class="tracking-box">
+
+            <h3>
+                আবেদন সফলভাবে জমা হয়েছে
+            </h3>
+
+            <p>
+                আপনার আবেদন ট্র্যাকিং নম্বর:
+            </p>
+
+            <div class="tracking-number">
+                ${escapeHtml(tracking)}
+            </div>
+
+            <p>
+                ভবিষ্যতে আবেদনের অবস্থা জানতে
+                এই নম্বরটি সংরক্ষণ করুন।
+            </p>
+
+            <button
+                class="btn btn-primary"
+                onclick="showHome()">
+
+                নতুন আবেদন
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    section.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   SEARCH APPLICATION
+===================================================== */
+
+async function searchApplication(){
+
+    const tracking =
+        document
+        .getElementById(
+            "trackingSearch"
+        )
+        .value.trim();
+
+
+    if(!tracking){
+
+        alert(
+            "Tracking Number লিখুন।"
+        );
+
+        return;
+    }
+
+
+    try{
+
+        showLoading(
+            "আবেদন খোঁজা হচ্ছে..."
+        );
+
+
+        const result =
+            await getAPI({
+
+                action:
+                    "getApplication",
+
+                tracking:
+                    tracking
+
+            });
+
+
+        hideLoading();
+
+
+        if(!result.success){
+
+            throw new Error(
+                result.message ||
+                "আবেদন পাওয়া যায়নি।"
+            );
+
+        }
+
+
+        renderTrackingResult(
+            result.data
+        );
+
+
+    }catch(error){
+
+        hideLoading();
+
+        document
+            .getElementById(
+                "trackingResult"
+            )
+            .innerHTML = `
+
+                <div class="alert alert-danger">
+
+                    ${escapeHtml(
+                        error.message
+                    )}
+
+                </div>
+
+            `;
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER TRACKING RESULT
+===================================================== */
+
+function renderTrackingResult(app){
+
+    currentApplication = app;
+
+
+    document
+        .getElementById(
+            "trackingResult"
+        )
+        .innerHTML = `
+
+        <div class="card">
+
+            <div class="detail-grid">
+
+                ${detail(
+                    "Tracking Number",
+                    app.Tracking ||
+                    app.tracking
+                )}
+
+                ${detail(
+                    "সনদের ধরন",
+                    app.CertificateName ||
+                    app.certificateName
+                )}
+
+                ${detail(
+                    "আবেদনকারীর নাম",
+                    app.ApplicantName ||
+                    app.applicantName
+                )}
+
+                ${detail(
+                    "মোবাইল",
+                    app.Mobile ||
+                    app.mobile
+                )}
+
+                ${detail(
+                    "আবেদনের তারিখ",
+                    formatDateDisplay(
+                        app.CreatedAt ||
+                        app.createdAt
+                    )
+                )}
+
+                ${detail(
+                    "স্ট্যাটাস",
+                    app.Status ||
+                    app.status ||
+                    "অপেক্ষমান"
+                )}
+
+                ${detail(
+                    "আবেদনকারীর ঠিকানা",
+                    app.ApplicantAddress ||
+                    app.applicantAddress
+                )}
+
+            </div>
+
+
+            <div class="action-row">
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openApplicationDetail(currentApplication)">
+
+                    বিস্তারিত দেখুন
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
 }
 
 
@@ -2528,33 +3182,83 @@ function newApplication(){
    ADMIN LOGIN
 ===================================================== */
 
-function adminLogin(){
+function openAdminLogin(){
 
-  const username = val("loginUsername");
-  const password = val("loginPassword");
+    show("loginModal");
 
-  if(
-    username === "admin" &&
-    password === "Panchlaish@2026"
-  ){
+    document
+        .getElementById("adminUsername")
+        .focus();
 
-    sessionStorage.setItem(
-      "certificateAdmin",
-      "1"
-    );
+}
 
-    $("loginError").textContent = "";
 
-    $("loginPage").classList.add("hidden");
-    $("adminPage").classList.remove("hidden");
+function closeLogin(){
+
+    hide("loginModal");
+
+}
+
+
+function loginAdmin(){
+
+    const username =
+        val("adminUsername");
+
+    const password =
+        val("adminPassword");
+
+
+    if(
+        username === "admin" &&
+        password === "Panchlaish@2026"
+    ){
+
+        localStorage.setItem(
+            "panchlaish_admin",
+            "1"
+        );
+
+
+        closeLogin();
+
+        showAdmin();
+
+    }else{
+
+        document
+            .getElementById(
+                "loginError"
+            )
+            .innerHTML = `
+
+                <div class="alert alert-danger">
+
+                    ইউজারনেম অথবা পাসওয়ার্ড ভুল।
+
+                </div>
+
+            `;
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW ADMIN
+===================================================== */
+
+function showAdmin(){
+
+    hide("homeSection");
+
+    hide("trackingSection");
+
+    show("adminSection");
 
     loadApplications();
 
-  }else{
-
-    $("loginError").textContent =
-      "ইউজারনেম অথবা পাসওয়ার্ড ভুল।";
-  }
 }
 
 
@@ -2564,74 +3268,131 @@ function adminLogin(){
 
 async function loadApplications(){
 
-  try{
+    try{
 
-    showLoading();
+        showLoading(
+            "আবেদন তালিকা লোড হচ্ছে..."
+        );
 
-    const response = await fetch(
-      API_URL + "?action=getAllApplications"
-    );
 
-    const result = await response.json();
+        const result =
+            await getAPI({
 
-    if(Array.isArray(result)){
-      applications = result.map(normalizeApplication);
-    }else if(Array.isArray(result.data)){
-      applications = result.data.map(normalizeApplication);
-    }else if(Array.isArray(result.applications)){
-      applications = result.applications.map(normalizeApplication);
-    }else{
-      applications = [];
+                action:
+                    "getAllApplications"
+
+            });
+
+
+        hideLoading();
+
+
+        if(!result.success){
+
+            throw new Error(
+                result.message ||
+                "তথ্য পাওয়া যায়নি।"
+            );
+
+        }
+
+
+        applications =
+            result.data || [];
+
+
+        renderApplications(
+            applications
+        );
+
+
+    }catch(error){
+
+        hideLoading();
+
+        alert(
+            error.message
+        );
+
     }
 
-    updateDashboard();
-    renderApplications();
-
-  }catch(error){
-
-    console.error(error);
-
-    alert(
-      "আবেদন তালিকা লোড করতে সমস্যা হয়েছে।\n\n" +
-      error.message
-    );
-
-  }finally{
-
-    hideLoading();
-  }
 }
 
 
 /* =====================================================
-   DASHBOARD
+   FILTER APPLICATIONS
 ===================================================== */
 
-function updateDashboard(){
+function filterApplications(){
 
-  const total = applications.length;
+    const search =
+        val("adminSearch")
+        .toLowerCase();
 
-  const pending = applications.filter(
-    a=>a.status === "অপেক্ষমাণ"
-  ).length;
 
-  const processing = applications.filter(
-    a=>a.status === "প্রক্রিয়াধীন"
-  ).length;
+    const status =
+        val("statusFilter");
 
-  const approved = applications.filter(
-    a=>a.status === "অনুমোদিত"
-  ).length;
 
-  const rejected = applications.filter(
-    a=>a.status === "বাতিল"
-  ).length;
+    const filtered =
+        applications.filter(
+            function(app){
 
-  $("totalCount").textContent = total;
-  $("pendingCount").textContent = pending;
-  $("processingCount").textContent = processing;
-  $("approvedCount").textContent = approved;
-  $("rejectedCount").textContent = rejected;
+                const tracking =
+                    String(
+                        app.Tracking ||
+                        app.tracking ||
+                        ""
+                    ).toLowerCase();
+
+
+                const name =
+                    String(
+                        app.ApplicantName ||
+                        app.applicantName ||
+                        ""
+                    ).toLowerCase();
+
+
+                const mobile =
+                    String(
+                        app.Mobile ||
+                        app.mobile ||
+                        ""
+                    ).toLowerCase();
+
+
+                const appStatus =
+                    app.Status ||
+                    app.status ||
+                    "";
+
+
+                const matchesSearch =
+                    !search ||
+                    tracking.includes(search) ||
+                    name.includes(search) ||
+                    mobile.includes(search);
+
+
+                const matchesStatus =
+                    !status ||
+                    appStatus === status;
+
+
+                return (
+                    matchesSearch &&
+                    matchesStatus
+                );
+
+            }
+        );
+
+
+    renderApplications(
+        filtered
+    );
+
 }
 
 
@@ -2639,182 +3400,293 @@ function updateDashboard(){
    RENDER APPLICATIONS
 ===================================================== */
 
-function renderApplications(){
+function renderApplications(list){
 
-  const body = $("applicationBody");
+    const tbody =
+        document.getElementById(
+            "applicationsBody"
+        );
 
-  body.innerHTML = "";
 
-  const search =
-    val("adminSearch").toLowerCase();
+    tbody.innerHTML = "";
 
-  const status =
-    val("statusFilter");
 
-  const filtered = applications.filter(a=>{
+    if(!list.length){
 
-    const text = [
-      a.tracking,
-      a.applicantName,
-      a.applicantMobile,
-      a.certificatePersonName,
-      a.deathName,
-      a.familyHead,
-      certificateName(a.certificate,a)
-    ].join(" ").toLowerCase();
+        tbody.innerHTML = `
 
-    const searchOk =
-      !search || text.includes(search);
+            <tr>
 
-    const statusOk =
-      !status || a.status === status;
+                <td colspan="7"
+                    style="text-align:center;padding:30px">
 
-    return searchOk && statusOk;
-  });
+                    কোনো আবেদন পাওয়া যায়নি।
 
-  if(filtered.length === 0){
+                </td>
 
-    body.innerHTML = `
-      <tr>
-        <td colspan="8" style="text-align:center;padding:25px">
-          কোনো আবেদন পাওয়া যায়নি।
-        </td>
-      </tr>
-    `;
+            </tr>
 
-    return;
-  }
+        `;
 
-  filtered.forEach(a=>{
+        updateAdminStats([]);
 
-    let person = "";
-
-    if(
-      a.certificate === "warish" ||
-      a.certificate === "inheritance"
-    ){
-
-      person =
-        `<b>${escapeHtml(a.certificatePersonName)}</b><br>` +
-        escapeHtml(a.certificatePersonFather || "");
+        return;
     }
 
-    if(a.certificate === "family"){
 
-      person =
-        `<b>পরিবার:</b> ` +
-        escapeHtml(a.familyHead || "");
-    }
+    list.forEach(function(app){
 
-    if(a.certificate === "death"){
+        const tracking =
+            app.Tracking ||
+            app.tracking ||
+            "";
 
-      person =
-        `<b>${escapeHtml(a.deathName)}</b><br>` +
-        escapeHtml(a.deathDate || "");
-    }
 
-    const date =
-      formatDateDisplay(a.createdAt);
+        const date =
+            app.CreatedAt ||
+            app.createdAt ||
+            "";
 
-    body.innerHTML += `
 
-      <tr>
+        const certificate =
+            app.CertificateName ||
+            app.certificateName ||
+            "";
 
-        <td>
-          <b>${escapeHtml(a.tracking)}</b>
-        </td>
 
-        <td>
-          ${escapeHtml(
-            certificateName(a.certificate,a)
-          )}
-        </td>
+        const applicant =
+            app.ApplicantName ||
+            app.applicantName ||
+            "";
 
-        <td>
-          <b>${escapeHtml(a.applicantName)}</b><br>
-          ${escapeHtml(a.applicantFather)}
-        </td>
 
-        <td>
-          ${person}
-        </td>
+        const mobile =
+            app.Mobile ||
+            app.mobile ||
+            "";
 
-        <td>
-          ${escapeHtml(a.applicantMobile)}
-        </td>
 
-        <td>
-          ${escapeHtml(date)}
-        </td>
+        const status =
+            app.Status ||
+            app.status ||
+            "অপেক্ষমান";
 
-        <td>
 
-          <select
-            class="status-select"
-            onchange="
-              changeStatus(
-                ${jsonSafe(a.tracking)},
-                this.value
-              )
-            "
-          >
+        const tr =
+            document.createElement("tr");
 
-            ${statusOption("অপেক্ষমাণ",a.status)}
-            ${statusOption("প্রক্রিয়াধীন",a.status)}
-            ${statusOption("অনুমোদিত",a.status)}
-            ${statusOption("বাতিল",a.status)}
 
-          </select>
+        tr.innerHTML = `
 
-        </td>
+            <td>
+                <strong>
+                    ${escapeHtml(tracking)}
+                </strong>
+            </td>
 
-        <td>
+            <td>
+                ${escapeHtml(
+                    formatDateDisplay(date)
+                )}
+            </td>
 
-          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            <td>
+                ${escapeHtml(certificate)}
+            </td>
 
-            <button
-              class="small-btn"
-              style="background:#2563eb;color:#fff"
-              onclick="openEdit(${jsonSafe(a.tracking)})"
-            >
-              এডিট
-            </button>
+            <td>
+                ${escapeHtml(applicant)}
+            </td>
 
-            <button
-              class="small-btn"
-              style="background:#16a34a;color:#fff"
-              onclick="printApplication(${jsonSafe(a.tracking)})"
-            >
-              প্রিন্ট
-            </button>
+            <td>
+                ${escapeHtml(mobile)}
+            </td>
 
-            <button
-              class="small-btn"
-              style="background:#dc2626;color:#fff"
-              onclick="deleteApplication(${jsonSafe(a.tracking)})"
-            >
-              মুছুন
-            </button>
+            <td>
 
-          </div>
+                <select
+                    onchange="changeStatus('${escapeAttr(tracking)}',this.value)"
+                    style="padding:6px">
 
-        </td>
+                    ${statusOption(
+                        status,
+                        "অপেক্ষমান"
+                    )}
 
-      </tr>
-    `;
-  });
+                    ${statusOption(
+                        status,
+                        "প্রক্রিয়াধীন"
+                    )}
+
+                    ${statusOption(
+                        status,
+                        "অনুমোদিত"
+                    )}
+
+                    ${statusOption(
+                        status,
+                        "প্রদান করা হয়েছে"
+                    )}
+
+                    ${statusOption(
+                        status,
+                        "বাতিল"
+                    )}
+
+                </select>
+
+            </td>
+
+            <td>
+
+                <div style="
+                    display:flex;
+                    gap:5px;
+                    flex-wrap:wrap;
+                ">
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="viewByTracking('${escapeAttr(tracking)}')">
+
+                        দেখুন
+
+                    </button>
+
+                    <button
+                        class="btn btn-warning"
+                        onclick="editByTracking('${escapeAttr(tracking)}')">
+
+                        এডিট
+
+                    </button>
+
+                    <button
+                        class="btn btn-danger"
+                        onclick="deleteByTracking('${escapeAttr(tracking)}')">
+
+                        ডিলিট
+
+                    </button>
+
+                </div>
+
+            </td>
+
+        `;
+
+
+        tbody.appendChild(tr);
+
+    });
+
+
+    updateAdminStats(
+        list
+    );
+
 }
 
-function statusOption(text,current){
 
-  return `
-    <option
-      value="${escapeHtml(text)}"
-      ${current === text ? "selected" : ""}
-    >
-      ${escapeHtml(text)}
-    </option>
-  `;
+/* =====================================================
+   STATUS OPTION
+===================================================== */
+
+function statusOption(
+    current,
+    value
+){
+
+    return `
+
+        <option
+            value="${escapeAttr(value)}"
+            ${current === value ? "selected" : ""}>
+
+            ${escapeHtml(value)}
+
+        </option>
+
+    `;
+
+}
+
+
+/* =====================================================
+   ADMIN STATS
+===================================================== */
+
+function updateAdminStats(list){
+
+    const total =
+        list.length;
+
+
+    const pending =
+        list.filter(
+            x =>
+                (
+                    x.Status ||
+                    x.status
+                ) === "অপেক্ষমান"
+        ).length;
+
+
+    const processing =
+        list.filter(
+            x =>
+                (
+                    x.Status ||
+                    x.status
+                ) === "প্রক্রিয়াধীন"
+        ).length;
+
+
+    const approved =
+        list.filter(
+            x =>
+                (
+                    x.Status ||
+                    x.status
+                ) === "অনুমোদিত"
+        ).length;
+
+
+    document.getElementById(
+        "adminStats"
+    ).innerHTML = `
+
+        <div style="
+            display:grid;
+            grid-template-columns:
+                repeat(auto-fit,minmax(150px,1fr));
+            gap:10px;
+        ">
+
+            <div class="detail-item">
+                <strong>মোট আবেদন</strong>
+                <span>${total}</span>
+            </div>
+
+            <div class="detail-item">
+                <strong>অপেক্ষমান</strong>
+                <span>${pending}</span>
+            </div>
+
+            <div class="detail-item">
+                <strong>প্রক্রিয়াধীন</strong>
+                <span>${processing}</span>
+            </div>
+
+            <div class="detail-item">
+                <strong>অনুমোদিত</strong>
+                <span>${approved}</span>
+            </div>
+
+        </div>
+
+    `;
+
 }
 
 
@@ -2822,115 +3694,708 @@ function statusOption(text,current){
    CHANGE STATUS
 ===================================================== */
 
-async function changeStatus(tracking,status){
+async function changeStatus(
+    tracking,
+    status
+){
 
-  if(!tracking) return;
+    try{
 
-  if(!confirm(
-    "এই আবেদনের স্ট্যাটাস পরিবর্তন করবেন?"
-  )){
-    loadApplications();
-    return;
-  }
+        showLoading(
+            "স্ট্যাটাস পরিবর্তন হচ্ছে..."
+        );
 
-  try{
 
-    showLoading();
+        const result =
+            await postAPI({
 
-    const response = await fetch(API_URL,{
-      method:"POST",
-      body:JSON.stringify({
-        action:"update",
-        tracking:tracking,
-        status:status
-      })
-    });
+                action:"status",
 
-    const result = await response.json();
+                tracking:
+                    tracking,
 
-    if(!result.success){
-      throw new Error(
-        result.message ||
-        "স্ট্যাটাস পরিবর্তন হয়নি।"
-      );
+                status:
+                    status
+
+            });
+
+
+        hideLoading();
+
+
+        if(!result.success){
+
+            throw new Error(
+                result.message
+            );
+
+        }
+
+
+        const app =
+            applications.find(
+                x =>
+                    (
+                        x.Tracking ||
+                        x.tracking
+                    ) === tracking
+            );
+
+
+        if(app){
+
+            app.Status =
+                status;
+
+            app.status =
+                status;
+
+        }
+
+
+        alert(
+            "স্ট্যাটাস সফলভাবে পরিবর্তন হয়েছে।"
+        );
+
+
+        filterApplications();
+
+
+    }catch(error){
+
+        hideLoading();
+
+        alert(
+            error.message
+        );
+
     }
 
-    const app = applications.find(
-      a=>a.tracking === tracking
-    );
-
-    if(app){
-      app.status = status;
-    }
-
-    updateDashboard();
-    renderApplications();
-
-  }catch(error){
-
-    alert(
-      "স্ট্যাটাস পরিবর্তন করতে সমস্যা হয়েছে।\n\n" +
-      error.message
-    );
-
-    loadApplications();
-
-  }finally{
-
-    hideLoading();
-  }
 }
 
 
 /* =====================================================
-   DELETE
+   VIEW BY TRACKING
 ===================================================== */
 
-async function deleteApplication(tracking){
-
-  if(!confirm(
-    "আপনি কি নিশ্চিত এই আবেদনটি মুছে ফেলতে চান?\n\n" +
+async function viewByTracking(
     tracking
-  )){
-    return;
-  }
+){
 
-  try{
+    try{
 
-    showLoading();
+        showLoading(
+            "বিস্তারিত লোড হচ্ছে..."
+        );
 
-    const response = await fetch(API_URL,{
-      method:"POST",
-      body:JSON.stringify({
-        action:"delete",
-        tracking:tracking
-      })
-    });
 
-    const result = await response.json();
+        const result =
+            await getAPI({
 
-    if(!result.success){
-      throw new Error(
-        result.message ||
-        "আবেদন মুছে ফেলা যায়নি।"
-      );
+                action:
+                    "getApplication",
+
+                tracking:
+                    tracking
+
+            });
+
+
+        hideLoading();
+
+
+        if(!result.success){
+
+            throw new Error(
+                result.message
+            );
+
+        }
+
+
+        openApplicationDetail(
+            result.data
+        );
+
+
+    }catch(error){
+
+        hideLoading();
+
+        alert(
+            error.message
+        );
+
     }
 
-    alert("আবেদন মুছে ফেলা হয়েছে।");
+}
 
-    await loadApplications();
 
-  }catch(error){
+/* =====================================================
+   OPEN DETAIL
+===================================================== */
 
-    alert(
-      "মুছতে সমস্যা হয়েছে।\n\n" +
-      error.message
+function openApplicationDetail(app){
+
+    currentApplication =
+        app;
+
+
+    document.getElementById(
+        "detailContent"
+    ).innerHTML =
+        generateDetailHTML(app);
+
+
+    show("detailModal");
+
+}
+
+
+/* =====================================================
+   DETAIL HTML
+===================================================== */
+
+function generateDetailHTML(app){
+
+    const tracking =
+        app.Tracking ||
+        app.tracking ||
+        "";
+
+
+    const certificate =
+        app.CertificateName ||
+        app.certificateName ||
+        "";
+
+
+    const type =
+        app.CertificateType ||
+        app.certificateType ||
+        "";
+
+
+    const members =
+        parseMembers(
+            app.CertificateMembers ||
+            app.certificateMembers ||
+            app.Members ||
+            app.members
+        );
+
+
+    return `
+
+        <div class="tracking-box">
+
+            <div>
+                Tracking Number
+            </div>
+
+            <div class="tracking-number">
+                ${escapeHtml(tracking)}
+            </div>
+
+        </div>
+
+
+        <div class="card"
+             style="box-shadow:none;border:1px solid #e2e8f0">
+
+            <div class="card-title">
+                আবেদন সম্পর্কিত তথ্য
+            </div>
+
+            <div class="detail-grid">
+
+                ${detail(
+                    "সনদের ধরন",
+                    certificate
+                )}
+
+                ${detail(
+                    "আবেদনের তারিখ",
+                    formatDateDisplay(
+                        app.CreatedAt ||
+                        app.createdAt
+                    )
+                )}
+
+                ${detail(
+                    "স্ট্যাটাস",
+                    app.Status ||
+                    app.status ||
+                    "অপেক্ষমান"
+                )}
+
+            </div>
+
+        </div>
+
+
+        <div class="card"
+             style="box-shadow:none;border:1px solid #e2e8f0">
+
+            <div class="card-title">
+                আবেদনকারীর তথ্য
+            </div>
+
+            <div class="detail-grid">
+
+                ${detail(
+                    "নাম",
+                    app.ApplicantName ||
+                    app.applicantName
+                )}
+
+                ${detail(
+                    "পিতা/স্বামী",
+                    app.ApplicantFather ||
+                    app.applicantFather
+                )}
+
+                ${detail(
+                    "মাতা",
+                    app.ApplicantMother ||
+                    app.applicantMother
+                )}
+
+                ${detail(
+                    "সম্পর্ক",
+                    app.ApplicantRelation ||
+                    app.applicantRelation
+                )}
+
+                ${detail(
+                    "মোবাইল",
+                    app.Mobile ||
+                    app.mobile
+                )}
+
+                ${detail(
+                    "NID",
+                    app.NID ||
+                    app.nid
+                )}
+
+                ${detail(
+                    "ঠিকানা",
+                    app.ApplicantAddress ||
+                    app.applicantAddress
+                )}
+
+            </div>
+
+        </div>
+
+
+        ${generatePersonDetail(app)}
+
+        ${generateFamilyDetail(app)}
+
+        ${generateDeathDetail(app)}
+
+        ${generateMembersDetail(members)}
+
+        ${generateOtherDetail(app)}
+
+    `;
+
+}
+
+
+/* =====================================================
+   PERSON DETAIL
+===================================================== */
+
+function generatePersonDetail(app){
+
+    const name =
+        app.PersonName ||
+        app.personName ||
+        app.CertificatePersonName ||
+        app.certificatePersonName ||
+        "";
+
+
+    if(!name){
+        return "";
+    }
+
+
+    return `
+
+        <div class="card"
+             style="box-shadow:none;border:1px solid #e2e8f0">
+
+            <div class="card-title">
+                যার নামে সনদ হবে
+            </div>
+
+            <div class="detail-grid">
+
+                ${detail(
+                    "নাম",
+                    name
+                )}
+
+                ${detail(
+                    "পিতা/স্বামী",
+                    app.PersonFather ||
+                    app.personFather ||
+                    app.CertificatePersonFather ||
+                    app.certificatePersonFather
+                )}
+
+                ${detail(
+                    "মাতা",
+                    app.PersonMother ||
+                    app.personMother ||
+                    app.CertificatePersonMother ||
+                    app.certificatePersonMother
+                )}
+
+                ${detail(
+                    "সম্পর্ক",
+                    app.PersonRelation ||
+                    app.personRelation ||
+                    app.CertificatePersonRelation ||
+                    app.certificatePersonRelation
+                )}
+
+                ${detail(
+                    "স্থায়ী ঠিকানা",
+                    app.PermanentAddress ||
+                    app.permanentAddress
+                )}
+
+                ${detail(
+                    "বর্তমান ঠিকানা",
+                    app.PresentAddress ||
+                    app.presentAddress
+                )}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   FAMILY DETAIL
+===================================================== */
+
+function generateFamilyDetail(app){
+
+    const head =
+        app.FamilyHead ||
+        app.familyHead ||
+        "";
+
+
+    if(!head){
+        return "";
+    }
+
+
+    return `
+
+        <div class="card"
+             style="box-shadow:none;border:1px solid #e2e8f0">
+
+            <div class="card-title">
+                পরিবারের তথ্য
+            </div>
+
+            <div class="detail-grid">
+
+                ${detail(
+                    "পরিবারের প্রধান",
+                    head
+                )}
+
+                ${detail(
+                    "পিতা/স্বামী",
+                    app.FamilyFather ||
+                    app.familyFather
+                )}
+
+                ${detail(
+                    "ঠিকানা",
+                    app.FamilyAddress ||
+                    app.familyAddress
+                )}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   DEATH DETAIL
+===================================================== */
+
+function generateDeathDetail(app){
+
+    const name =
+        app.DeathName ||
+        app.deathName ||
+        "";
+
+
+    if(!name){
+        return "";
+    }
+
+
+    return `
+
+        <div class="card"
+             style="box-shadow:none;border:1px solid #e2e8f0">
+
+            <div class="card-title">
+                মৃত ব্যক্তির তথ্য
+            </div>
+
+            <div class="detail-grid">
+
+                ${detail(
+                    "নাম",
+                    name
+                )}
+
+                ${detail(
+                    "পিতা/স্বামী",
+                    app.DeathFather ||
+                    app.deathFather
+                )}
+
+                ${detail(
+                    "মাতার নাম",
+                    app.DeathMother ||
+                    app.deathMother
+                )}
+
+                ${detail(
+                    "মৃত্যুর তারিখ",
+                    formatDateDisplay(
+                        app.DeathDate ||
+                        app.deathDate
+                    )
+                )}
+
+                ${detail(
+                    "মৃত্যুর স্থান",
+                    app.DeathPlace ||
+                    app.deathPlace
+                )}
+
+                ${detail(
+                    "মৃত্যুর কারণ",
+                    app.DeathCause ||
+                    app.deathCause
+                )}
+
+                ${detail(
+                    "ঠিকানা",
+                    app.DeathAddress ||
+                    app.deathAddress
+                )}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   MEMBERS DETAIL
+===================================================== */
+
+function generateMembersDetail(
+    members
+){
+
+    if(
+        !members ||
+        !members.length
+    ){
+
+        return "";
+
+    }
+
+
+    let rows = "";
+
+
+    members.forEach(
+        function(member,index){
+
+            rows += `
+
+                <tr>
+
+                    <td>
+                        ${index + 1}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            member.name || ""
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            member.birthDate || ""
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            member.age || ""
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            member.relation || ""
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            member.comment || ""
+                        )}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
     );
 
-  }finally{
 
-    hideLoading();
-  }
+    return `
+
+        <div class="card"
+             style="box-shadow:none;border:1px solid #e2e8f0">
+
+            <div class="card-title">
+                সদস্যদের তথ্য
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="member-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>ক্রমিক</th>
+                            <th>নাম</th>
+                            <th>জন্ম তারিখ</th>
+                            <th>বয়স</th>
+                            <th>সম্পর্ক</th>
+                            <th>মন্তব্য</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        ${rows}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   OTHER DETAIL
+===================================================== */
+
+function generateOtherDetail(app){
+
+    const details =
+        app.AdditionalDetails ||
+        app.additionalDetails ||
+        app.OtherDetails ||
+        app.otherDetails ||
+        "";
+
+
+    if(!details){
+        return "";
+    }
+
+
+    return `
+
+        <div class="card"
+             style="box-shadow:none;border:1px solid #e2e8f0">
+
+            <div class="card-title">
+                অতিরিক্ত তথ্য
+            </div>
+
+            <p>
+                ${escapeHtml(details)}
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   DETAIL HELPER
+===================================================== */
+
+function detail(
+    label,
+    value
+){
+
+    return `
+
+        <div class="detail-item">
+
+            <strong>
+                ${escapeHtml(label)}
+            </strong>
+
+            <span>
+                ${escapeHtml(
+                    value || "—"
+                )}
+            </span>
+
+        </div>
+
+    `;
+
 }
 
 
@@ -2938,933 +4403,1102 @@ async function deleteApplication(tracking){
    EDIT
 ===================================================== */
 
-async function openEdit(tracking){
+async function editByTracking(
+    tracking
+){
 
-  const app =
-    applications.find(
-      a=>a.tracking === tracking
-    );
+    try{
 
-  if(!app){
-    alert("আবেদন পাওয়া যায়নি।");
-    return;
-  }
+        showLoading(
+            "আবেদন লোড হচ্ছে..."
+        );
 
-  editingTracking = tracking;
 
-  $("editTrackingBox").textContent =
-    "ট্র্যাকিং নং: " + tracking;
+        const result =
+            await getAPI({
 
-  setVal(
-    "editCertificate",
-    certificateName(app.certificate,app)
-  );
+                action:
+                    "getApplication",
 
-  setVal("editOtherCertificateName",
-         app.otherCertificateName);
+                tracking:
+                    tracking
 
-  setVal("editStatus",app.status);
+            });
 
-  setVal("editApplicantName",app.applicantName);
-  setVal("editApplicantFather",app.applicantFather);
-  setVal("editApplicantMother",app.applicantMother);
-  setVal("editApplicantRelation",app.applicantRelation);
-  setVal("editApplicantMobile",app.applicantMobile);
-  setVal("editApplicantNid",app.applicantNid);
 
-  setVal("editAppHouse",app.appHouse);
-  setVal("editAppVillage",app.appVillage);
-  setVal("editAppPost",app.appPost);
-  setVal("editAppThana",app.appThana);
-  setVal("editAppDistrict",app.appDistrict);
+        hideLoading();
 
-  $("editPersonArea").classList.add("hidden");
-  $("editFamilyArea").classList.add("hidden");
-  $("editDeathArea").classList.add("hidden");
-  $("editMembersArea").classList.add("hidden");
 
-  if(
-    app.certificate === "warish" ||
-    app.certificate === "inheritance"
-  ){
+        if(!result.success){
 
-    $("editPersonArea").classList.remove("hidden");
-    $("editMembersArea").classList.remove("hidden");
+            throw new Error(
+                result.message
+            );
 
-    setVal("editPersonName",app.certificatePersonName);
-    setVal("editPersonFather",app.certificatePersonFather);
-    setVal("editPersonMother",app.certificatePersonMother);
-    setVal("editPersonRelation",app.certificatePersonRelation);
+        }
 
-    setVal("editPermHouse",app.personPermHouse);
-    setVal("editPermVillage",app.personPermVillage);
-    setVal("editPermPost",app.personPermPost);
-    setVal("editPermThana",app.personPermThana);
-    setVal("editPermDistrict",app.personPermDistrict);
 
-    setVal("editPresentHouse",app.personPresentHouse);
-    setVal("editPresentVillage",app.personPresentVillage);
-    setVal("editPresentPost",app.personPresentPost);
-    setVal("editPresentThana",app.personPresentThana);
-    setVal("editPresentDistrict",app.personPresentDistrict);
+        closeModal(
+            "detailModal"
+        );
 
-  }
 
-  if(app.certificate === "family"){
+        editApplication(
+            result.data
+        );
 
-    $("editFamilyArea").classList.remove("hidden");
-    $("editMembersArea").classList.remove("hidden");
 
-    setVal("editFamilyHead",app.familyHead);
-    setVal("editFamilyFather",app.familyFather);
+    }catch(error){
 
-    setVal("editFamilyHouse",app.familyHouse);
-    setVal("editFamilyVillage",app.familyVillage);
-    setVal("editFamilyPost",app.familyPost);
-    setVal("editFamilyThana",app.familyThana);
-    setVal("editFamilyDistrict",app.familyDistrict);
-  }
+        hideLoading();
 
-  if(app.certificate === "death"){
+        alert(
+            error.message
+        );
 
-    $("editDeathArea").classList.remove("hidden");
+    }
 
-    setVal("editDeathName",app.deathName);
-    setVal("editDeathFather",app.deathFather);
-    setVal("editDeathMother",app.deathMother);
-    setVal("editDeathDate",normalizeDateInput(app.deathDate));
-    setVal("editDeathPlace",app.deathPlace);
-    setVal("editDeathCause",app.deathCause);
-
-    setVal("editDeathHouse",app.deathHouse);
-    setVal("editDeathVillage",app.deathVillage);
-    setVal("editDeathPost",app.deathPost);
-    setVal("editDeathThana",app.deathThana);
-    setVal("editDeathDistrict",app.deathDistrict);
-  }
-
-  setVal("editOtherDetails",app.otherDetails);
-
-  editMembers =
-    Array.isArray(app.certificateMembers)
-      ? JSON.parse(JSON.stringify(app.certificateMembers))
-      : [];
-
-  renderEditMembers();
-
-  $("editModal").classList.remove("hidden");
 }
 
 
 /* =====================================================
-   SAVE EDIT
+   EDIT APPLICATION
 ===================================================== */
 
-async function saveEdit(){
+function editApplication(app){
 
-  if(!editingTracking){
-    alert("এডিট ট্র্যাকিং পাওয়া যায়নি।");
-    return;
-  }
+    const type =
+        app.CertificateType ||
+        app.certificateType ||
+        "";
 
-  const app =
-    applications.find(
-      a=>a.tracking === editingTracking
+
+    selectCertificate(type);
+
+
+    editingTracking =
+        app.Tracking ||
+        app.tracking ||
+        "";
+
+
+    setVal(
+        "applicantName",
+        app.ApplicantName ||
+        app.applicantName
     );
 
-  if(!app){
-    alert("আবেদন পাওয়া যায়নি।");
-    return;
-  }
+    setVal(
+        "applicantFather",
+        app.ApplicantFather ||
+        app.applicantFather
+    );
+
+    setVal(
+        "applicantMother",
+        app.ApplicantMother ||
+        app.applicantMother
+    );
+
+    setVal(
+        "applicantRelation",
+        app.ApplicantRelation ||
+        app.applicantRelation
+    );
+
+    setVal(
+        "mobile",
+        app.Mobile ||
+        app.mobile
+    );
+
+    setVal(
+        "nid",
+        app.NID ||
+        app.nid
+    );
+
+
+    setVal(
+        "appHouse",
+        app.AppHouse ||
+        app.appHouse
+    );
+
+    setVal(
+        "appVillage",
+        app.AppVillage ||
+        app.appVillage
+    );
+
+    setVal(
+        "appPost",
+        app.AppPost ||
+        app.appPost
+    );
+
+    setVal(
+        "appThana",
+        app.AppThana ||
+        app.appThana ||
+        "বায়েজিদ বোস্তামী"
+    );
+
+    setVal(
+        "appDistrict",
+        app.AppDistrict ||
+        app.appDistrict ||
+        "চট্টগ্রাম"
+    );
+
+
+    setVal(
+        "certificatePersonName",
+        app.PersonName ||
+        app.personName ||
+        app.CertificatePersonName ||
+        app.certificatePersonName
+    );
+
+    setVal(
+        "certificatePersonFather",
+        app.PersonFather ||
+        app.personFather ||
+        app.CertificatePersonFather ||
+        app.certificatePersonFather
+    );
+
+    setVal(
+        "certificatePersonMother",
+        app.PersonMother ||
+        app.personMother ||
+        app.CertificatePersonMother ||
+        app.certificatePersonMother
+    );
+
+    setVal(
+        "certificatePersonRelation",
+        app.PersonRelation ||
+        app.personRelation ||
+        app.CertificatePersonRelation ||
+        app.certificatePersonRelation
+    );
+
+
+    setVal(
+        "familyHead",
+        app.FamilyHead ||
+        app.familyHead
+    );
+
+    setVal(
+        "familyFather",
+        app.FamilyFather ||
+        app.familyFather
+    );
 
-  const applicantAddress = buildAddress(
-    val("editAppHouse"),
-    val("editAppVillage"),
-    val("editAppPost"),
-    val("editAppThana"),
-    val("editAppDistrict")
-  );
+
+    setVal(
+        "deathName",
+        app.DeathName ||
+        app.deathName
+    );
 
-  const personAddress = buildAddress(
-    val("editPermHouse"),
-    val("editPermVillage"),
-    val("editPermPost"),
-    val("editPermThana"),
-    val("editPermDistrict")
-  );
+    setVal(
+        "deathFather",
+        app.DeathFather ||
+        app.deathFather
+    );
 
-  const personPresentAddress = buildAddress(
-    val("editPresentHouse"),
-    val("editPresentVillage"),
-    val("editPresentPost"),
-    val("editPresentThana"),
-    val("editPresentDistrict")
-  );
+    setVal(
+        "deathMother",
+        app.DeathMother ||
+        app.deathMother
+    );
 
-  const familyAddress = buildAddress(
-    val("editFamilyHouse"),
-    val("editFamilyVillage"),
-    val("editFamilyPost"),
-    val("editFamilyThana"),
-    val("editFamilyDistrict")
-  );
+    setVal(
+        "deathDate",
+        app.DeathDate ||
+        app.deathDate
+    );
 
-  const deathAddress = buildAddress(
-    val("editDeathHouse"),
-    val("editDeathVillage"),
-    val("editDeathPost"),
-    val("editDeathThana"),
-    val("editDeathDistrict")
-  );
+    setVal(
+        "deathPlace",
+        app.DeathPlace ||
+        app.deathPlace
+    );
 
-  const payload = {
+    setVal(
+        "deathCause",
+        app.DeathCause ||
+        app.deathCause
+    );
 
-    action:"update",
 
-    tracking:editingTracking,
+    setVal(
+        "otherCertificateName",
+        app.OtherCertificateName ||
+        app.otherCertificateName
+    );
 
-    status:val("editStatus"),
+    setVal(
+        "otherDetails",
+        app.AdditionalDetails ||
+        app.additionalDetails ||
+        app.OtherDetails ||
+        app.otherDetails
+    );
 
-    certificate:app.certificate,
 
-    otherCertificateName:
-      val("editOtherCertificateName"),
+    const members =
+        parseMembers(
+            app.CertificateMembers ||
+            app.certificateMembers ||
+            app.Members ||
+            app.members
+        );
 
-    applicantName:
-      val("editApplicantName"),
 
-    applicantFather:
-      val("editApplicantFather"),
+    const tbody =
+        document.getElementById(
+            "membersBody"
+        );
 
-    applicantMother:
-      val("editApplicantMother"),
 
-    applicantRelation:
-      val("editApplicantRelation"),
+    tbody.innerHTML = "";
 
-    applicantMobile:
-      val("editApplicantMobile"),
 
-    applicantNid:
-      val("editApplicantNid"),
+    members.forEach(
+        function(member){
 
-    appHouse:
-      val("editAppHouse"),
+            addMemberRow(
+                member
+            );
 
-    appVillage:
-      val("editAppVillage"),
+        }
+    );
 
-    appPost:
-      val("editAppPost"),
 
-    appThana:
-      val("editAppThana"),
+    if(
+        (
+            type === "warish" ||
+            type === "inheritance" ||
+            type === "family"
+        ) &&
+        members.length === 0
+    ){
 
-    appDistrict:
-      val("editAppDistrict"),
+        addMemberRow();
 
-    applicantAddress:
-      applicantAddress,
+    }
 
-    permanentAddress:
-      applicantAddress,
 
-    certificatePersonName:
-      val("editPersonName"),
+    document.getElementById(
+        "submitBtn"
+    ).textContent =
+        "আবেদন আপডেট করুন";
 
-    certificatePersonFather:
-      val("editPersonFather"),
 
-    certificatePersonMother:
-      val("editPersonMother"),
+    showAlert(
+        "formAlert",
+        "এই আবেদনটি এডিট মোডে খোলা হয়েছে।",
+        "info"
+    );
 
-    certificatePersonRelation:
-      val("editPersonRelation"),
 
-    personPermHouse:
-      val("editPermHouse"),
-
-    personPermVillage:
-      val("editPermVillage"),
-
-    personPermPost:
-      val("editPermPost"),
-
-    personPermThana:
-      val("editPermThana"),
-
-    personPermDistrict:
-      val("editPermDistrict"),
-
-    permanentPersonAddress:
-      personAddress,
-
-    certificatePersonAddress:
-      personAddress,
-
-    personPresentHouse:
-      val("editPresentHouse"),
-
-    personPresentVillage:
-      val("editPresentVillage"),
-
-    personPresentPost:
-      val("editPresentPost"),
-
-    personPresentThana:
-      val("editPresentThana"),
-
-    personPresentDistrict:
-      val("editPresentDistrict"),
-
-    presentPersonAddress:
-      personPresentAddress,
-
-    members:
-      editMembers,
-
-    certificateMembers:
-      editMembers,
-
-    familyHead:
-      val("editFamilyHead"),
-
-    familyFather:
-      val("editFamilyFather"),
-
-    familyHouse:
-      val("editFamilyHouse"),
-
-    familyVillage:
-      val("editFamilyVillage"),
-
-    familyPost:
-      val("editFamilyPost"),
-
-    familyThana:
-      val("editFamilyThana"),
-
-    familyDistrict:
-      val("editFamilyDistrict"),
-
-    familyAddress:
-      familyAddress,
-
-    deathName:
-      val("editDeathName"),
-
-    deathFather:
-      val("editDeathFather"),
-
-    deathMother:
-      val("editDeathMother"),
-
-    deathDate:
-      val("editDeathDate"),
-
-    deathPlace:
-      val("editDeathPlace"),
-
-    deathCause:
-      val("editDeathCause"),
-
-    deathHouse:
-      val("editDeathHouse"),
-
-    deathVillage:
-      val("editDeathVillage"),
-
-    deathPost:
-      val("editDeathPost"),
-
-    deathThana:
-      val("editDeathThana"),
-
-    deathDistrict:
-      val("editDeathDistrict"),
-
-    deathAddress:
-      deathAddress,
-
-    otherDetails:
-      val("editOtherDetails"),
-
-    additionalDetails:
-      val("editOtherDetails")
-  };
-
-  try{
-
-    showLoading();
-
-    const response = await fetch(API_URL,{
-      method:"POST",
-      body:JSON.stringify(payload)
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
 
-    const result = await response.json();
+}
 
-    if(!result.success){
-      throw new Error(
-        result.message ||
-        "তথ্য আপডেট হয়নি।"
-      );
+
+/* =====================================================
+   EDIT CURRENT
+===================================================== */
+
+function editCurrentApplication(){
+
+    if(!currentApplication){
+        return;
     }
 
-    alert("আবেদন সফলভাবে আপডেট হয়েছে।");
 
-    closeEdit();
-
-    await loadApplications();
-
-  }catch(error){
-
-    alert(
-      "আপডেট করতে সমস্যা হয়েছে।\n\n" +
-      error.message
+    closeModal(
+        "detailModal"
     );
 
-  }finally{
 
-    hideLoading();
-  }
+    editApplication(
+        currentApplication
+    );
+
 }
 
 
 /* =====================================================
-   CLOSE EDIT
+   DELETE
 ===================================================== */
 
-function closeEdit(){
+async function deleteByTracking(
+    tracking
+){
 
-  $("editModal").classList.add("hidden");
+    if(
+        !confirm(
+            "আপনি কি নিশ্চিতভাবে এই আবেদনটি মুছে ফেলতে চান?"
+        )
+    ){
 
-  editingTracking = null;
-  editMembers = [];
-}
+        return;
 
-
-/* =====================================================
-   PRINT APPLICATION
-===================================================== */
-
-async function printApplication(tracking){
-
-  let app =
-    applications.find(
-      a=>a.tracking === tracking
-    );
-
-  try{
-
-    if(!app){
-
-      const response = await fetch(
-        API_URL +
-        "?action=getApplicationByTracking&tracking=" +
-        encodeURIComponent(tracking)
-      );
-
-      const result = await response.json();
-
-      app = normalizeApplication(
-        result.data || result.application || result
-      );
     }
 
-    buildPrint(app);
 
-  }catch(error){
+    try{
 
-    alert(
-      "প্রিন্টের তথ্য পাওয়া যায়নি।\n\n" +
-      error.message
-    );
-  }
-}
+        showLoading(
+            "আবেদন মুছে ফেলা হচ্ছে..."
+        );
 
-function printLastApplication(){
 
-  if(!lastApplication){
-    alert("সাম্প্রতিক আবেদন পাওয়া যায়নি।");
-    return;
-  }
+        const result =
+            await postAPI({
 
-  buildPrint(lastApplication);
+                action:
+                    "delete",
+
+                tracking:
+                    tracking
+
+            });
+
+
+        hideLoading();
+
+
+        if(!result.success){
+
+            throw new Error(
+                result.message
+            );
+
+        }
+
+
+        applications =
+            applications.filter(
+                function(app){
+
+                    return (
+                        app.Tracking ||
+                        app.tracking
+                    ) !== tracking;
+
+                }
+            );
+
+
+        filterApplications();
+
+
+        alert(
+            "আবেদন সফলভাবে মুছে ফেলা হয়েছে।"
+        );
+
+
+    }catch(error){
+
+        hideLoading();
+
+        alert(
+            error.message
+        );
+
+    }
+
 }
 
 
 /* =====================================================
-   BUILD PRINT
+   DELETE CURRENT
 ===================================================== */
 
-function buildPrint(app){
+function deleteCurrentApplication(){
 
-  app = normalizeApplication(app);
+    if(!currentApplication){
+        return;
+    }
 
-  const title =
-    certificateName(app.certificate,app);
 
-  const appAddress =
-    app.applicantAddress ||
-    buildAddress(
-      app.appHouse,
-      app.appVillage,
-      app.appPost,
-      app.appThana,
-      app.appDistrict
+    const tracking =
+        currentApplication.Tracking ||
+        currentApplication.tracking;
+
+
+    closeModal(
+        "detailModal"
     );
 
-  const personAddress =
-    app.certificatePersonAddress ||
-    buildAddress(
-      app.personPermHouse,
-      app.personPermVillage,
-      app.personPermPost,
-      app.personPermThana,
-      app.personPermDistrict
+
+    deleteByTracking(
+        tracking
     );
 
-  const familyAddress =
-    app.familyAddress ||
-    buildAddress(
-      app.familyHouse,
-      app.familyVillage,
-      app.familyPost,
-      app.familyThana,
-      app.familyDistrict
-    );
-
-  const deathAddress =
-    app.deathAddress ||
-    buildAddress(
-      app.deathHouse,
-      app.deathVillage,
-      app.deathPost,
-      app.deathThana,
-      app.deathDistrict
-    );
-
-  let html = `
-
-    <div class="print-title">
-      আবেদনপত্র
-    </div>
-
-    <div class="print-subtitle">
-      ${escapeHtml(title)}
-    </div>
-
-    <div class="print-meta">
-
-      <span>
-        ট্র্যাকিং নং: <b>${escapeHtml(app.tracking)}</b>
-      </span>
-
-      <span>
-        তারিখ: ${escapeHtml(
-          formatDateDisplay(
-            app.createdAt
-          )
-        )}
-      </span>
-
-    </div>
-
-    <div class="print-section">
-      আবেদনকারীর তথ্য
-    </div>
-
-    <div class="print-grid">
-
-      <div>
-        <b>নাম:</b>
-        ${escapeHtml(app.applicantName)}
-      </div>
-
-      <div>
-        <b>পিতা/স্বামী:</b>
-        ${escapeHtml(app.applicantFather)}
-      </div>
-
-      <div>
-        <b>মাতা:</b>
-        ${escapeHtml(app.applicantMother)}
-      </div>
-
-      <div>
-        <b>সম্পর্ক:</b>
-        ${escapeHtml(app.applicantRelation)}
-      </div>
-
-      <div>
-        <b>মোবাইল:</b>
-        ${escapeHtml(app.applicantMobile)}
-      </div>
-
-      <div>
-        <b>NID:</b>
-        ${escapeHtml(app.applicantNid)}
-      </div>
-
-    </div>
-
-    <div class="print-address">
-      <b>ঠিকানা:</b>
-      ${escapeHtml(appAddress)}
-    </div>
-  `;
+}
 
 
-  if(
-    app.certificate === "warish" ||
-    app.certificate === "inheritance"
-  ){
+/* =====================================================
+   PRINT
+===================================================== */
 
-    html += `
+function printCurrentApplication(){
 
-      <div class="print-section">
-        যার নামে সনদ
-      </div>
+    if(!currentApplication){
+        return;
+    }
 
-      <div class="print-grid">
 
-        <div>
-          <b>নাম:</b>
-          ${escapeHtml(app.certificatePersonName)}
+    const app =
+        currentApplication;
+
+
+    document.getElementById(
+        "printArea"
+    ).innerHTML = `
+
+        <div style="
+            padding:35px;
+            font-family:'Noto Sans Bengali',Arial,sans-serif;
+            color:#111;
+        ">
+
+            <div style="
+                text-align:center;
+                border-bottom:2px solid #111;
+                padding-bottom:12px;
+                margin-bottom:20px;
+            ">
+
+                <h2 style="margin:0">
+                    ${escapeHtml(
+                        "চট্টগ্রাম সিটি কর্পোরেশন"
+                    )}
+                </h2>
+
+                <h3 style="margin:5px 0">
+                    ${escapeHtml(
+                        "০৩ নং পাঁচলাইশ ওয়ার্ড"
+                    )}
+                </h3>
+
+                <h3 style="margin:10px 0">
+                    আবেদন সংক্রান্ত তথ্য
+                </h3>
+
+            </div>
+
+
+            <table style="
+                width:100%;
+                border-collapse:collapse;
+                font-size:15px;
+            ">
+
+                ${printRow(
+                    "Tracking Number",
+                    app.Tracking ||
+                    app.tracking
+                )}
+
+                ${printRow(
+                    "সনদের ধরন",
+                    app.CertificateName ||
+                    app.certificateName
+                )}
+
+                ${printRow(
+                    "আবেদনকারীর নাম",
+                    app.ApplicantName ||
+                    app.applicantName
+                )}
+
+                ${printRow(
+                    "পিতা/স্বামী",
+                    app.ApplicantFather ||
+                    app.applicantFather
+                )}
+
+                ${printRow(
+                    "মাতার নাম",
+                    app.ApplicantMother ||
+                    app.applicantMother
+                )}
+
+                ${printRow(
+                    "সম্পর্ক",
+                    app.ApplicantRelation ||
+                    app.applicantRelation
+                )}
+
+                ${printRow(
+                    "মোবাইল",
+                    app.Mobile ||
+                    app.mobile
+                )}
+
+                ${printRow(
+                    "NID",
+                    app.NID ||
+                    app.nid
+                )}
+
+                ${printRow(
+                    "ঠিকানা",
+                    app.ApplicantAddress ||
+                    app.applicantAddress
+                )}
+
+                ${printRow(
+                    "স্ট্যাটাস",
+                    app.Status ||
+                    app.status
+                )}
+
+            </table>
+
+
+            <div style="
+                margin-top:80px;
+                display:flex;
+                justify-content:space-between;
+            ">
+
+                <div>
+                    আবেদনকারীর স্বাক্ষর
+                </div>
+
+                <div style="
+                    text-align:center;
+                ">
+
+                    দায়িত্বপ্রাপ্ত কর্মকর্তা<br>
+                    ০৩ নং পাঁচলাইশ ওয়ার্ড<br>
+                    চট্টগ্রাম সিটি কর্পোরেশন
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div>
-          <b>পিতা/স্বামী:</b>
-          ${escapeHtml(app.certificatePersonFather)}
-        </div>
-
-        <div>
-          <b>মাতা:</b>
-          ${escapeHtml(app.certificatePersonMother)}
-        </div>
-
-        <div>
-          <b>সম্পর্ক:</b>
-          ${escapeHtml(app.certificatePersonRelation)}
-        </div>
-
-      </div>
-
-      <div class="print-address">
-        <b>স্থায়ী ঠিকানা:</b>
-        ${escapeHtml(personAddress)}
-      </div>
-
-      <div class="print-address">
-        <b>বর্তমান ঠিকানা:</b>
-        ${escapeHtml(
-          buildAddress(
-            app.personPresentHouse,
-            app.personPresentVillage,
-            app.personPresentPost,
-            app.personPresentThana,
-            app.personPresentDistrict
-          ) ||
-          app.presentAddress
-        )}
-      </div>
-    `;
-  }
-
-
-  if(app.certificate === "family"){
-
-    html += `
-
-      <div class="print-section">
-        পারিবারিক তথ্য
-      </div>
-
-      <div class="print-grid">
-
-        <div>
-          <b>পরিবারের প্রধান:</b>
-          ${escapeHtml(app.familyHead)}
-        </div>
-
-        <div>
-          <b>পিতা/স্বামী:</b>
-          ${escapeHtml(app.familyFather)}
-        </div>
-
-      </div>
-
-      <div class="print-address">
-        <b>ঠিকানা:</b>
-        ${escapeHtml(familyAddress)}
-      </div>
-    `;
-  }
-
-
-  if(app.certificate === "death"){
-
-    html += `
-
-      <div class="print-section">
-        মৃত ব্যক্তির তথ্য
-      </div>
-
-      <div class="print-grid">
-
-        <div>
-          <b>নাম:</b>
-          ${escapeHtml(app.deathName)}
-        </div>
-
-        <div>
-          <b>পিতা/স্বামী:</b>
-          ${escapeHtml(app.deathFather)}
-        </div>
-
-        <div>
-          <b>মাতা:</b>
-          ${escapeHtml(app.deathMother)}
-        </div>
-
-        <div>
-          <b>মৃত্যুর তারিখ:</b>
-          ${escapeHtml(
-            formatDateDisplay(app.deathDate)
-          )}
-        </div>
-
-        <div>
-          <b>মৃত্যুর স্থান:</b>
-          ${escapeHtml(app.deathPlace)}
-        </div>
-
-        <div>
-          <b>মৃত্যুর কারণ:</b>
-          ${escapeHtml(app.deathCause)}
-        </div>
-
-      </div>
-
-      <div class="print-address">
-        <b>ঠিকানা:</b>
-        ${escapeHtml(deathAddress)}
-      </div>
-    `;
-  }
-
-
-  const memberList =
-    Array.isArray(app.certificateMembers)
-      ? app.certificateMembers
-      : [];
-
-  if(memberList.length){
-
-    html += `
-
-      <div class="print-section">
-        সদস্যদের তথ্য
-      </div>
-
-      <table class="print-table">
-
-        <thead>
-
-          <tr>
-            <th>ক্রমিক</th>
-            <th>নাম</th>
-            <th>জন্ম তারিখ</th>
-            <th>বয়স</th>
-            <th>সম্পর্ক</th>
-            <th>মন্তব্য</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
     `;
 
-    memberList.forEach((m,i)=>{
 
-      html += `
+    window.print();
+
+}
+
+
+/* =====================================================
+   PRINT ROW
+===================================================== */
+
+function printRow(
+    label,
+    value
+){
+
+    return `
 
         <tr>
 
-          <td>${i+1}</td>
+            <td style="
+                border:1px solid #333;
+                padding:8px;
+                width:30%;
+                font-weight:bold;
+            ">
+                ${escapeHtml(label)}
+            </td>
 
-          <td>
-            ${escapeHtml(
-              m.name ||
-              m.memberName ||
-              ""
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              m.birthDate ||
-              m.dob ||
-              ""
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              m.age || ""
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              m.relation ||
-              m.memberRelation ||
-              ""
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              m.comment ||
-              m.note ||
-              ""
-            )}
-          </td>
+            <td style="
+                border:1px solid #333;
+                padding:8px;
+            ">
+                ${escapeHtml(
+                    value || ""
+                )}
+            </td>
 
         </tr>
-      `;
-    });
 
-    html += `
-        </tbody>
-      </table>
     `;
-  }
 
-
-  if(app.otherDetails){
-
-    html += `
-
-      <div class="print-section">
-        অতিরিক্ত তথ্য
-      </div>
-
-      <div style="font-size:13px">
-        ${escapeHtml(app.otherDetails)}
-      </div>
-    `;
-  }
-
-
-  html += `
-
-    <div class="print-footer">
-
-      <div>
-        আবেদনকারীর স্বাক্ষর
-      </div>
-
-      <div style="text-align:center">
-        যাচাইকারী<br>
-        ০৩ নং পাঁচলাইশ ওয়ার্ড
-      </div>
-
-      <div style="text-align:right">
-        দায়িত্বপ্রাপ্ত কর্মকর্তা<br>
-        ০৩ নং পাঁচলাইশ ওয়ার্ড<br>
-        চট্টগ্রাম সিটি কর্পোরেশন
-      </div>
-
-    </div>
-  `;
-
-
-  $("printArea").innerHTML = html;
-
-  setTimeout(()=>{
-    window.print();
-  },300);
 }
 
 
 /* =====================================================
-   DATE
+   CLOSE MODAL
 ===================================================== */
 
-function normalizeDateInput(date){
+function closeModal(id){
 
-  if(!date) return "";
+    hide(id);
 
-  if(/^\d{4}-\d{2}-\d{2}$/.test(date)){
-    return date;
-  }
-
-  const d = new Date(date);
-
-  if(isNaN(d.getTime())){
-    return "";
-  }
-
-  return [
-    d.getFullYear(),
-    String(d.getMonth()+1).padStart(2,"0"),
-    String(d.getDate()).padStart(2,"0")
-  ].join("-");
 }
 
-function formatDateDisplay(date){
 
-  if(!date) return "";
+/* =====================================================
+   RESET FORM
+===================================================== */
 
-  const d = new Date(date);
+function resetForm(){
 
-  if(isNaN(d.getTime())){
+    const form =
+        document.getElementById(
+            "applicationForm"
+        );
 
-    if(/^\d{4}-\d{2}-\d{2}$/.test(date)){
 
-      const parts = date.split("-");
-
-      return (
-        parts[2] + "-" +
-        parts[1] + "-" +
-        parts[0]
-      );
+    if(form){
+        form.reset();
     }
 
-    return String(date);
-  }
 
-  return (
-    String(d.getDate()).padStart(2,"0") +
-    "-" +
-    String(d.getMonth()+1).padStart(2,"0") +
-    "-" +
-    d.getFullYear()
-  );
+    currentCertificate =
+        "";
+
+
+    editingTracking =
+        null;
+
+
+    document
+        .querySelectorAll(
+            ".certificate-card"
+        )
+        .forEach(function(card){
+
+            card.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    hideAllConditionalSections();
+
+
+    document.getElementById(
+        "membersBody"
+    ).innerHTML = "";
+
+
+    document.getElementById(
+        "submitBtn"
+    ).textContent =
+        "আবেদন জমা দিন";
+
+
+    setVal(
+        "appThana",
+        "বায়েজিদ বোস্তামী"
+    );
+
+    setVal(
+        "appDistrict",
+        "চট্টগ্রাম"
+    );
+
+
+    setVal(
+        "personPermThana",
+        "বায়েজিদ বোস্তামী"
+    );
+
+    setVal(
+        "personPermDistrict",
+        "চট্টগ্রাম"
+    );
+
+
+    setVal(
+        "personPresentThana",
+        "বায়েজিদ বোস্তামী"
+    );
+
+    setVal(
+        "personPresentDistrict",
+        "চট্টগ্রাম"
+    );
+
+
+    setVal(
+        "familyThana",
+        "বায়েজিদ বোস্তামী"
+    );
+
+    setVal(
+        "familyDistrict",
+        "চট্টগ্রাম"
+    );
+
+
+    setVal(
+        "deathThana",
+        "বায়েজিদ বোস্তামী"
+    );
+
+    setVal(
+        "deathDistrict",
+        "চট্টগ্রাম"
+    );
+
+
+    document.getElementById(
+        "formAlert"
+    ).innerHTML = "";
+
 }
 
 
 /* =====================================================
-   STARTUP
+   LOGOUT
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded",()=>{
+function logoutAdmin(){
 
-  certificateChanged();
+    localStorage.removeItem(
+        "panchlaish_admin"
+    );
 
-  if(
-    sessionStorage.getItem("certificateAdmin") === "1"
-  ){
 
-    /*
-      লগইন সেশন থাকলে অ্যাডমিন পেজে সরাসরি যাওয়া হবে না।
-      ডিফল্টভাবে আবেদন পেজই থাকবে।
-    */
-  }
+    hide("adminSection");
 
-});
+    showHome();
+
+}
+
+
+/* =====================================================
+   CURRENT EDIT
+===================================================== */
+
+function editCurrentApplication(){
+
+    if(!currentApplication){
+        return;
+    }
+
+
+    closeModal(
+        "detailModal"
+    );
+
+
+    editApplication(
+        currentApplication
+    );
+
+}
+
+
+/* =====================================================
+   SHOW ADMIN LOGIN / SESSION
+===================================================== */
+
+function isAdminLoggedIn(){
+
+    return (
+        localStorage.getItem(
+            "panchlaish_admin"
+        ) === "1"
+    );
+
+}
+
+
+/* =====================================================
+   UTILITY
+===================================================== */
+
+function val(id){
+
+    const el =
+        document.getElementById(id);
+
+
+    return el
+        ? String(el.value || "").trim()
+        : "";
+
+}
+
+
+function setVal(
+    id,
+    value
+){
+
+    const el =
+        document.getElementById(id);
+
+
+    if(el){
+        el.value =
+            value || "";
+    }
+
+}
+
+
+function parseMembers(data){
+
+    if(!data){
+        return [];
+    }
+
+
+    if(Array.isArray(data)){
+        return data;
+    }
+
+
+    if(typeof data === "string"){
+
+        try{
+
+            const parsed =
+                JSON.parse(data);
+
+            if(Array.isArray(parsed)){
+                return parsed;
+            }
+
+        }catch(error){
+
+        }
+
+    }
+
+
+    return [];
+
+}
+
+
+function formatDateDisplay(
+    value
+){
+
+    if(!value){
+        return "";
+    }
+
+
+    const date =
+        new Date(value);
+
+
+    if(
+        isNaN(
+            date.getTime()
+        )
+    ){
+
+        return String(value);
+
+    }
+
+
+    return date.toLocaleDateString(
+        "bn-BD",
+        {
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ALERT
+===================================================== */
+
+function showAlert(
+    containerId,
+    message,
+    type
+){
+
+    const container =
+        document.getElementById(
+            containerId
+        );
+
+
+    if(!container){
+        return;
+    }
+
+
+    container.innerHTML = `
+
+        <div class="
+            alert
+            alert-${type}
+        ">
+
+            ${escapeHtml(message)}
+
+        </div>
+
+    `;
+
+
+    setTimeout(
+        function(){
+
+            container.innerHTML = "";
+
+        },
+        6000
+    );
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+function showLoading(
+    text
+){
+
+    document.getElementById(
+        "loadingText"
+    ).textContent =
+        text ||
+        "অনুগ্রহ করে অপেক্ষা করুন...";
+
+
+    show("loading");
+
+}
+
+
+function hideLoading(){
+
+    hide("loading");
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(
+        value == null
+            ? ""
+            : value
+    )
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+    return escapeHtml(value);
+
+}
+
+
+/* =====================================================
+   STATUS ON PAGE LOAD
+===================================================== */
+
+if(
+    typeof window !== "undefined"
+){
+
+    window.addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key === "Escape"
+            ){
+
+                closeModal(
+                    "detailModal"
+                );
+
+                closeLogin();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   TRACKING ENTER KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        const target =
+            event.target;
+
+
+        if(
+            target &&
+            target.id ===
+                "trackingSearch" &&
+            event.key === "Enter"
+        ){
+
+            event.preventDefault();
+
+            searchApplication();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PRINT CLEANUP
+===================================================== */
+
+window.addEventListener(
+    "afterprint",
+    function(){
+
+        document.getElementById(
+            "printArea"
+        ).innerHTML = "";
+
+    }
+);
 
 </script>
 
