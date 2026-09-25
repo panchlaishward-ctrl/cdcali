@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>সনদ আবেদন কেন্দ্র | ০৩ নং পাঁচলাইশ ওয়ার্ড</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans Bengali','Segoe UI',sans-serif;background:#f1f5f9;color:#172033;line-height:1.6}
+button,input,select,textarea{font-family:inherit}
+.header{background:linear-gradient(135deg,#0f766e,#115e59);color:#fff;padding:20px 15px;box-shadow:0 4px 15px #0002}
+.header-inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{width:58px;height:58px;border-radius:50%;background:#fff;color:#0f766e;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px}
+.header h1{font-size:24px}.header p{font-size:13px;opacity:.92}
+.container{max-width:1200px;margin:24px auto;padding:0 15px}
+.dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat{background:#fff;border-radius:14px;padding:16px;box-shadow:0 3px 12px #0000000d;border-left:5px solid #0f766e}
+.stat-title{color:#64748b;font-size:13px}.stat-number{font-size:27px;font-weight:800;color:#0f766e}
+.section-title{font-size:20px;font-weight:800;margin:18px 0 12px}
+.certificate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.certificate-card{background:#fff;border:1px solid #e2e8f0;border-radius:15px;padding:20px;cursor:pointer;transition:.2s;box-shadow:0 4px 12px #0000000a}
+.certificate-card:hover{transform:translateY(-3px);border-color:#0f766e}
+.card-icon{font-size:30px}.certificate-card h3{font-size:17px}.certificate-card p{font-size:12px;color:#64748b}
+.form-card,.applications-card,.tracking-card{display:none;background:#fff;border-radius:16px;padding:22px;margin-top:22px;box-shadow:0 5px 18px #0000000d}
+.active{display:block!important}
+.form-header{display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #e2e8f0;padding-bottom:14px;margin-bottom:18px}
+.form-header h2{font-size:21px}.tracking-box{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;padding:7px 12px;border-radius:8px;font-weight:700;font-size:13px}
+.form-section{border:1px solid #e2e8f0;border-radius:11px;padding:16px;margin-bottom:16px}
+.form-section h3{color:#0f766e;font-size:16px;margin-bottom:13px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.form-group{display:flex;flex-direction:column}.full{grid-column:1/-1}
+label{font-size:13px;font-weight:700;margin-bottom:5px}
+input,select,textarea{border:1px solid #cbd5e1;border-radius:8px;padding:9px 11px;outline:none;font-size:13px;background:#fff}
+input:focus,select:focus,textarea:focus{border-color:#0f766e;box-shadow:0 0 0 3px #0f766e14}
+textarea{min-height:90px;resize:vertical}
+.hidden{display:none!important}
+.btn{border:0;border-radius:8px;padding:9px 14px;cursor:pointer;font-weight:700;font-size:13px}
+.btn-primary{background:#0f766e;color:#fff}.btn-success{background:#15803d;color:#fff}.btn-danger{background:#dc2626;color:#fff}
+.btn-warning{background:#d97706;color:#fff}.btn-secondary{background:#64748b;color:#fff}.btn-light{background:#e2e8f0;color:#1e293b}
+.button-row{display:flex;gap:8px;flex-wrap:wrap}
+.table-wrap{overflow:auto}.member-table{width:100%;border-collapse:collapse;min-width:760px}
+.member-table th,.member-table td{border:1px solid #dbe3ea;padding:7px}.member-table th{background:#f0fdfa;color:#115e59;font-size:12px}
+.member-table input,.member-table select{min-width:115px}
+.search-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:12px}
+.application-item{border:1px solid #e2e8f0;border-radius:10px;padding:13px;margin-bottom:9px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.application-info{flex:1}.tracking{font-weight:800;color:#0f766e}.meta{font-size:12px;color:#64748b}.actions{display:flex;gap:6px;flex-wrap:wrap}
+.empty{text-align:center;color:#64748b;padding:25px}
+.tracking-search{background:linear-gradient(135deg,#f0fdfa,#fff);border:1px solid #ccfbf1;border-radius:12px;padding:17px;margin-bottom:16px}
+.tracking-result{display:none;border:1px solid #cbd5e1;border-radius:11px;padding:16px;margin-top:12px}
+.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.detail{background:#f8fafc;border-radius:7px;padding:8px}.detail b{display:block;font-size:11px;color:#64748b}.detail span{font-size:13px}
+.badge{display:inline-block;background:#dcfce7;color:#166534;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700}
+.toast{position:fixed;right:18px;bottom:18px;background:#172033;color:#fff;padding:11px 16px;border-radius:8px;display:none;z-index:9999}
+.toast.show{display:block}
+#printArea{display:none}
+@media(max-width:900px){.certificate-grid{grid-template-columns:repeat(2,1fr)}.dashboard{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.certificate-grid,.dashboard,.form-grid,.detail-grid{grid-template-columns:1fr}.form-header{flex-direction:column;align-items:flex-start}.application-item{flex-direction:column;align-items:flex-start}.search-row{grid-template-columns:1fr}}
+
+.official-page{width:100%;max-width:820px;margin:0 auto;padding:38px 52px 45px;background:#fff;color:#111;font-family:'Noto Sans Bengali','Segoe UI',sans-serif;font-size:16px;line-height:1.85}
+.recipient{white-space:normal;margin-bottom:12px}
+.subject{font-size:16px;text-decoration:underline;margin:8px 0 20px}
+.salutation{margin-bottom:7px}
+.application-paragraph{text-align:justify;margin:8px 0}
+.official-member-table{width:100%;border-collapse:collapse;margin:18px 0 26px;font-size:14px}
+.official-member-table th,.official-member-table td{border:1px solid #222;padding:5px 6px;text-align:center;vertical-align:middle}
+.official-member-table th{font-weight:700;background:#fff}
+.signature-area{display:flex;justify-content:space-between;align-items:flex-start;margin-top:35px;min-height:190px}
+.date-area{padding-top:45px}
+.applicant-sign{text-align:center;min-width:270px;line-height:1.65}
+.sign-line{display:inline-block;margin-bottom:2px}
+@media print{
+.official-page{max-width:none;margin:0;padding:8mm 12mm 10mm;font-size:14px;line-height:1.75}
+.official-member-table{font-size:12px;margin-top:14px}
+.official-member-table th,.official-member-table td{padding:4px}
+.signature-area{margin-top:25px}
+}
+@media print{
+body>*{display:none!important}#printArea{display:block!important}
+.print-page{width:100%;padding:8mm;font-family:'Noto Sans Bengali',sans-serif;color:#000}
+.print-head{text-align:center;border-bottom:2px solid #000;padding-bottom:8px}
+.print-head h1{font-size:21px}.print-head h2{font-size:17px}.print-head p{font-size:12px}
+.print-title{text-align:center;font-size:20px;font-weight:800;text-decoration:underline;margin:16px 0}
+.print-tracking{text-align:left;font-size:12px;margin-bottom:8px}
+.ptable{width:100%;border-collapse:collapse;margin:8px 0}.ptable th,.ptable td{border:1px solid #000;padding:5px;font-size:11px;text-align:left}
+.sign{margin-top:55px;text-align:right}.signbox{display:inline-block;text-align:center;width:220px;font-size:11px}
+}
+
+/* ADMIN PANEL */
+.admin-login-modal,.admin-panel-modal{display:none;position:fixed;inset:0;background:rgba(15,23,42,.72);z-index:9998;padding:18px;overflow:auto}
+.admin-box{width:min(1200px,100%);margin:20px auto;background:#fff;border-radius:16px;padding:20px;box-shadow:0 20px 60px #0005}
+.admin-login-box{width:min(430px,100%);margin:8vh auto;background:#fff;border-radius:16px;padding:25px}
+.admin-head{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #e2e8f0;padding-bottom:13px;margin-bottom:15px}
+.admin-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:15px}
+.admin-stat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px}.admin-stat b{display:block;font-size:22px;color:#0f766e}
+.admin-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.admin-toolbar input,.admin-toolbar select{padding:9px;border:1px solid #cbd5e1;border-radius:8px}
+.admin-table{width:100%;border-collapse:collapse;min-width:1050px}.admin-table th,.admin-table td{border:1px solid #dbe3ea;padding:7px;font-size:12px;text-align:left}.admin-table th{background:#f0fdfa;color:#115e59}
+.admin-actions{display:flex;gap:5px;flex-wrap:wrap}.admin-actions button{padding:6px 8px;border:0;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer}
+.status-pending{background:#fff7d6;color:#805b00}.status-processing{background:#e0f2fe;color:#075985}.status-approved{background:#dcfce7;color:#166534}.status-rejected{background:#fee2e2;color:#991b1b}
+.admin-detail{background:#f8fafc;border-radius:9px;padding:12px;margin:8px 0}.admin-detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.admin-detail-grid>div{background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px}
+@media(max-width:800px){.admin-stats{grid-template-columns:repeat(2,1fr)}.admin-detail-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="header-inner">
+<div style="display:flex;align-items:center;gap:13px">
+<div class="logo">সনদ</div>
+<div><h1>সনদ আবেদন কেন্দ্র</h1><p>০৩ নং পাঁচলাইশ ওয়ার্ড | চট্টগ্রাম সিটি কর্পোরেশন</p></div>
+</div>
+<div style="display:flex;gap:7px;flex-wrap:wrap"><button class="btn btn-light" onclick="showTracking()">🔎 আবেদন ট্র্যাকিং</button><button class="btn btn-light" onclick="openAdminLogin()">🔐 Admin Panel</button></div>
+</div>
+</header>
+
+<main class="container">
+
+<div class="dashboard">
+<div class="stat" onclick="showAllApplications()" style="cursor:pointer"><div class="stat-title">মোট আবেদন</div><div id="totalApplications" class="stat-number">০</div></div>
+<div class="stat"><div class="stat-title">আজকের আবেদন</div><div id="todayApplications" class="stat-number">০</div></div>
+<div class="stat"><div class="stat-title">মৃত্যু সনদ</div><div id="deathApplications" class="stat-number">০</div></div>
+<div class="stat"><div class="stat-title">অন্যান্য আবেদন</div><div id="otherApplications" class="stat-number">০</div></div>
+</div>
+
+<div class="section-title">সনদ নির্বাচন করুন</div>
+<div class="certificate-grid">
+<div class="certificate-card" onclick="openCertificate('death')"><div class="card-icon">⚰️</div><h3>মৃত্যু সনদ</h3><p>মৃত্যু সংক্রান্ত সনদের আবেদন</p></div>
+<div class="certificate-card" onclick="openCertificate('character')"><div class="card-icon">📜</div><h3>চারিত্রিক সনদ</h3><p>চারিত্রিক সনদের আবেদন</p></div>
+<div class="certificate-card" onclick="openCertificate('remarriage')"><div class="card-icon">💍</div><h3>পুনঃবিবাহ না হওয়ার সনদ</h3><p>পুনঃবিবাহ না হওয়ার সনদের আবেদন</p></div>
+<div class="certificate-card" onclick="openCertificate('citizenship')"><div class="card-icon">🏠</div><h3>নাগরিক সনদ</h3><p>নাগরিকত্ব সংক্রান্ত আবেদন</p></div>
+<div class="certificate-card" onclick="openCertificate('warish')"><div class="card-icon">👨‍👩‍👧‍👦</div><h3>ওয়ারিশ সনদ</h3><p>মৃত ব্যক্তির ওয়ারিশদের তথ্যসহ আবেদন</p></div>
+<div class="certificate-card" onclick="openCertificate('inheritance')"><div class="card-icon">📑</div><h3>উত্তরাধিকার সনদ</h3><p>আইনানুগ উত্তরাধিকারীদের তথ্যসহ আবেদন</p></div>
+<div class="certificate-card" onclick="openCertificate('family')"><div class="card-icon">👪</div><h3>পারিবারিক সনদ</h3><p>পরিবারের সদস্যদের তথ্যসহ আবেদন</p></div>
+<div class="certificate-card" onclick="openCertificate('nationality')"><div class="card-icon">🇧🇩</div><h3>জাতীয়তা সনদ</h3><p>জাতীয়তা সংক্রান্ত আবেদন</p></div>
+<div class="certificate-card" onclick="openCertificate('other')"><div class="card-icon">📄</div><h3>অন্যান্য</h3><p>অন্যান্য প্রয়োজনীয় সনদের আবেদন</p></div>
+</div>
+
+<section id="trackingCard" class="tracking-card">
+<div class="form-header"><h2>🔎 আবেদন ট্র্যাকিং</h2><button class="btn btn-secondary" onclick="closeTracking()">বন্ধ</button></div>
+<div class="tracking-search">
+<label>আবেদন ট্র্যাকিং নম্বর</label>
+<div class="search-row">
+<input id="trackingSearchInput" placeholder="যেমন: PCL-20260918-1234">
+<button class="btn btn-primary" onclick="searchTracking()">আবেদন খুঁজুন</button>
+</div>
+<div id="trackingResult" class="tracking-result"></div>
+</div>
+</section>
+
+<section id="formCard" class="form-card">
+<div class="form-header">
+<h2 id="formTitle">সনদ আবেদন</h2>
+<div class="tracking-box">আবেদন ট্র্যাকিং নং: <span id="trackingNumber">নতুন</span></div>
+</div>
+
+<div class="form-section">
+<h3>১. আবেদনকারীর তথ্য</h3>
+<div class="form-grid">
+<div class="form-group"><label>আবেদনকারীর নাম *</label><input id="applicantName"></div>
+<div class="form-group"><label>পিতার নাম *</label><input id="applicantFather"></div>
+<div class="form-group"><label>মাতার নাম</label><input id="applicantMother"></div>
+<div class="form-group"><label>মোবাইল নম্বর *</label><input id="applicantMobile" placeholder="01XXXXXXXXX"></div>
+<div class="form-group"><label>জাতীয় পরিচয়পত্র নম্বর (NID)</label><input id="applicantNid" inputmode="numeric" placeholder="NID নম্বর"></div>
+<div class="form-group full"><label>স্থায়ী ঠিকানা *</label><textarea id="permanentAddress"></textarea></div>
+<div class="form-group full"><label>বর্তমান ঠিকানা</label><textarea id="presentAddress"></textarea></div>
+</div>
+</div>
+
+<div id="relationSection" class="form-section">
+<h3 id="relationTitle">২. আবেদনকারীর সম্পর্ক</h3>
+<div class="form-group">
+<label id="relationLabel">সম্পর্ক *</label>
+<select id="applicantRelation" onchange="toggleOtherRelation()">
+<option value="">সম্পর্ক নির্বাচন করুন</option>
+<option>নিজে</option><option>পিতা</option><option>মাতা</option><option>পুত্র</option><option>কন্যা</option>
+<option>স্বামী</option><option>স্ত্রী</option><option>ভাই</option><option>বোন</option><option>দাদা</option><option>দাদি</option>
+<option>নানা</option><option>নানি</option><option>চাচা</option><option>চাচি</option><option>মামা</option><option>মামি</option>
+<option>খালা</option><option>খালু</option><option>ফুফু</option><option>ফুফা</option><option>নাতি</option><option>নাতনি</option><option>অন্যান্য</select>
+<input id="otherRelation" class="hidden" style="margin-top:8px" placeholder="সম্পর্ক লিখুন">
+</div>
+</div>
+
+<div id="deathSection" class="form-section hidden">
+<h3>৩. মৃত ব্যক্তির তথ্য</h3>
+<div class="form-grid">
+<div class="form-group"><label>মৃত ব্যক্তির নাম *</label><input id="deathName"></div>
+<div class="form-group"><label>পিতার নাম</label><input id="deathFather"></div>
+<div class="form-group"><label>মাতার নাম</label><input id="deathMother"></div>
+<div class="form-group"><label>মৃত্যুর তারিখ *</label><input id="deathDate" type="date"></div>
+<div class="form-group full"><label>ঠিকানা</label><textarea id="deathAddress"></textarea></div>
+</div>
+</div>
+
+<div id="personSection" class="form-section hidden">
+<h3 id="personTitle">৩. যার নামে সনদ</h3>
+<div class="form-grid">
+<div class="form-group"><label>নাম *</label><input id="personName"></div>
+<div class="form-group"><label>পিতার নাম</label><input id="personFather"></div>
+<div class="form-group"><label>মাতার নাম</label><input id="personMother"></div>
+<div class="form-group"><label>জন্মতারিখ</label><input id="personDob" type="date"></div>
+<div class="form-group full"><label>ঠিকানা</label><textarea id="personAddress"></textarea></div>
+</div>
+</div>
+
+<div id="membersSection" class="form-section hidden">
+<h3 id="membersTitle">সদস্যদের তথ্য</h3>
+<div class="table-wrap">
+<table class="member-table">
+<thead><tr><th>ক্রমিক নং</th><th>নাম</th><th>জন্ম তারিখ</th><th>বয়স</th><th>সম্পর্ক</th><th>মন্তব্য</th><th>মুছুন</th></tr></thead>
+<tbody id="memberTableBody"></tbody>
+</table>
+</div>
+<button class="btn btn-primary" style="margin-top:10px" onclick="addMemberRow()">+ সদস্য যোগ করুন</button>
+</div>
+
+<div id="otherSection" class="form-section hidden">
+<h3>৩. অন্যান্য সনদের তথ্য</h3>
+<div class="form-grid">
+<div class="form-group full"><label>সনদের বিষয় / প্রয়োজন *</label><input id="otherCertificateName"></div>
+<div class="form-group full"><label>বিস্তারিত তথ্য</label><textarea id="otherDetails"></textarea></div>
+</div>
+</div>
+
+<div class="form-section">
+<h3>আবেদনের বক্তব্য</h3>
+<textarea id="thereforeText"></textarea>
+</div>
+
+<div class="button-row">
+<button class="btn btn-success" onclick="saveApplication()">💾 আবেদন সংরক্ষণ</button>
+<button class="btn btn-primary" onclick="printApplication()">🖨️ প্রিন্ট / PDF</button>
+<button class="btn btn-light" onclick="resetForm()">নতুন আবেদন</button>
+<button class="btn btn-secondary" onclick="closeForm()">বন্ধ করুন</button>
+</div>
+</section>
+
+<section class="applications-card" style="display:block">
+<div class="section-title">সংরক্ষিত আবেদনসমূহ</div>
+<div class="search-row">
+<input id="applicationSearch" placeholder="Tracking, নাম, মোবাইল বা সনদের বিষয় দিয়ে খুঁজুন..." oninput="renderApplications()">
+<button class="btn btn-light" onclick="clearApplicationSearch()">Clear</button>
+</div>
+<div id="applicationsList"></div>
+</section>
+
+</main>
+<div id="toast" class="toast"></div>
+<div id="adminLoginModal" class="admin-login-modal">
+  <div class="admin-login-box">
+    <div class="admin-head"><h2>🔐 Admin Login</h2><button class="btn btn-light" onclick="closeAdminLogin()">✕</button></div>
+    <div class="form-group"><label>Username</label><input id="adminUser" value="admin" autocomplete="username"></div>
+    <div class="form-group" style="margin-top:10px"><label>Password</label><input id="adminPass" type="password" autocomplete="current-password"></div>
+    <div id="adminLoginError" style="display:none;color:#b42318;background:#fff1f0;padding:9px;border-radius:7px;margin-top:10px">Username বা Password ভুল।</div>
+    <button class="btn btn-primary" style="margin-top:14px;width:100%" onclick="adminLogin()">Login</button>
+  </div>
+</div>
+
+<div id="adminPanelModal" class="admin-panel-modal">
+ <div class="admin-box">
+  <div class="admin-head"><div><h2>📊 Admin Panel</h2><div style="font-size:12px;color:#64748b">০৩ নং পাঁচলাইশ ওয়ার্ড — আবেদন ও সনদ ব্যবস্থাপনা</div></div><div class="button-row"><button class="btn btn-light" onclick="loadAdminApplications()">↻ Refresh</button><button class="btn btn-danger" onclick="adminLogout()">Logout</button><button class="btn btn-light" onclick="closeAdminPanel()">✕</button></div></div>
+  <div class="admin-stats">
+   <div class="admin-stat" role="button" tabindex="0" onclick="filterAdminByStatus('')" style="cursor:pointer">মোট আবেদন<b id="adminTotal">০</b></div><div class="admin-stat" role="button" tabindex="0" onclick="filterAdminByStatus('pending')" style="cursor:pointer">অপেক্ষমাণ<b id="adminPending">০</b></div><div class="admin-stat" role="button" tabindex="0" onclick="filterAdminByStatus('processing')" style="cursor:pointer">যাচাইাধীন<b id="adminProcessing">০</b></div><div class="admin-stat" role="button" tabindex="0" onclick="filterAdminByStatus('approved')" style="cursor:pointer">অনুমোদিত<b id="adminApproved">০</b></div><div class="admin-stat" role="button" tabindex="0" onclick="filterAdminByStatus('issued')" style="cursor:pointer">সনদ ইস্যু<b id="adminIssued">০</b></div>
+  </div>
+  <div class="admin-toolbar"><input id="adminSearch" style="flex:1;min-width:220px" placeholder="Tracking / নাম / মোবাইল দিয়ে খুঁজুন" oninput="renderAdminTable()"><select id="adminStatus" onchange="renderAdminTable()"><option value="">সব স্ট্যাটাস</option><option value="pending">অপেক্ষমাণ</option><option value="processing">যাচাইাধীন</option><option value="approved">অনুমোদিত</option><option value="rejected">বাতিল</option></select></div>
+  <div style="overflow:auto"><table class="admin-table"><thead><tr><th>Tracking</th><th>আবেদনকারী</th><th>সনদ</th><th>মোবাইল</th><th>স্ট্যাটাস</th><th>সনদ নং</th><th>ইস্যুর তারিখ</th><th>অ্যাকশন</th></tr></thead><tbody id="adminTableBody"></tbody></table></div>
+ </div>
+</div>
+
+<div id="adminDetailModal" class="admin-panel-modal">
+ <div class="admin-box" style="max-width:1000px"><div class="admin-head"><h2>আবেদনের বিস্তারিত</h2><button class="btn btn-light" onclick="closeAdminDetail()">✕</button></div><div id="adminDetailContent"></div></div>
+</div>
+
+<div id="printArea"></div>
+
+<script>
+const STORAGE_KEY="certificateApplications";
+const API_URL =
+'https://script.google.com/macros/s/AKfycbzL9UO2_XloHiUusYNLeaafi9QP9jIzBxDPit8RBeNTDv7SaTyFmW5yehiAuR4pJ_k5tA/exec';
+const ADMIN_USER="admin", ADMIN_PASS="Panchlaish@2026";
+let applicationsCache=[];
+let currentCertificate="",editingTracking=null;
+let adminLoggedIn=false;
+
+const certificateNames={
+death:"মৃত্যু সনদ",character:"চারিত্রিক সনদ",remarriage:"পুনঃবিবাহ না হওয়ার সনদ",
+citizenship:"নাগরিক সনদ",warish:"ওয়ারিশ সনদ",inheritance:"উত্তরাধিকার সনদ",
+family:"পারিবারিক সনদ",nationality:"জাতীয়তা সনদ",other:"অন্যান্য সনদ"
+};
+
+const relationOptions=["পুত্র","কন্যা","স্বামী","স্ত্রী","পিতা","মাতা","ভাই","বোন","দাদা","দাদি","নানা","নানি","চাচা","চাচি","মামা","মামি","খালা","খালু","ফুফু","ফুফা","নাতি","নাতনি","অন্যান্য"];
+
+function $(id){return document.getElementById(id)}
+function getApplications(){return applicationsCache}
+function setValue(id,v){if($(id))$(id).value=v||""}
+function escapeHtml(v){return String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
+function escapeJs(v){return String(v??"").replace(/\\/g,"\\\\").replace(/'/g,"\\'")}
+function toBn(v){const m={"0":"০","1":"১","2":"২","3":"৩","4":"৪","5":"৫","6":"৬","7":"৭","8":"৮","9":"৯"};return String(v).replace(/[0-9]/g,x=>m[x])}
+function formatDate(v){if(!v)return"";let d=new Date(v);if(isNaN(d))return v;return toBn(String(d.getDate()).padStart(2,"0"))+"-"+toBn(String(d.getMonth()+1).padStart(2,"0"))+"-"+toBn(d.getFullYear())}
+function formatDateTime(v){if(!v)return"";let d=new Date(v);return formatDate(v)+" "+d.toLocaleTimeString("bn-BD",{hour:"2-digit",minute:"2-digit"})}
+function toast(m){$("toast").textContent=m;$("toast").classList.add("show");clearTimeout(window._toast);window._toast=setTimeout(()=>$("toast").classList.remove("show"),3000)}
+
+function openCertificate(type){
+currentCertificate=type;editingTracking=null;resetForm();
+$("formCard").classList.add("active");$("formTitle").textContent=certificateNames[type]+" আবেদন";
+configureCertificate(type);updateTherefore();
+$("formCard").scrollIntoView({behavior:"smooth"});
+}
+function configureCertificate(type){
+["deathSection","personSection","membersSection","otherSection"].forEach(x=>$(x).classList.add("hidden"));
+$("relationSection").classList.remove("hidden");
+if(type==="death"){$("deathSection").classList.remove("hidden");$("relationSection").classList.add("hidden")}
+else if(type==="warish"){$("deathSection").classList.remove("hidden");$("membersSection").classList.remove("hidden");$("relationTitle").textContent="২. আবেদনকারীর সম্পর্ক মৃত ব্যক্তির সঙ্গে";$("membersTitle").textContent="ওয়ারিশদের তথ্য"}
+else if(type==="inheritance"){$("deathSection").classList.remove("hidden");$("membersSection").classList.remove("hidden");$("relationTitle").textContent="২. আবেদনকারীর সম্পর্ক মৃত ব্যক্তির সঙ্গে";$("membersTitle").textContent="উত্তরাধিকারীদের তথ্য"}
+else if(type==="family"){$("personSection").classList.remove("hidden");$("membersSection").classList.remove("hidden");$("relationTitle").textContent="২. পরিবারের প্রধানের সঙ্গে আবেদনকারীর সম্পর্ক";$("personTitle").textContent="৩. পরিবারের প্রধানের তথ্য";$("membersTitle").textContent="পরিবারের সদস্যদের তথ্য"}
+else if(type==="other"){$("personSection").classList.remove("hidden");$("otherSection").classList.remove("hidden");$("relationTitle").textContent="২. যার জন্য আবেদন"}
+else{$("personSection").classList.remove("hidden");$("personTitle").textContent=type==="character"?"৩. যার নামে চারিত্রিক সনদ":type==="remarriage"?"৩. যার নামে সনদ":type==="citizenship"?"৩. যার নামে নাগরিক সনদ":"৩. যার নামে জাতীয়তা সনদ"}
+}
+function toggleOtherRelation(){let a=$("applicantRelation").value;if(a==="অন্যান্য")$("otherRelation").classList.remove("hidden");else{$("otherRelation").classList.add("hidden");$("otherRelation").value=""}updateTherefore()}
+function getRelation(){return $("applicantRelation").value==="অন্যান্য"?$("otherRelation").value.trim():$("applicantRelation").value.trim()}
+
+function calculateAge(dob){
+if(!dob)return "";
+let d=new Date(dob),now=new Date();
+if(isNaN(d))return "";
+let age=now.getFullYear()-d.getFullYear();
+let m=now.getMonth()-d.getMonth();
+if(m<0||(m===0&&now.getDate()<d.getDate()))age--;
+return age>=0?toBn(age):"";
+}
+
+function addMemberRow(data={}){
+let tr=document.createElement("tr");
+tr.innerHTML=`<td class="member-number"></td>
+<td><input class="member-name" value="${escapeHtml(data.name||"")}" placeholder="নাম"></td>
+<td><input class="member-dob" type="date" value="${escapeHtml(data.dob||"")}" onchange="updateMemberAge(this)"></td>
+<td><input class="member-age" value="${escapeHtml(data.age||calculateAge(data.dob)||"")}" placeholder="বয়স" readonly></td>
+<td><select class="member-relation"><option value="">সম্পর্ক</option>${relationOptions.map(r=>`<option ${data.relation===r?"selected":""} value="${escapeHtml(r)}">${escapeHtml(r)}</option>`).join("")}</select></td>
+<td><input class="member-note" value="${escapeHtml(data.note||"")}" placeholder="মন্তব্য"></td>
+<td><button class="btn btn-danger" onclick="removeMemberRow(this)">মুছুন</button></td>`;
+$("memberTableBody").appendChild(tr);updateMemberNumbers();updateTherefore();
+}
+function updateMemberAge(input){
+let row=input.closest("tr");
+row.querySelector(".member-age").value=calculateAge(input.value);
+updateTherefore();
+}
+function removeMemberRow(b){b.closest("tr").remove();updateMemberNumbers();updateTherefore()}
+function updateMemberNumbers(){document.querySelectorAll(".member-number").forEach((x,i)=>x.textContent=toBn(i+1))}
+function collectMembers(){return [...document.querySelectorAll("#memberTableBody tr")].map(r=>({name:r.querySelector(".member-name").value.trim(),dob:r.querySelector(".member-dob").value,age:r.querySelector(".member-age").value.trim(),relation:r.querySelector(".member-relation").value.trim(),note:r.querySelector(".member-note").value.trim()}))}
+
+function updateTherefore(){
+let applicant=$("applicantName").value.trim(),person=$("personName").value.trim(),deceased=$("deathName").value.trim(),members=collectMembers(),text="";
+if(currentCertificate==="death"&&deceased){
+text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${deceased}, পিতা: ${$("deathFather").value.trim()||"................................"}, মাতা: ${$("deathMother").value.trim()||"................................"}, ঠিকানা: ${$("deathAddress").value.trim()||"................................"}, মৃত্যুবরণ করেছেন। উক্ত মৃত্যুর প্রেক্ষিতে প্রয়োজনীয় কাজে ব্যবহারের নিমিত্তে মৃত্যু সনদপত্র প্রয়োজন।
+
+অতএব, তদ্বিষয়ে প্রয়োজনীয় যাচাই-বাছাইপূর্বক মৃত্যু সনদপত্র প্রদান করলে আপনার নিকট কৃতজ্ঞ থাকিব।`;
+}
+else if(currentCertificate==="warish"&&deceased){
+text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${deceased}-এর মৃত্যু হওয়ায় তাঁহার প্রকৃত ওয়ারিশগণের তথ্য উল্লেখপূর্বক ওয়ারিশ সনদপত্র প্রয়োজন। আমাদের পারিবারিক প্রয়োজনে উক্ত ওয়ারিশ সনদপত্র আবশ্যক।
+
+অতএব, তদ্বিষয়ে প্রয়োজনীয় যাচাই-বাছাইপূর্বক ওয়ারিশ সনদপত্র প্রদান করলে আপনার নিকট কৃতজ্ঞ থাকিব।`;
+}
+else if(currentCertificate==="inheritance"&&deceased){
+text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${deceased}-এর মৃত্যু হওয়ায় তাঁহার আইনানুগ উত্তরাধিকারগণের তথ্য উল্লেখপূর্বক উত্তরাধিকার সনদপত্র প্রয়োজন। আমাদের পারিবারিক প্রয়োজনে উক্ত উত্তরাধিকার সনদপত্র আবশ্যক।
+
+অতএব, তদ্বিষয়ে প্রয়োজনীয় যাচাই-বাছাইপূর্বক উত্তরাধিকার সনদপত্র প্রদান করলে আপনার নিকট কৃতজ্ঞ থাকিব।`;
+}
+else if(currentCertificate==="family"&&person){
+text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${person}-এর পরিবারের সদস্যদের তথ্য উল্লেখপূর্বক একটি পারিবারিক সনদপত্র প্রয়োজন। প্রয়োজনীয় কাজে ব্যবহারের নিমিত্তে উক্ত পারিবারিক সনদপত্র আবশ্যক।
+
+অতএব, তদ্বিষয়ে প্রয়োজনীয় যাচাই-বাছাইপূর্বক পারিবারিক সনদপত্র প্রদান করলে আপনার নিকট কৃতজ্ঞ থাকিব।`;
+}
+else if(currentCertificate==="character"&&(person||applicant))text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${person||applicant}-এর প্রয়োজনীয় কাজে ব্যবহারের নিমিত্তে একটি চারিত্রিক সনদপত্র প্রয়োজন।
+
+অতএব, প্রয়োজনীয় যাচাই-বাছাইপূর্বক চারিত্রিক সনদপত্র প্রদান করার জন্য বিনীত অনুরোধ করছি।`;
+else if(currentCertificate==="remarriage"&&person)text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${person}-এর প্রয়োজনীয় কাজে ব্যবহারের নিমিত্তে পুনঃবিবাহ না হওয়ার সনদপত্র প্রয়োজন।
+
+অতএব, প্রয়োজনীয় যাচাই-বাছাইপূর্বক পুনঃবিবাহ না হওয়ার সনদপত্র প্রদান করার জন্য বিনীত অনুরোধ করছি।`;
+else if(currentCertificate==="citizenship"&&person)text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${person}-এর প্রয়োজনীয় কাজে ব্যবহারের নিমিত্তে নাগরিকত্ব সনদপত্র প্রয়োজন।
+
+অতএব, প্রয়োজনীয় যাচাই-বাছাইপূর্বক নাগরিকত্ব সনদপত্র প্রদান করার জন্য বিনীত অনুরোধ করছি।`;
+else if(currentCertificate==="nationality"&&person)text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${person}-এর প্রয়োজনীয় কাজে ব্যবহারের নিমিত্তে জাতীয়তা সনদপত্র প্রয়োজন।
+
+অতএব, প্রয়োজনীয় যাচাই-বাছাইপূর্বক জাতীয়তা সনদপত্র প্রদান করার জন্য বিনীত অনুরোধ করছি।`;
+else if(currentCertificate==="other"&&$("otherCertificateName").value.trim())text=`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${$("otherCertificateName").value.trim()} প্রয়োজন।
+
+অতএব, প্রয়োজনীয় যাচাই-বাছাইপূর্বক উক্ত সনদ/প্রত্যয়নপত্র প্রদান করার জন্য বিনীত অনুরোধ করছি।`;
+$("thereforeText").value=text;
+}
+
+function validateApplication(){
+if(!$("applicantName").value.trim()){toast("আবেদনকারীর নাম লিখুন।");return false}
+if(!$("applicantFather").value.trim()){toast("পিতার নাম লিখুন।");return false}
+if(!/^01[3-9]\d{8}$/.test($("applicantMobile").value.trim())){toast("সঠিক ১১ সংখ্যার মোবাইল নম্বর দিন।");return false}
+if(!$("permanentAddress").value.trim()){toast("স্থায়ী ঠিকানা লিখুন।");return false}
+if(currentCertificate!=="death"&&!getRelation()&&currentCertificate!=="family"){toast("সম্পর্ক নির্বাচন করুন।");return false}
+if(["death","warish","inheritance"].includes(currentCertificate)){if(!$("deathName").value.trim()){toast("মৃত ব্যক্তির নাম লিখুন।");return false}}
+if(["character","remarriage","citizenship","nationality","family"].includes(currentCertificate)&&!$("personName").value.trim()){toast("নাম লিখুন।");return false}
+if(currentCertificate==="death"&&!$("deathDate").value){toast("মৃত্যুর তারিখ নির্বাচন করুন।");return false}
+if(currentCertificate==="other"&&!$("otherCertificateName").value.trim()){toast("সনদের বিষয় লিখুন।");return false}
+return true
+}
+function generateTracking(){let d=new Date();return `PCL-${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}-${Math.floor(1000+Math.random()*9000)}`}
+function collectFormData(){return{
+certificate:currentCertificate,certificateName:certificateNames[currentCertificate],
+applicantName:$("applicantName").value.trim(),applicantFather:$("applicantFather").value.trim(),applicantMother:$("applicantMother").value.trim(),applicantMobile:$("applicantMobile").value.trim(),nid:$("applicantNid").value.trim(),
+permanentAddress:$("permanentAddress").value.trim(),presentAddress:$("presentAddress").value.trim(),relation:getRelation(),
+deathName:$("deathName").value.trim(),deathFather:$("deathFather").value.trim(),deathMother:$("deathMother").value.trim(),deathDate:$("deathDate").value,deathAddress:$("deathAddress").value.trim(),
+personName:$("personName").value.trim(),personFather:$("personFather").value.trim(),personMother:$("personMother").value.trim(),personDob:$("personDob").value,personAddress:$("personAddress").value.trim(),
+members:collectMembers(),otherCertificateName:$("otherCertificateName").value.trim(),otherDetails:$("otherDetails").value.trim(),therefore:$("thereforeText").value.trim()
+}}
+async function saveApplication(){
+ updateTherefore();if(!validateApplication())return;
+ const data=collectFormData();
+ try{
+  toast("আবেদন সংরক্ষণ হচ্ছে...");
+  const result=await apiPost(editingTracking?{action:"update",tracking:editingTracking,...data,members:JSON.stringify(data.members||[])}:{action:"submit",...data,members:JSON.stringify(data.members||[])});
+  if(result.success===false)throw new Error(result.message||result.error||"আবেদন সংরক্ষণ করা যায়নি");
+  const app=result.data||result.application||result;
+  applicationsCache=await apiGetApplications();
+  const saved=applicationsCache.find(x=>getTracking(x)===(app.tracking||app.applicationNo||app.Tracking));
+  editingTracking=getTracking(saved||app)||null;
+  $("trackingNumber").textContent=editingTracking||"সংরক্ষিত";
+  toast("আবেদন সফলভাবে সংরক্ষণ হয়েছে। Tracking: "+(editingTracking||""));
+  renderApplications();updateDashboard();
+ }catch(e){toast("ত্রুটি: "+e.message)}
+}
+
+async function renderApplications(){
+ let q=$("applicationSearch").value.trim().toLowerCase();
+ let apps=applicationsCache.filter(a=>[getTracking(a),a.applicantName,a.applicantMobile,a.certificateName].join(" ").toLowerCase().includes(q));
+ $("applicationsList").innerHTML=apps.length?apps.map(a=>`<div class="application-item"><div class="application-info"><div class="tracking">${escapeHtml(getTracking(a))}</div><div><b>${escapeHtml(a.applicantName||"")}</b></div><div class="meta">${escapeHtml(a.certificateName||getCertificateName(a))} | ${escapeHtml(a.applicantMobile||"")} | ${formatDateTime(a.createdAt)}</div></div><div class="actions"><button class="btn btn-primary" onclick="viewApplication('${escapeJs(getTracking(a))}')">দেখুন</button><button class="btn btn-warning" onclick="editApplication('${escapeJs(getTracking(a))}')">Edit</button><button class="btn btn-success" onclick="printSavedApplication('${escapeJs(getTracking(a))}')">Print</button></div></div>`).join(""):`<div class="empty">কোনো আবেদন পাওয়া যায়নি।</div>`
+}
+function clearApplicationSearch(){$("applicationSearch").value="";renderApplications()}
+
+async function editApplication(t){
+ let a=applicationsCache.find(x=>getTracking(x)===t);if(!a)return;
+ currentCertificate=a.certificate||a.certificateType||"";editingTracking=t;resetForm();configureCertificate(currentCertificate);
+ $("formCard").classList.add("active");$("formTitle").textContent=certificateNames[currentCertificate]+" আবেদন সম্পাদনা";$("trackingNumber").textContent=t;
+ ["applicantName","applicantFather","applicantMother","applicantMobile","applicantNid","permanentAddress","presentAddress","deathName","deathFather","deathMother","deathDate","deathAddress","personName","personFather","personMother","personDob","personAddress","otherCertificateName","otherDetails"].forEach(id=>setValue(id,a[id]));
+ setRelationValue(a.relation||"");(a.members||[]).forEach(m=>addMemberRow(m));updateTherefore();$("formCard").scrollIntoView({behavior:"smooth"})
+}
+function setRelationValue(v){let s=$("applicantRelation"),exists=[...s.options].some(o=>o.value===v);if(exists){s.value=v;$("otherRelation").classList.add("hidden")}else if(v){s.value="অন্যান্য";$("otherRelation").classList.remove("hidden");$("otherRelation").value=v}}
+async function deleteApplication(t){
+ if(!confirm("এই আবেদনটি মুছে ফেলতে চান?"))return;
+ try{const r=await apiPost({action:"delete",tracking:t});if(r.success===false)throw new Error(r.message||r.error||"মুছে ফেলা যায়নি");await loadApplications();toast("আবেদন মুছে ফেলা হয়েছে।")}catch(e){toast("ত্রুটি: "+e.message)}
+}
+function resetForm(){
+["applicantName","applicantFather","applicantMother","applicantMobile","applicantNid","permanentAddress","presentAddress","deathName","deathFather","deathMother","deathDate","deathAddress","personName","personFather","personMother","personDob","personAddress","otherCertificateName","otherDetails","thereforeText","otherRelation"].forEach(id=>setValue(id,""));
+$("applicantRelation").selectedIndex=0;$("memberTableBody").innerHTML="";$("otherRelation").classList.add("hidden");$("trackingNumber").textContent="নতুন";editingTracking=null
+}
+function closeForm(){$("formCard").classList.remove("active");editingTracking=null}
+function updateDashboard(){let a=applicationsCache,today=new Date().toISOString().slice(0,10),d=a.filter(x=>(x.certificate||x.certificateType)==="death").length,t=a.filter(x=>x.createdAt&&String(x.createdAt).slice(0,10)===today).length;$("totalApplications").textContent=toBn(a.length);$("todayApplications").textContent=toBn(t);$("deathApplications").textContent=toBn(d);$("otherApplications").textContent=toBn(a.length-d)}
+
+function showTracking(){$("trackingCard").classList.add("active");$("trackingSearchInput").focus();$("trackingCard").scrollIntoView({behavior:"smooth"})}
+function closeTracking(){$("trackingCard").classList.remove("active")}
+async function searchTracking(){
+ let q=$("trackingSearchInput").value.trim().toUpperCase(),a=applicationsCache.find(x=>getTracking(x).toUpperCase()===q),r=$("trackingResult");
+ r.style.display="block";if(!a){r.innerHTML="<b>কোনো আবেদন পাওয়া যায়নি।</b>";return}
+ r.innerHTML=`<span class="badge">আবেদন পাওয়া গেছে</span><div class="detail-grid"><div class="detail"><b>Tracking</b><span>${escapeHtml(getTracking(a))}</span></div><div class="detail"><b>সনদ</b><span>${escapeHtml(a.certificateName||getCertificateName(a))}</span></div><div class="detail"><b>আবেদনকারী</b><span>${escapeHtml(a.applicantName||"")}</span></div><div class="detail"><b>মোবাইল</b><span>${escapeHtml(a.applicantMobile||"")}</span></div><div class="detail"><b>স্ট্যাটাস</b><span>${escapeHtml(normalizeStatus(a.status))}</span></div></div><div class="button-row" style="margin-top:12px"><button class="btn btn-primary" onclick="viewApplication('${escapeJs(getTracking(a))}')">বিস্তারিত দেখুন</button><button class="btn btn-success" onclick="printSavedApplication('${escapeJs(getTracking(a))}')">Print / PDF</button></div>`
+}
+function viewApplication(t){
+ let a=applicationsCache.find(x=>getTracking(x)===t);if(!a)return;
+ let m=(a.members||[]).map((x,i)=>`<tr><td>${toBn(i+1)}</td><td>${escapeHtml(x.name)}</td><td>${formatDate(x.dob)}</td><td>${escapeHtml(x.age)}</td><td>${escapeHtml(x.relation)}</td><td>${escapeHtml(x.note)}</td></tr>`).join("");
+ let r=$("trackingResult");r.style.display="block";r.innerHTML=`<h3>${escapeHtml(a.certificateName||getCertificateName(a))}</h3><div class="detail-grid"><div class="detail"><b>Tracking</b><span>${escapeHtml(getTracking(a))}</span></div><div class="detail"><b>আবেদনকারীর নাম</b><span>${escapeHtml(a.applicantName||"")}</span></div><div class="detail"><b>পিতার নাম</b><span>${escapeHtml(a.applicantFather||"")}</span></div><div class="detail"><b>মোবাইল</b><span>${escapeHtml(a.applicantMobile||"")}</span></div><div class="detail"><b>স্ট্যাটাস</b><span>${escapeHtml(normalizeStatus(a.status))}</span></div></div>${m?`<div class="table-wrap" style="margin-top:12px"><table class="member-table"><tr><th>ক্রমিক নং</th><th>নাম</th><th>জন্ম তারিখ</th><th>বয়স</th><th>সম্পর্ক</th><th>মন্তব্য</th></tr>${m}</table></div>`:""}<div class="button-row" style="margin-top:12px"><button class="btn btn-success" onclick="printSavedApplication('${escapeJs(t)}')">Print / PDF</button></div>`
+}
+
+function printApplication(){updateTherefore();if(!validateApplication())return;let d=collectFormData();d.tracking=editingTracking||generateTracking();createPrintArea(d);setTimeout(()=>window.print(),200)}
+function printSavedApplication(t){let a=applicationsCache.find(x=>getTracking(x)===t);if(!a){toast("আবেদন পাওয়া যায়নি।");return}createPrintArea(a);setTimeout(()=>window.print(),200)}
+
+function createPrintArea(a){
+const type=a.certificate;
+const subject={
+warish:"অনলাইন ওয়ারিশ সনদ প্রত্যয়ন প্রদান প্রসঙ্গে।",
+inheritance:"অনলাইন উত্তরাধিকার সনদ প্রত্যয়ন প্রদান প্রসঙ্গে।",
+family:"অনলাইন পারিবারিক সনদ প্রত্যয়ন প্রদান প্রসঙ্গে।"
+}[type]||(`${a.certificateName} প্রদান প্রসঙ্গে।`);
+
+const recipient=`বরাবর,<br>দায়িত্ব প্রাপ্ত কর্মকর্তা<br>রাজস্ব কর্মকর্তা (সিনিয়র সহকারী সচিব)<br>০৩নং পাঁচলাইশ ওয়ার্ড<br>চট্টগ্রাম সিটি কর্পোরেশন<br>চট্টগ্রাম`;
+
+const memberTitle=type==="warish"?"ওয়ারিশগণের তথ্য":type==="inheritance"?"উত্তরাধিকারগণের তথ্য":"পরিবারের সদস্যদের তথ্য";
+const memberNameTitle=type==="warish"?"ওয়ারিশগণের নাম":type==="inheritance"?"উত্তরাধিকারগণের নাম":"পরিবারের সদস্যদের নাম";
+const memberRelationTitle=type==="family"?"সম্পর্ক/মন্তব্য":"সম্পর্ক/মন্তব্য";
+
+const memberRows=(a.members||[]).map((m,i)=>`<tr>
+<td>${toBn(i+1)}</td>
+<td>${escapeHtml(m.name)}</td>
+<td>${formatDate(m.dob)}</td>
+<td>${escapeHtml(m.age)}</td>
+<td>${escapeHtml(m.relation)}${m.note?` / ${escapeHtml(m.note)}`:""}</td>
+</tr>`).join("");
+
+if(["warish","inheritance","family"].includes(type)){
+const para=type==="warish"
+?`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, আমার ${escapeHtml(a.deathName||"................................")} মৃত্যুবরণ করায় তাঁহার প্রকৃত ওয়ারিশগণের তথ্য নিম্নে উল্লেখ করা হলো। আমাদের পারিবারিক প্রয়োজনে তাঁহার ওয়ারিশ সনদপত্র প্রয়োজন।`
+:type==="inheritance"
+?`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, আমার ${escapeHtml(a.deathName||"................................")} মৃত্যুবরণ করায় তাঁহার আইনানুগ উত্তরাধিকারগণের তথ্য নিম্নে উল্লেখ করা হলো। আমাদের পারিবারিক প্রয়োজনে তাঁহার উত্তরাধিকার সনদপত্র প্রয়োজন।`
+:`যথাবিহীত সম্মানপূর্বক বিনীত নিবেদন এই যে, ${escapeHtml(a.personName||a.applicantName||"................................")} পরিবারের সদস্যদের তথ্য নিম্নে উল্লেখ করা হলো। প্রয়োজনীয় কাজে ব্যবহারের নিমিত্তে একটি পারিবারিক সনদপত্র প্রয়োজন।`;
+
+const request=type==="warish"
+?`অতএব, তদ্বিষয়ে প্রয়োজনীয় যাচাই-বাছাইপূর্বক তাঁহার ওয়ারিশ সনদপত্র প্রদান করলে আপনার নিকট কৃতজ্ঞ থাকিব।`
+:type==="inheritance"
+?`অতএব, তদ্বিষয়ে প্রয়োজনীয় যাচাই-বাছাইপূর্বক তাঁহার উত্তরাধিকার সনদপত্র প্রদান করলে আপনার নিকট কৃতজ্ঞ থাকিব।`
+:`অতএব, তদ্বিষয়ে প্রয়োজনীয় যাচাই-বাছাইপূর্বক পারিবারিক সনদপত্র প্রদান করলে আপনার নিকট কৃতজ্ঞ থাকিব।`;
+
+let deceasedInfo="";
+if(type!=="family"){
+deceasedInfo=`<div class="application-paragraph"><b>মৃত ব্যক্তির তথ্য:</b> ${escapeHtml(a.deathName||"")} , পিতা- ${escapeHtml(a.deathFather||"")}, মাতা- ${escapeHtml(a.deathMother||"")}, ঠিকানা- ${escapeHtml(a.deathAddress||"")}।</div>`;
+}
+
+$("printArea").innerHTML=`<div class="official-page">
+<div class="recipient">${recipient}</div>
+<div class="subject"><b>বিষয়ঃ</b> ${escapeHtml(subject)}</div>
+<div class="salutation">জনাব,</div>
+<div class="application-paragraph">${para}</div>
+${deceasedInfo}
+<div class="application-paragraph">${request}</div>
+<table class="official-member-table">
+<thead><tr><th>ক্রঃ নং</th><th>${memberNameTitle}</th><th>জন্ম তারিখ</th><th>বয়স</th><th>${memberRelationTitle}</th></tr></thead>
+<tbody>${memberRows||`<tr><td colspan="5" style="height:45px"></td></tr>`}</tbody>
+</table>
+<div class="signature-area">
+<div class="date-area">তারিখঃ</div>
+<div class="applicant-sign">বিনীত নিবেদক<br><br><span class="sign-line">________________________</span><br><b>${escapeHtml(a.applicantName||"")}</b><br>পিতা: ${escapeHtml(a.applicantFather||"")}<br>মাতা: ${escapeHtml(a.applicantMother||"")}<br>${escapeHtml(a.permanentAddress||"")}<br>মোবাইল: ${escapeHtml(a.applicantMobile||"")}</div>
+</div>
+</div>`;
+return;
+}
+
+let extra="";
+if(type==="death")extra=`<table class="ptable"><tr><th>মৃত ব্যক্তির নাম</th><td>${escapeHtml(a.deathName)}</td></tr><tr><th>পিতার নাম</th><td>${escapeHtml(a.deathFather)}</td></tr><tr><th>মাতার নাম</th><td>${escapeHtml(a.deathMother)}</td></tr><tr><th>মৃত্যুর তারিখ</th><td>${formatDate(a.deathDate)}</td></tr><tr><th>ঠিকানা</th><td>${escapeHtml(a.deathAddress)}</td></tr></table>`;
+if(["character","remarriage","citizenship","nationality"].includes(type))extra=`<table class="ptable"><tr><th>নাম</th><td>${escapeHtml(a.personName)}</td></tr><tr><th>পিতার নাম</th><td>${escapeHtml(a.personFather)}</td></tr><tr><th>মাতার নাম</th><td>${escapeHtml(a.personMother)}</td></tr><tr><th>জন্মতারিখ</th><td>${formatDate(a.personDob)}</td></tr><tr><th>ঠিকানা</th><td>${escapeHtml(a.personAddress)}</td></tr></table>`;
+if(type==="other")extra=`<table class="ptable"><tr><th>সনদের বিষয়</th><td>${escapeHtml(a.otherCertificateName)}</td></tr><tr><th>বিস্তারিত</th><td>${escapeHtml(a.otherDetails)}</td></tr></table>`;
+
+$("printArea").innerHTML=`<div class="print-page"><div class="print-head"><h1>চট্টগ্রাম সিটি কর্পোরেশন</h1><h2>০৩ নং পাঁচলাইশ ওয়ার্ড</h2><p>সনদ আবেদন কেন্দ্র</p></div><div class="print-tracking">আবেদন ট্র্যাকিং নং: <b>${escapeHtml(a.tracking)}</b></div><div class="print-title">${escapeHtml(a.certificateName)}</div><table class="ptable"><tr><th>আবেদনকারীর নাম</th><td>${escapeHtml(a.applicantName)}</td></tr><tr><th>পিতার নাম</th><td>${escapeHtml(a.applicantFather)}</td></tr><tr><th>মাতার নাম</th><td>${escapeHtml(a.applicantMother)}</td></tr><tr><th>মোবাইল</th><td>${escapeHtml(a.applicantMobile)}</td></tr><tr><th>স্থায়ী ঠিকানা</th><td>${escapeHtml(a.permanentAddress)}</td></tr><tr><th>বর্তমান ঠিকানা</th><td>${escapeHtml(a.presentAddress)}</td></tr>${a.relation?`<tr><th>সম্পর্ক</th><td>${escapeHtml(a.relation)}</td></tr>`:""}</table>${extra}<div style="margin-top:14px"><b>আবেদনের বক্তব্য:</b><p style="text-align:justify;white-space:pre-line">${escapeHtml(a.therefore)}</p></div><div class="sign"><div class="signbox">________________________<br>দায়িত্বপ্রাপ্ত কর্মকর্তা /<br>রাজস্ব কর্মকর্তা<br>(সিনিয়র সহকারী সচিব)<br>০৩ নং পাঁচলাইশ ওয়ার্ড<br>চট্টগ্রাম সিটি কর্পোরেশন</div></div></div>`;
+}
+
+
+function showAllApplications(){
+ const card=document.querySelector(".applications-card");
+ if(card){card.classList.add("active");card.scrollIntoView({behavior:"smooth",block:"start"});}
+ const search=$("applicationSearch");
+ if(search)search.value="";
+ renderApplications();
+}
+
+/* ================= API + ADMIN SYSTEM ================= */
+async function apiGet(action,params={}){
+ const qs=new URLSearchParams({action,...params});
+ const r=await fetch(API_URL+"?"+qs.toString(),{method:"GET",redirect:"follow"});
+ const j=await r.json();
+ if(j.success===false)throw new Error(j.message||j.error||"API error");
+ return j.data!==undefined?j.data:j;
+}
+async function apiPost(payload){
+ const r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+ const j=await r.json();return j;
+}
+function normalizeStatus(s){const x=String(s||"").toLowerCase();if(["approved","অনুমোদিত","অনুমোদন","approve"].includes(x))return"অনুমোদিত";if(["processing","যাচাইাধীন","প্রক্রিয়াধীন"].includes(x))return"যাচাইাধীন";if(["rejected","বাতিল"].includes(x))return"বাতিল";return"অপেক্ষমাণ"}
+function statusClassName(s){return normalizeStatus(s)==="অনুমোদিত"?"status-approved":normalizeStatus(s)==="যাচাইাধীন"?"status-processing":normalizeStatus(s)==="বাতিল"?"status-rejected":"status-pending"}
+function getTracking(a){
+ return (a?.tracking||a?.Tracking||a?.applicationNo||a?.ApplicationNo||a?.trackingNumber||"");
+}
+function getCertificateName(a){
+ return (a?.certificateName||certificateNames[a?.certificate]||certificateNames[a?.certificateType]||"সনদ");
+}
+function normalizeApiApplication(a){
+ const x={...a};
+ x.tracking=getTracking(a);
+ x.applicantName=a.applicantName||a.ApplicantName||"";
+ x.applicantFather=a.applicantFather||a.ApplicantFather||"";
+ x.applicantMother=a.applicantMother||a.ApplicantMother||"";
+ x.applicantMobile=a.applicantMobile||a.mobile||a.Mobile||"";
+ x.nid=a.nid||a.NID||"";
+ x.relation=a.relation||a.applicantRelation||a.ApplicantRelation||"";
+ x.certificate=a.certificate||a.certificateType||a.CertificateType||"";
+ x.certificateType=x.certificate;
+ x.certificateName=a.certificateName||a.CertificateName||certificateNames[x.certificate]||"সনদ";
+ x.permanentAddress=a.permanentAddress||a.ApplicantAddress||a.PermanentAddress||"";
+ x.presentAddress=a.presentAddress||a.PresentAddress||"";
+ x.personName=a.personName||a.PersonName||"";
+ x.personFather=a.personFather||a.PersonFather||"";
+ x.personMother=a.personMother||a.PersonMother||"";
+ x.personRelation=a.personRelation||a.PersonRelation||"";
+ x.personDob=a.personDob||a.PersonDob||"";
+ x.personAddress=a.personAddress||a.PersonPresentAddress||a.PermanentAddress||"";
+ x.deathName=a.deathName||a.DeathName||"";
+ x.deathFather=a.deathFather||a.DeathFather||"";
+ x.deathMother=a.deathMother||a.DeathMother||"";
+ x.deathDate=a.deathDate||a.DeathDate||"";
+ x.deathAddress=a.deathAddress||a.DeathAddress||"";
+ x.thana=a.thana||a.PersonPermThana||a.AppThana||"বায়েজিদ বোস্তামী";
+ x.district=a.district||a.PersonPermDistrict||a.AppDistrict||"চট্টগ্রাম";
+ x.status=normalizeStatus(a.status||a.Status);
+ x.createdAt=a.createdAt||a.CreatedAt||"";
+ x.updatedAt=a.updatedAt||a.UpdatedAt||"";
+ x.certificateNo=a.certificateNo||a.CertificateNo||"";
+ x.certificateIssueDate=a.certificateIssueDate||a.CertificateIssueDate||"";
+ x.certificateIssuedAt=a.certificateIssuedAt||a.CertificateIssuedAt||"";
+ x.certificateIssuedBy=a.certificateIssuedBy||a.CertificateIssuedBy||"";
+ const rawMembers=a.members||a.Members||a.certificateMembers||a.CertificateMembers||[];
+ x.members=typeof rawMembers==="string"?((()=>{try{return JSON.parse(rawMembers)||[]}catch(e){return[]}})()):(rawMembers||[]);
+ x.members=x.members.map(m=>({name:m.name||m.memberName||"",dob:m.dob||m.birthDate||"",age:m.age||"",relation:m.relation||m.memberRelation||"",note:m.note||m.comment||""}));
+ x.therefore=a.therefore||a.Therefore||"";
+ x.otherCertificateName=a.otherCertificateName||"";
+ x.otherDetails=a.otherDetails||a.AdditionalDetails||"";
+ return x;
+}
+async function apiGetApplications(){
+ const d=await apiGet("getAllApplications");
+ const arr=Array.isArray(d)?d:(d?.applications||d?.data||[]);
+ return arr.map(normalizeApiApplication);
+}
+async function loadApplications(){
+ try{applicationsCache=await apiGetApplications();renderApplications();updateDashboard()}catch(e){toast("ডাটা লোড হয়নি: "+e.message)}
+}
+
+function openAdminLogin(){
+ if(sessionStorage.getItem("adminLoggedIn")==="true"){openAdminPanel();return}
+ $("adminLoginModal").style.display="block";$("adminPass").focus()
+}
+function closeAdminLogin(){$("adminLoginModal").style.display="none"}
+function adminLogin(){
+ if($("adminUser").value.trim()===ADMIN_USER&&$("adminPass").value===ADMIN_PASS){sessionStorage.setItem("adminLoggedIn","true");adminLoggedIn=true;closeAdminLogin();openAdminPanel()}else{$("adminLoginError").style.display="block"}
+}
+function adminLogout(){sessionStorage.removeItem("adminLoggedIn");adminLoggedIn=false;closeAdminPanel()}
+async function openAdminPanel(){
+ if(sessionStorage.getItem("adminLoggedIn")!=="true"){openAdminLogin();return}
+ $("adminPanelModal").style.display="block";await loadAdminApplications()
+}
+function closeAdminPanel(){$("adminPanelModal").style.display="none"}
+async function loadAdminApplications(){
+ try{applicationsCache=await apiGetApplications();renderAdminTable();renderApplications();updateDashboard();renderAdminStats()}catch(e){toast("Admin data load error: "+e.message)}
+}
+function renderAdminStats(){const a=applicationsCache;$("adminTotal").textContent=toBn(a.length);$("adminPending").textContent=toBn(a.filter(x=>normalizeStatus(x.status)==="অপেক্ষমাণ").length);$("adminProcessing").textContent=toBn(a.filter(x=>normalizeStatus(x.status)==="যাচাইাধীন").length);$("adminApproved").textContent=toBn(a.filter(x=>normalizeStatus(x.status)==="অনুমোদিত").length);$("adminIssued").textContent=toBn(a.filter(x=>x.certificateNo||x.CertificateNo).length)}
+function filterAdminByStatus(status){
+ $("adminStatus").value=status==="issued"?"":status;
+ if(status==="issued"){
+   const q=$("adminSearch").value.trim().toLowerCase();
+   const apps=applicationsCache.filter(a=>{const issued=!!(a.certificateNo||a.CertificateNo);const text=(getTracking(a)+" "+(a.applicantName||"")+" "+(a.applicantMobile||"")).toLowerCase();return issued&&(!q||text.includes(q));});
+   renderAdminTable(apps);
+   return;
+ }
+ renderAdminTable();
+}
+
+function renderAdminTable(overrideApps){
+ const q=$("adminSearch").value.trim().toLowerCase(),f=$("adminStatus").value;
+ const apps=(overrideApps||applicationsCache.filter(a=>{const s=(getTracking(a)+" "+(a.applicantName||"")+" "+(a.applicantMobile||"")).toLowerCase();const st=normalizeStatus(a.status);return(!q||s.includes(q))&&(!f||({pending:"অপেক্ষমাণ",processing:"যাচাইাধীন",approved:"অনুমোদিত",rejected:"বাতিল"}[f]===st))}) );
+ $("adminTableBody").innerHTML=apps.length?apps.map(a=>{const tr=getTracking(a),st=normalizeStatus(a.status),no=a.certificateNo||a.CertificateNo||"—",dt=a.certificateIssueDate||a.CertificateIssueDate||"—";return `<tr><td><b>${escapeHtml(tr)}</b></td><td>${escapeHtml(a.applicantName||"")}</td><td>${escapeHtml(a.certificateName||getCertificateName(a))}</td><td>${escapeHtml(a.applicantMobile||"")}</td><td><span class="${statusClassName(st)}" style="padding:4px 7px;border-radius:15px;font-size:11px;font-weight:700">${escapeHtml(st)}</span></td><td>${escapeHtml(no)}</td><td>${escapeHtml(dt)}</td><td><div class="admin-actions"><button style="background:#176b87;color:#fff" onclick="adminView('${escapeJs(tr)}')">দেখুন</button>${st!=="অনুমোদিত"&&st!=="বাতিল"?`<button style="background:#198754;color:#fff" onclick="approveApplication('${escapeJs(tr)}')">সনদ অনুমোদন</button>`:""}${st==="অনুমোদিত"?`<button style="background:#7c3aed;color:#fff" onclick="issueCertificate('${escapeJs(tr)}')">${no!=="—"?"সনদ দেখুন":"সনদ তৈরি"}</button>`:""}<button style="background:#d97706;color:#fff" onclick="setApplicationStatus('${escapeJs(tr)}')">Status</button><button style="background:#dc2626;color:#fff" onclick="adminDelete('${escapeJs(tr)}')">মুছুন</button></div></td></tr>`}).join(""):`<tr><td colspan="8" style="text-align:center;padding:25px">কোনো আবেদন পাওয়া যায়নি।</td></tr>`;
+}
+async function approveApplication(t){
+ if(!t){toast("Tracking number পাওয়া যায়নি।");return}
+ if(!confirm("এই আবেদনটি অনুমোদন করে সনদ তৈরির জন্য প্রস্তুত করবেন?"))return;
+ try{
+  toast("অনুমোদন সংরক্ষণ হচ্ছে...");
+  const r=await apiPost({action:"status",tracking:t,trackingNumber:t,status:"অনুমোদিত"});
+  if(!r || r.success!==true)throw new Error((r&&r.message)||"অনুমোদন ব্যর্থ");
+  await loadAdminApplications();
+  toast("আবেদন অনুমোদিত হয়েছে। এখন ‘সনদ তৈরি’ করা যাবে।");
+ }catch(e){toast("অনুমোদন হয়নি: "+e.message)}
+}
+async function setApplicationStatus(t){
+ const s=prompt("স্ট্যাটাস লিখুন:\nঅপেক্ষমাণ / যাচাইাধীন / অনুমোদিত / বাতিল");if(!s||!["অপেক্ষমাণ","যাচাইাধীন","অনুমোদিত","বাতিল"].includes(s))return;
+ try{const r=await apiPost({action:"status",tracking:t,status:s});if(r.success===false)throw new Error(r.message||r.error||"ব্যর্থ");await loadAdminApplications()}catch(e){toast("স্ট্যাটাস পরিবর্তন হয়নি: "+e.message)}
+}
+async function adminDelete(t){if(!confirm("এই আবেদনটি স্থায়ীভাবে মুছে ফেলতে চান?"))return;try{const r=await apiPost({action:"delete",tracking:t});if(r.success===false)throw new Error(r.message||r.error||"ব্যর্থ");await loadAdminApplications();toast("আবেদন মুছে ফেলা হয়েছে")}catch(e){toast("মুছে ফেলা যায়নি: "+e.message)}}
+function adminView(t){
+ const a=applicationsCache.find(x=>getTracking(x)===t);if(!a)return;
+ $("adminDetailContent").innerHTML=`<div class="admin-detail"><div class="admin-detail-grid"><div><b>Tracking</b><br>${escapeHtml(t)}</div><div><b>সনদ</b><br>${escapeHtml(a.certificateName||getCertificateName(a))}</div><div><b>আবেদনকারী</b><br>${escapeHtml(a.applicantName||"")}</div><div><b>পিতা</b><br>${escapeHtml(a.applicantFather||"")}</div><div><b>মাতা</b><br>${escapeHtml(a.applicantMother||"")}</div><div><b>মোবাইল</b><br>${escapeHtml(a.applicantMobile||"")}</div><div><b>স্ট্যাটাস</b><br>${escapeHtml(normalizeStatus(a.status))}</div><div><b>সনদ নং</b><br>${escapeHtml(a.certificateNo||a.CertificateNo||"—")}</div><div style="grid-column:1/-1"><b>স্থায়ী ঠিকানা</b><br>${escapeHtml(a.permanentAddress||"")}</div></div></div><div class="admin-detail"><h3>সনদ-সংক্রান্ত তথ্য</h3>${adminDynamicHtml(a)}</div><div class="button-row"><button class="btn btn-primary" onclick="adminApplicationPrint('${escapeJs(t)}')">আবেদন প্রিন্ট</button>${normalizeStatus(a.status)==="অনুমোদিত"?`<button class="btn btn-success" onclick="issueCertificate('${escapeJs(t)}')">সনদ তৈরি / প্রিন্ট</button>`:""}</div>`;
+ $("adminDetailModal").style.display="block";
+}
+function closeAdminDetail(){$("adminDetailModal").style.display="none"}
+function adminDynamicHtml(a){let m=(a.members||[]).map((x,i)=>`<tr><td>${toBn(i+1)}</td><td>${escapeHtml(x.name)}</td><td>${escapeHtml(x.dob)}</td><td>${escapeHtml(x.age)}</td><td>${escapeHtml(x.relation)}</td><td>${escapeHtml(x.note)}</td></tr>`).join("");return `${a.deathName?`<p><b>মৃত ব্যক্তি:</b> ${escapeHtml(a.deathName)} | পিতা: ${escapeHtml(a.deathFather)} | মাতা: ${escapeHtml(a.deathMother)} | মৃত্যু: ${escapeHtml(a.deathDate)}</p>`:""}${m?`<div style="overflow:auto"><table class="admin-table"><tr><th>ক্রমিক</th><th>নাম</th><th>জন্ম তারিখ</th><th>বয়স</th><th>সম্পর্ক</th><th>মন্তব্য</th></tr>${m}</table></div>`:""}`}
+function adminApplicationPrint(t){const a=applicationsCache.find(x=>getTracking(x)===t);if(!a)return;createPrintArea(a);setTimeout(()=>window.print(),200)}
+async function issueCertificate(t){
+ const a=applicationsCache.find(x=>getTracking(x)===t);if(!a)return;
+ if(normalizeStatus(a.status)!=="অনুমোদিত"){toast("প্রথমে আবেদন অনুমোদন করুন।");return}
+ try{
+  let r=await apiPost({action:"issuecertificate",tracking:t});if(r.success===false)throw new Error(r.message||r.error||"সনদ তৈরি হয়নি");
+  const c=normalizeApiApplication(r.data||r.application||r);const fresh=(await apiGetApplications()).find(x=>getTracking(x)===t)||{...a,...c};
+  applicationsCache=await apiGetApplications();renderAdminTable();renderAdminStats();renderApplications();
+  printOfficialCertificate(fresh);
+ }catch(e){toast("সনদ তৈরি হয়নি: "+e.message)}
+}
+function printOfficialCertificate(a){
+ const no=a.certificateNo||a.CertificateNo||"";const issue=a.certificateIssueDate||a.CertificateIssueDate||formatDate(new Date());
+ const type=a.certificate||a.certificateType||"";const title=getCertificateName(a);
+ let body="";
+ if(type==="citizenship"||title.includes("নাগরিক")){body=`এই মর্মে প্রত্যয়ন করা যাইতেছে যে, <b>${escapeHtml(a.personName||a.applicantName||"")}</b>, জাতীয় পরিচয়পত্র নম্বর <b>${escapeHtml(a.nid||"")}</b>, পিতা/স্বামী <b>${escapeHtml(a.personFather||a.applicantFather||"")}</b>, মাতা <b>${escapeHtml(a.personMother||a.applicantMother||"")}</b>। তিনি ০৩ নং পাঁচলাইশ ওয়ার্ড, চট্টগ্রাম সিটি কর্পোরেশনের স্থায়ী বাসিন্দা।<br><br>স্থায়ী ঠিকানা: ${escapeHtml(a.permanentAddress||"")}<br>বর্তমান ঠিকানা: ${escapeHtml(a.presentAddress||"")}<br>থানা/উপজেলা: ${escapeHtml(a.thana||"বায়েজিদ বোস্তামী")}<br>জেলা: ${escapeHtml(a.district||"চট্টগ্রাম")}।<br><br>তাঁহার আবেদন ও প্রদত্ত তথ্যের ভিত্তিতে এই সনদপত্র প্রদান করা হলো।`}
+ else if(["warish","inheritance","family"].includes(type)){const rows=(a.members||[]).map((m,i)=>`<tr><td>${toBn(i+1)}</td><td>${escapeHtml(m.name)}</td><td>${escapeHtml(m.dob)}</td><td>${escapeHtml(m.age)}</td><td>${escapeHtml(m.relation)}${m.note?" / "+escapeHtml(m.note):""}</td></tr>`).join("");body=`এই মর্মে প্রত্যয়ন করা যাইতেছে যে, আবেদনকারীর প্রদত্ত তথ্য ও প্রয়োজনীয় যাচাই-বাছাইয়ের ভিত্তিতে নিম্নবর্ণিত তথ্য সঠিক মর্মে সনদ প্রদান করা হলো।<table><tr><th>ক্রঃ নং</th><th>নাম</th><th>জন্ম তারিখ</th><th>বয়স</th><th>সম্পর্ক/মন্তব্য</th></tr>${rows}</table>`}
+ else {body=`এই মর্মে প্রত্যয়ন করা যাইতেছে যে, <b>${escapeHtml(a.personName||a.applicantName||"")}</b>-এর অনুকূলে ${escapeHtml(title)} প্রদান করা হলো।<br><br>${escapeHtml(a.therefore||"")}`}
+ const w=window.open("","_blank");if(!w){toast("পপ-আপ ব্লক করা আছে।");return}
+ w.document.write(`<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap');@page{size:A4;margin:14mm}body{font-family:'Noto Sans Bengali',sans-serif;color:#111}.paper{min-height:270mm;position:relative}.head{text-align:center}.head h1{font-size:22px;margin:0}.head p{margin:2px}.title{text-align:center;font-size:20px;font-weight:700;text-decoration:underline;margin:24px 0}.meta{font-size:14px;display:flex;justify-content:space-between;margin-bottom:16px}.body{font-size:16px;line-height:2;text-align:justify}.body table{width:100%;border-collapse:collapse;margin:15px 0;font-size:13px}.body th,.body td{border:1px solid #222;padding:5px;text-align:center}.footer{display:flex;justify-content:space-between;margin-top:65px;font-size:13px}.verify{margin-top:40px;font-size:11px}.watermark{position:fixed;bottom:8mm;right:8mm;font-size:10px;color:#aaa}</style><div class="paper"><div class="head"><h1>চট্টগ্রাম সিটি কর্পোরেশন</h1><p>চট্টগ্রাম, বাংলাদেশ</p></div><div class="title">${escapeHtml(title)}</div><div class="meta"><span>সনদ নং:- <b>${escapeHtml(no)}</b></span><span>ইস্যুর তারিখ:- <b>${escapeHtml(issue)}</b></span></div><div class="body">${body}</div><p style="margin-top:20px">শুভকামনা।</p><div class="footer"><div></div><div style="text-align:center">____________________<br>দায়িত্বপ্রাপ্ত কর্মকর্তা<br>রাজস্ব কর্মকর্তা (সিনিয়র সহকারী সচিব)<br>০৩ নং পাঁচলাইশ ওয়ার্ড<br>চট্টগ্রাম সিটি কর্পোরেশন<br>চট্টগ্রাম</div></div><div class="verify">আবেদন ট্র্যাকিং নং: ${escapeHtml(getTracking(a))}</div><div class="watermark">আলী ইসলাম, উদ্যোক্তা, ০৩ নং পাঁচলাইশ ওয়ার্ড</div></div>`);w.document.close();w.focus();setTimeout(()=>w.print(),400)
+}
+
+document.addEventListener("input",e=>{if(e.target.closest("#formCard"))updateTherefore()});
+document.addEventListener("change",e=>{if(e.target.closest("#formCard"))updateTherefore()});
+document.addEventListener("DOMContentLoaded",()=>{loadApplications();$("adminPass").addEventListener("keydown",e=>{if(e.key==="Enter")adminLogin()})});
+</script>
+</body>
+</html>
